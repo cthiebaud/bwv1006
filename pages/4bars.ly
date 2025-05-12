@@ -3,6 +3,7 @@
 \paper {
   output-format = "svg"
   indent = 0
+  tagline = ##f              % ← disables LilyPond footer
   ragged-right = ##t
   ragged-last = ##t
   line-width = 999\mm  % very wide
