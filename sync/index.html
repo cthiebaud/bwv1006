@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MIDI–SVG Sync Demo (with Tone.Part)</title>
+  <script src="https://cdn.jsdelivr.net/npm/tone@14.8.49/build/Tone.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi@2.0.27/build/Midi.min.js"></script>
+  <style>
+    .highlight {
+      color: crimson !important;
+    }
+  </style>
+</head>
+<body>
+  <h1>4bars: MIDI–SVG Synchronization</h1>
+  <button id="startBtn">▶ Play</button>
+  <div id="svg-container"></div>
+
+  <script>
+    const svgPath = "4bars.svg";
+    const midiPath = "4bars.midi";
+
+    fetch(svgPath)
+      .then(res => res.text())
+      .then(svgText => {
+        document.getElementById("svg-container").innerHTML = svgText;
+
+        requestAnimationFrame(() => {
+          const svg = document.querySelector("#svg-container svg");
+
+          document.getElementById("startBtn").addEventListener("click", async () => {
+            await Tone.start();
+
+            const res = await fetch(midiPath);
+            const arrayBuffer = await res.arrayBuffer();
+            const midi = new Midi(arrayBuffer);
+
+            const svgAnchors = Array.from(svg.querySelectorAll("a"))
+              .filter(a => a.getAttribute("href")?.includes("m"));
+
+            if (!svgAnchors.length) {
+              alert("SVG not yet loaded.");
+              return;
+            }
+
+            const allNotes = midi.tracks.flatMap((track, i) =>
+              track.notes.map(note => ({
+                ...note,
+                trackIndex: i,
+                duration: note.duration || midi.header.ticksToSeconds(note.durationTicks)
+              }))
+            );
+
+            allNotes.sort((a, b) => a.time - b.time);
+            svgAnchors.sort((a, b) =>
+              a.getBoundingClientRect().left - b.getBoundingClientRect().left
+            );
+
+            const synth = new Tone.Synth().toDestination();
+
+            // Décalage epsilon si notes avec même timestamp
+            let lastTime = -1;
+            const epsilon = 1e-6;
+            const partEvents = allNotes.map((note) => {
+              let t = note.time;
+              if (t <= lastTime) {
+                t = lastTime + epsilon;
+              }
+              lastTime = t;
+              return [t, note];
+            });
+
+            const part = new Tone.Part((time, note) => {
+              synth.triggerAttackRelease(
+                Tone.Frequency(note.midi, "midi").toNote(),
+                note.duration,
+                time,
+                note.velocity
+              );
+
+              const i = allNotes.indexOf(note);
+              const svg = svgAnchors[i];
+              if (svg) {
+                svg.classList.add("highlight");
+                Tone.Draw.schedule(() => {
+                  svg.classList.remove("highlight");
+                }, time + note.duration);
+              }
+            }, partEvents);
+
+            part.start(0);
+            Tone.Transport.start();
+            console.log("✅ Playback started via Tone.Part");
+          });
+        });
+      });
+  </script>
+</body>
+</html>
