@@ -2,7 +2,7 @@
 <svg viewBox="-20 -20 160 160" xmlns="http://www.w3.org/2000/svg">
 <rect fill="#eeeeee" height="120.0" width="120.0" x="0" y="0"/><defs>
 <filter id="blurMe">
-<feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+<feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
 </filter>
 </defs>
 <g filter="url(#blurMe)">
