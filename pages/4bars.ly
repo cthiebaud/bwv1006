@@ -8,6 +8,17 @@
   ragged-last = ##t
   line-width = 999\mm  % very wide
   page-breaking = #ly:one-line-breaking
+  top-margin = 0
+  bottom-margin = 0
+  left-margin = 0
+  right-margin = 0  
+
+  % Reduce vertical space
+  system-system-spacing = #'((basic-distance . 0) (minimum-distance . 0) (padding . 0) (stretchability . 0))
+  score-system-spacing = #'((basic-distance . 0) (minimum-distance . 0) (padding . 0) (stretchability . 0))
+
+  % Limit page height (adjust as needed)
+  paper-height = 40\mm  % ← Tighten height here  
 }
 
 \layout {
