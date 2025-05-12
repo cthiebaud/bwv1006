@@ -19,7 +19,19 @@ guitarFiftyOneFiftyheight = {
     }
   >>
 
-  b,16 [ b' ais' gis' ] fis' [ b'   fis' e'   ] dis' [ fis' dis' cis' ] | % 55
+  <<
+    {
+      \voiceOne
+      r16       b'\1  [ ais'\1    gis'\2 ]
+    }
+    \\
+    {
+      \voiceTwo
+      \stemUp
+      b,4 \6
+    }
+  >>
+                                                               fis'16 [ b'   fis' e'   ] dis' [ fis' dis' cis' ] | % 55
   b    [ b' fis' e'   ] dis' [ fis' dis' cis' ] b    [ dis' b    a    ] | % 56
 
   <<

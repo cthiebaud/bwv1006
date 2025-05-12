@@ -1,5 +1,7 @@
 \version "2.24.0"
 
+#(set-global-staff-size 18) % Slightly smaller staff
+
 \header {
   tagline = ##f
 }
@@ -110,9 +112,12 @@ bassPart = {
 
 \paper {
   #(set-paper-size "a4")
-  page-breaking = #ly:one-page-breaking
   indent = 0\mm
-  bottom-margin = 30\mm  % Increase this value as needed
+  % bottom-margin = 30\mm  % Increase this value as needed
+  page-breaking =
+    #(if (equal? (ly:get-option 'backend) 'svg)
+       ly:one-page-breaking
+       ly:page-turn-breaking) % fallback for other backends  
 }
 
 % Score setup
