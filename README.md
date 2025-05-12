@@ -6,4 +6,4 @@
 docker run -v $(pwd):/work codello/lilypond bwv1006.ly
 ```
 
-![Bach's Seal](images/Bach_Seal_blurred.svg)
+![Bach's Seal](images/Bach_Seal_blurred_gray.svg)
