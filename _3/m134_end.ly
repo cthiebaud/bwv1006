@@ -20,7 +20,7 @@ guitarEnd = {
       r16 e'  \1 [ dis'  \3 cis'  \4 ] b 8 \2 [ a \harmonic \5 ] gis  \5 [ fis  \5 ] | % 137
     }  
   >> 
-  e16 \harmonic \6 [ gis \5 b \1 dis' \3] e' \1 
+  e16 \harmonic \6 [ gis \5 b \2 dis' \3] e' \1 
     [
     <e, gis'\harmonic> \6 ^\markup { \tiny \circle "9" }
     b  '   \harmonic \2  

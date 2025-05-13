@@ -18,14 +18,14 @@ guitarFortythreeFifty = {
     {
       \voiceTwo
       \stemUp
-      gis,4 -2\1\P s2 | % 43
-      gis,4 -2\1\P s2 | % 44
-      gis,4 -2\1\P s2 | % 45
-      gis,4 -2\1\P s2 | % 46
-      gis,4 -1\1\P s2 | % 47
-      gis,4 -1\1\P s2 | % 48
-      gis,4 -1\1\P s2 | % 49
-      gis,4 -1\1\P s2 | % 50
+      gis,4 -2\6\P s2 | % 43
+      gis,4 -2\6\P s2 | % 44
+      gis,4 -2\6\P s2 | % 45
+      gis,4 -2\6\P s2 | % 46
+      gis,4 -1\6\P s2 | % 47
+      gis,4 -1\6\P s2 | % 48
+      gis,4 -1\6\P s2 | % 49
+      gis,4 -1\6\P s2 | % 50
     }
   >>
 }

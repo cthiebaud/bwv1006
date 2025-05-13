@@ -27,8 +27,8 @@ guitarFiftynineSixtysix = {
       \voiceOne
       cis'8-2\3\M            [ a   -4\4\A    ]              gis-4\4\M           [  a   -1\3\A  ]       b -4\3\M   [     gis-1\3\A ]             | % 63
       a    -2\3\M            [ cis'-3\2\A    ]              b  -0\2\M           [  cis'-3\2\A  ]       d'-4\2\M   [     b  -0\2\A ]             | % 64
-      cis' -3\2\M            [ a   -2\3\A    ]              gis-1\3\M           [  a   -2\2\A  ]       b -4\3\M   [     gis-1\2\A ]             | % 65
-      a    -1\2\M            [ cis'-2\2\A    ]              b  -0\2\M           [  cis'-2\2\A  ]       d'-3\2\M   [     b  -0\2\A ]             | % 66
+      cis' -3\2\M            [ a   -2\3\A    ]              gis-1\3\M           [  a   -2\3\A  ]       b -4\3\M   [     gis-1\3\A ]             | % 65
+      a    -1\3\M            [ cis'-2\2\A    ]              b  -0\2\M           [  cis'-2\2\A  ]       d'-3\2\M   [     b  -0\2\A ]             | % 66
     }
     \\
     {

@@ -13,7 +13,7 @@ guitarHundredtwentythreeHundredtwentynine = {
     }
   >>
                                                               fis' 16 \2    [ b  '  \1    fis'  \2    e  '  \2    ] dis'  \3    [ fis'  \2    dis'  \3    cis'  \3    ] | % 123
-  b   \1              [ b  '  \1    a  '  \1    gis'  \2    ] fis'    \2    [ a  '  \1    fis'  \2    e  '  \2    ] dis'  \3    [ fis'  \2    dis'  \3    cis'  \3    ] | % 124
+  b   \2              [ b  '  \1    a  '  \1    gis'  \2    ] fis'    \2    [ a  '  \1    fis'  \2    e  '  \2    ] dis'  \3    [ fis'  \2    dis'  \3    cis'  \3    ] | % 124
   b   \3              [ a  '  \1    gis'  \1    fis'  \2    ] e  '    \2    [ gis'  \1    e  '  \2    dis'  \3    ] cis'  \3    [ e  '  \2    cis'  \3    b     \3    ] | % 125
   a   \4              [ gis'  \1    fis'  \2    e  '  \2    ] dis'    \3    [ fis'  \2    dis'  \3    cis'  \3    ] b     \3    [ dis'  \2    b     \3    a     \4    ] | % 126
   gis \4              [ e  '  \2    cis'  \2    b     \2    ] a       \4    [ cis'  \3    a     \4    gis   \4    ] fis   \5    [ a     \4    fis   \5    e     \5    ] | % 127

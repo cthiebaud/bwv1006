@@ -12,8 +12,8 @@ guitarSeventeenTwentyheight = {
   fis'  -3\2\I-> dis'-4\3\I fis'-3\2\A a   -2\4\P   fis'  \2\M dis'  \3\I fis'  \2\A a     \4\P   fis'  \2 dis'  \3 fis'  \2 a     \4   | % 24
   fis'  -3\2\I-> b   -1\3\I fis'-3\2\A gis -2\4\P   fis'-4\2\M b   -1\3\I fis'-4\2\A gis -3\4\P   fis'  \2 b     \3 fis'  \2 gis   \4   | % 25
   e  '  -2\2\I-> b   -1\3\I e  '-2\2\A gis -3\4\P   e  '  \2\M b     \3\I e  '  \2\A gis -4\4\P   e  '-3\2 b   -1\3 e  '-3\2 gis -4\4   | % 26
-  e  '  -3\2\I-> a   -1\2\I e  '-3\2\A fis -2\4\P   e  '-4\2\M a     \3\I e  '  \2\A fis   \4\P   e  '  \2 a     \3 e  '  \2 fis   \4   | % 27
-  dis'  -3\2\I-> a   -1\2\I dis'-3\2\A fis -2\4\P   dis'  \2\M a     \3\I dis'  \2\A fis   \4\P   dis'  \2 a     \3 dis'  \2 fis   \4   | % 28
+  e  '  -3\2\I-> a   -1\3\I e  '-3\2\A fis -2\4\P   e  '-4\2\M a     \3\I e  '  \2\A fis   \4\P   e  '  \2 a     \3 e  '  \2 fis   \4   | % 27
+  dis'  -3\2\I-> a   -1\3\I dis'-3\2\A fis -2\4\P   dis'  \2\M a     \3\I dis'  \2\A fis   \4\P   dis'  \2 a     \3 dis'  \2 fis   \4   | % 28
 }        
   
 bassSeventeenTwentyheight = {
