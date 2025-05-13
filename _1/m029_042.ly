@@ -22,18 +22,19 @@ guitarTwentynineFortytwo = {
 }              
 
 bassTwentynineFortytwo = {
-  e,4                                        r                                         r                                       | % 29
-  e                                          r                                         r                                       | % 30
-  e,                                         r                                         r                                       | % 31
-  e                                          r                                         r                                       | % 32
-  eis8                 cis'4                                     ( cis'                                    cis'8)              | % 33
-  r  8                 gis 4                                     ( gis                                     gis 8)              | % 34
-  r  8                 eis 4                                     ( eis                                     eis 8)              | % 35
-  r  8                 cis 4                                     ( cis                                     cis 8)              | % 36
-  fis,4                                      r8                    fis                 gis                 bis,                | % 37
-  cis4                                       r8                    e                   cis                 e                   | % 38
-  gis2. ~                                                                                                                      | % 39
-  gis2. ~                                                                                                                      | % 40
-  gis2. ~                                                                                                                      | % 41
-  gis2.                                                                                                                        | % 42
+  e,4                                             r                                                         r                                                     | % 29
+  e                                               r                                                         r                                                     | % 30
+  e,                                              r                                                         r                                                     | % 31
+  e                                               r                                                         r                                                     | % 32
+  eis8                    cis'4                                              ( cis'                                                    cis'8)                     | % 33
+  r  8                    gis 4                                              ( gis                                                     gis 8)                     | % 34
+  r  8                    eis 4                                              ( eis                                                     eis 8)                     | % 35
+  r  8                    cis 4                                              ( cis                                                     cis 8)                     | % 36
+  fis,4                                           r8                           fis                          gis                        bis,                       | % 37
+  cis4                                            r8                           e                            cis                        e                          | % 38
+  gis2. ~                                                                                                                                                         | % 39
+  gis2. ~                                                                                                                                                         | % 40
+  gis2. ~                                                                                                                                                         | % 41
+  gis2.                                                                                                                                                           | % 42
 }
+       
