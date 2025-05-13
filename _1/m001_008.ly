@@ -1,9 +1,9 @@
 \include "defs.ly"
 guitarOneHeight = {
     r8                      e''16-3\1\I     dis''-2\1\M e  ''8-4\1\I            b  '-3\2\M \G  gis' -3\2\I                 b  ' -1\1\M                          | % 1
-    e  '16-3\3\I fis'-1\2\M e  ' -3\3\I     dis' -2\3\M e  ' 8-4\3\I            b   -3\4\M \G  gis  -3\4\I                 b    -1\3\M                          | % 2
-    \startModernBarre #4
-    e   16-4\5\P b   -1\3\M fis  -1\4\I     b    -1\3\A gis   -3\4\P b   -1\3\M a   -4\4\I     b    -1\3\A gis  -3\4\P     b     -1\3\M fis  -1\4\I b    -1\3\A \stopBarre | % 3
+    e  '16-3\3\I fis'-1\2\M e  ' -3\3\I     dis' -2\3\M e  ' 8-4\3\I            b   -3\4\M \G  gis  -3\4\I                 b    -1\3\M                          | % 2    
+    e16 \startModernBarre #4
+          -4\5\P b   -1\3\M fis  -1\4\I     b    -1\3\A gis   -3\4\P b   -1\3\M a   -4\4\I     b    -1\3\A gis  -3\4\P     b     -1\3\M fis  -1\4\I b    -1\3\A \stopBarre | % 3
     <<
       { \voiceOne
     r16          e  '-2\2\I dis' -1\2\M     (cis' -3\3)
@@ -12,8 +12,8 @@ guitarOneHeight = {
       { \voiceTwo \stemUp
     e 4-4\5\P }
     >>                                                  b16   -1\3\I e  '-2\2\M dis'-1\2\I     cis' -3\3\I b    -1\3\M     a     -4\4\I gis  -3\4\M fis  -1\4\I | % 4
-    \startModernBarre #4
-    e   16-4\5\P b   -1\3\M fis  -1\4\I     b    -1\3\A gis   -3\4\P b   -1\3\M a   -4\4\I     b    -1\3\A gis  -3\4\P     b     -1\3\M fis  -1\4\I b    -1\3\A \stopBarre | % 5
+    e16 \startModernBarre #4
+          -4\5\P b   -1\3\M fis  -1\4\I     b    -1\3\A gis   -3\4\P b   -1\3\M a   -4\4\I     b    -1\3\A gis  -3\4\P     b     -1\3\M fis  -1\4\I b    -1\3\A \stopBarre | % 5
     <<
       { \voiceOne
     r16          e  '-2\2\I dis' -1\2\M     (cis' -3\3)
