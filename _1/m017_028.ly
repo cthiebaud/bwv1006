@@ -17,5 +17,5 @@ guitarSeventeenTwentyheight = {
 }        
   
 bassSeventeenTwentyheight = {
-    \repeat unfold 12 { r8 e e (e e e) | }   % 17-28
+    \repeat unfold 12 { r8 e4 (e4 e8) |  }   % 17-28
 }

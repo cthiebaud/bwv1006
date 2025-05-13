@@ -31,10 +31,10 @@ guitarFortythreeFifty = {
 }
 
 bassFortythreeFifty = {
-  r8   gis, gis, gis, gis, gis, | % 43
-  r    gis, gis, gis, gis, gis, | % 44
-  r    gis, gis, gis, gis, gis, | % 45
-  r    gis, gis, gis, gis, gis, | % 46
+  r8 gis,4 ( gis, gis,8 ) | % 43
+  r8 gis,4 ( gis, gis,8 ) | % 44
+  r8 gis,4 ( gis, gis,8 ) | % 45
+  r8 gis,4 ( gis, gis,8 ) | % 46
 
   gis,4 gis4 r8 gis, | % 47
   gis,4 gis4 r8 gis, | % 48

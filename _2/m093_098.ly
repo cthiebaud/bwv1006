@@ -24,7 +24,7 @@ guitarNinetythreeNinetyheight = {
 }
 
 bassNinetythreeNinetyheight = {
-    r8 cis cis ( cis cis cis ) | % 93
+    r8 cis4  ( cis  cis8 ) | % 93
     fis4 r r | % 94
     R2. | % 95
     R2. | % 96
