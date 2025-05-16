@@ -24,5 +24,6 @@ bassHundrednineteenHundredtwentytwo = {
   a,4                 r8          cis         fis         a         | % 119
   b,4                 r8          dis         fis         b         | % 120
   b,4                 r8          e           gis         b         | % 121
-  b,8       b,4                 ( b,                      b,8     ) | % 122
+  %% b,8       b,        b,        ( b,          b,          b, )      | % 122
+  b,4                 b,                      b,                    | % 122
 }

@@ -57,12 +57,12 @@ A = #(define-music-function (parser location) () #{ \rightHandFinger #4 #})
 % Include all parts
 \include "_1/m001_008.ly"
 \include "_1/m009_016.ly"
-\include "_1/m017_028.ly"
+\include "_1/m017_028.ly" % _alternate
 \include "_1/m029_042.ly"
 \include "_1/m043_050.ly"
 \include "_1/m051_058.ly"
 \include "_2/m059_066.ly"
-\include "_2/m067_078.ly"
+\include "_2/m067_078.ly" % _alternate
 \include "_2/m079_092.ly"
 \include "_2/m093_098.ly"
 \include "_2/m099_108.ly"
@@ -114,35 +114,41 @@ bassPart = {
   #(set-paper-size "a4")
   indent = 0\mm
   % bottom-margin = 30\mm  % Increase this value as needed
-  page-breaking =
-    #(if (equal? (ly:get-option 'backend) 'svg)
-       ly:one-page-breaking
-       ly:page-turn-breaking) % fallback for other backends  
+  %% page-breaking =
+  %%   #(if (equal? (ly:get-option 'backend) 'svg)
+  %%      ly:one-page-breaking
+  %%      ly:page-turn-breaking) % fallback for other backends  
+  %% %% line-width = 20000\mm       % absurdly wide
+  %% %% page-breaking = #ly:one-line-breaking
+  %% %% systems-per-page = 1
+  %% %% print-page-number = ##f
 }
 
 % Score setup
 \score {
   <<
-    \new StaffGroup <<
+    %% \new StaffGroup <<
        \new Staff = "Guitar" <<
         \set Staff.midiInstrument = #"electric guitar (jazz)"
-        \set Staff.midiMinimumVolume = #0.2  % Increase from default 0.2
-        \set Staff.midiMaximumVolume = #0.5  % Max volume        
+        \set Staff.midiMinimumVolume = #0.4  % Increase from default 0.2
+        \set Staff.midiMaximumVolume = #0.7  % Max volume        
+        \set Staff.midiChannel = #0
         \clef "treble_8"
         \keySignature
         \timeSignature
         \tempoMarking
         \guitarPart
        >>
-      \new TabStaff {
-        \clef "moderntab"
-        \guitarPart
-      }
-    >>
+      %% \new TabStaff {
+      %%   \clef "moderntab"
+      %%   \guitarPart
+      %% }
+    %% >>
     \new Staff = "Bass" <<
       \set Staff.midiInstrument = #"electric bass (finger)"
-      \set Staff.midiMinimumVolume = #0.8  % Increase from default 0.2
+      \set Staff.midiMinimumVolume = #0.7  % Increase from default 0.2
       \set Staff.midiMaximumVolume = #1.0  % Max volume        
+      \set Staff.midiChannel = #1
       \clef "bass"
       \keySignature
       \timeSignature

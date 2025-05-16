@@ -17,5 +17,6 @@ guitarSixtysevenSeventyheight = {
 }             
 
 bassSixtysevenSeventyheight = {
-    \repeat unfold 12 { \stemUp r8 a,4 (a,4 a,8 ) | }        | % 67-78
+    %% \repeat unfold 12 { \stemUp r8 a, a, (a, a, a,) | }        | % 67-78
+     \repeat unfold 12 { \stemUp a,4  r2 | }        | % 67-78
 }

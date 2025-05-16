@@ -12,7 +12,7 @@ guitarEnd = {
     \\
     {
       \voiceTwo
-      <b-1\4 fis'-3\3>2 < e,\6 b\3 e'\2 ~ >4               | % 134
+      <b -1\4 fis' -3\3>2 < e,\6 b\3 e'\2 ~ >4               | % 134
       <a, \5 cis' \3 e' \2>4 b, \6<b, \6 a \4> | % 135
       \once \override Rest.direction = #UP
       r16 e'' \1 [ dis'' \1 cis'' \1 ] b'8 \2 [ a' \2 ] gis' \2 [ fis' \3 ] | % 136
@@ -33,6 +33,7 @@ bassEnd = {
   b,2 e4 | % 134
   a4 b b, | % 135
   e r r  | % 136
-  r8 e,4 ( e, e,8) | % 137
+  %% r8 e, e, ( e, e, e, ) | % 137
+  e,4 r2 | % 137
   e,2 r4 | % 138
 }

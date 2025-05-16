@@ -18,7 +18,7 @@ guitarFiftynineSixtysix = {
       \voiceTwo
       s   4                                                a'8-1\1\A           [ d  '-3\3\I ]       cis'-2\3\P     [ b -1\3\I ]             | % 59
       a   4-3\4\P                                          r 16      a8-3\4\P             [ a\4\I ]           a\4\P           [  a16\4\I ]   | % 60
-      cis'8-2\3\P            [ b-1\3\I ]                   cis'-2\3\P          [  d' -3\3\I  ]       cis'-2\3\P     [ b -1\3\I ]             | % 61
+      cis'8-2\3\P            [ b -1\3\I ]                  cis'-2\3\P          [  d' -3\3\I  ]       cis'-2\3\P     [ b -1\3\I ]             | % 61
       a   4-3\4\P                                          r 16      a8-3\4\I             [ a\4\P  ]          a\4\I            [ a16\4\P ]   | % 62
     }
   >>

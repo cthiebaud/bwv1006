@@ -26,10 +26,14 @@ bassTwentynineFortytwo = {
   e                                               r                                                         r                                                     | % 30
   e,                                              r                                                         r                                                     | % 31
   e                                               r                                                         r                                                     | % 32
-  eis8                    cis'4                                              ( cis'                                                    cis'8)                     | % 33
-  r  8                    gis 4                                              ( gis                                                     gis 8)                     | % 34
-  r  8                    eis 4                                              ( eis                                                     eis 8)                     | % 35
-  r  8                    cis 4                                              ( cis                                                     cis 8)                     | % 36
+  %% eis8                    cis'                    cis'                       ( cis'                         cis'                       cis')                      | % 33
+  %% r  8                    gis                     gis                        ( gis                          gis                        gis )                      | % 34
+  %% r  8                    eis                     eis                        ( eis                          eis                        eis )                      | % 35
+  %% r  8                    cis                     cis                        ( cis                          cis                        cis )                      | % 36
+  <eis cis'>4                                     r2                                                                                                              | % 33
+  gis 4                                           r2                                                                                                              | % 34
+  eis 4                                           r2                                                                                                              | % 35
+  cis 4                                           r2                                                                                                              | % 36
   fis,4                                           r8                           fis                          gis                        bis,                       | % 37
   cis4                                            r8                           e                            cis                        e                          | % 38
   gis2. ~                                                                                                                                                         | % 39

@@ -26,14 +26,17 @@ bassSeventynineNinetytwo = {
     b  ,        r           r           | % 83
     b           r           r           | % 84
     b  ,        r           r           | % 85 
-    bis,       r           r           | % 86
+    bis,        r           r           | % 86
 
     cis         r           r           | % 87
     fis         r           r           | % 88
     b           r           r           | % 89
 
-    r8          cis'4              ( cis'               cis'8        ) | % 90
-    r8          gis 4              ( gis                gis 8        ) | % 91
-    r8          eis 4              ( eis                eis 8        ) | % 92
+    %% r8          cis'        cis'   ( cis'      cis'     cis') | % 90
+    %% r8          gis         gis    ( gis       gis      gis ) | % 91
+    %% r8          eis         eis    ( eis       eis      eis ) | % 92
+    cis'4 r2 | %  90 
+    gis 4 r2 | %  91 
+    eis 4 r2 | %  92 
       
 }

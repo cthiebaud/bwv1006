@@ -23,8 +23,8 @@ bassNinetynineHundredheight = {
   cis'2. ~ | % 102
   cis'2. ~ | % 103
   cis'2. ~ | % 104
-  cis'8 gis eis fis gis eis | % 105
-  fis a fis gis a fis | % 106
-  b b, cis eis fis e | % 107
-  d gis, a, b, cis cis | % 108
+  cis'8 gis' eis' fis' gis' eis' | % 105
+  fis'  a    fis  gis  a    fis  | % 106
+  b     b,   cis  eis  fis  e    | % 107
+  d     gis, a,   b,   cis  cis  | % 108
 }
