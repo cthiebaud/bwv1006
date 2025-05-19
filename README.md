@@ -1,6 +1,6 @@
 # BWV 1006
 
-![4 bars](images/4bars.svg)
+![bwv1006](bwv1006.svg)
 
 ```
 docker run -v $(pwd):/work codello/lilypond:dev --svg bwv1006.ly && \

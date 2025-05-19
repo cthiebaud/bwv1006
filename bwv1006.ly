@@ -115,20 +115,20 @@ bassPart = {
   indent = 0\mm
   %% bottom-margin = 30\mm  % Increase this value as needed
   %% top-margin = 30\mm  % Increase this value as needed
-  %% page-breaking =
-  %%   #(if (equal? (ly:get-option 'backend) 'svg)
-  %%     ly:one-page-breaking
-  %%     ly:page-turn-breaking) % fallback for other backends  
-  line-width = 20000\mm       % absurdly wide
-  page-breaking = #ly:one-line-breaking
-  systems-per-page = 1
-  print-page-number = ##f
+  page-breaking =
+    #(if (equal? (ly:get-option 'backend) 'svg)
+      ly:one-page-breaking
+      ly:page-turn-breaking) % fallback for other backends  
+  %% line-width = 20000\mm       % absurdly wide
+  %% page-breaking = #ly:one-line-breaking
+  %% systems-per-page = 1
+  %% print-page-number = ##f
 }
 
 % Score setup
 \score {
   <<
-    %% \new StaffGroup <<
+    \new StaffGroup <<
         \new Staff = "Guitar" <<
           \set Staff.midiInstrument = #"electric guitar (jazz)"
           \set Staff.midiMinimumVolume = #0.5  % Increase from default 0.2
@@ -140,11 +140,11 @@ bassPart = {
           \tempoMarking
           \guitarPart
         >>
-    %% \new TabStaff {
-    %%   \clef "moderntab"
-    %%   \guitarPart
-    %% }
-    %% >>
+    \new TabStaff {
+      \clef "moderntab"
+      \guitarPart
+    }
+    >>
     \new Staff = "Bass" <<
       \set Staff.midiInstrument = #"electric bass (finger)"
       \set Staff.midiMinimumVolume = #0.5  % Increase from default 0.2
