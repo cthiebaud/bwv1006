@@ -1,0 +1,8 @@
+*.pdf
+*.svg
+*.ps
+*.midi
+*.mid
+*.log
+*~
+eurovision/
