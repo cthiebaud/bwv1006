@@ -140,10 +140,10 @@ bassPart = {
           \tempoMarking
           \guitarPart
         >>
-    \new TabStaff {
-      \clef "moderntab"
-      \guitarPart
-    }
+        \new TabStaff {
+          \clef "moderntab"
+          \guitarPart
+        }
     >>
     \new Staff = "Bass" <<
       \set Staff.midiInstrument = #"electric bass (finger)"
