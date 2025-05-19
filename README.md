@@ -1,6 +1,6 @@
 # BWV 1006
 
-![bwv1006](bwv1006.svg)
+![bwv1006](bwv1006_one_page.svg)
 
 ```
 docker run -v $(pwd):/work codello/lilypond:dev --svg bwv1006.ly && \
