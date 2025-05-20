@@ -3,7 +3,6 @@
 *.mid
 *.log
 *~
-eurovision/
 bwv1006_csv_midi_note_events.csv
 bwv1006_csv_svg_note_heads.csv
 bwv1006_ly_one_line.svg
