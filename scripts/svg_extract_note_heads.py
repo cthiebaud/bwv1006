@@ -2,9 +2,9 @@ import re
 import csv
 import xml.etree.ElementTree as ET
 
-SVG_FILE = "bwv1006.svg"
+SVG_FILE = "bwv1006_ly_one_line.svg"
 LY_FILE = "bwv1006.ly"
-OUTPUT_CSV = "bwv1006_svg_note_heads.csv"
+OUTPUT_CSV = "bwv1006_csv_svg_note_heads.csv"
 
 # --- Load SVG and LilyPond source ---
 with open(SVG_FILE, encoding="utf-8") as f:
@@ -45,7 +45,7 @@ def extract_text_from_href(href):
         # Extract from col_start to end
         text_line = lines[line][col_start:]
         text = text_line.strip().strip("[]<>()")
-        # print(file_path, line, col_start, text)
+        #### print(file_path, line, col_start, text, sep="\t|\t")
 
         match = note_regex.match(text)
 
@@ -64,16 +64,17 @@ for a in root.findall(".//svg:a", NS):
     href = a.get(f"{{{NS['xlink']}}}href")
     snippet = extract_text_from_href(href)
 
-    
+    ## if snippet is None:
+    ##     #### print(f"[{snippet}] not found in [{href}]")
     if not snippet is None:
         g = a.find("svg:g", NS)
-        if g is None:
-            print(snippet)
+        #### if g is None:
+            #### print(f"<svg:g> not found in <a> of [{href}] for snippet [{snippet}]")
         if g is not None:
             transform = g.attrib.get("transform", "")
             match = re.search(r"translate\(([-\d.]+)[ ,]+([-\d.]+)", transform)
             if not match:
-                print(snippet)
+                print(f"no matching transform near <a> of [{href}] for snippet [{snippet}]")
             if match:
                 x = float(match.group(1))
                 y = float(match.group(2))

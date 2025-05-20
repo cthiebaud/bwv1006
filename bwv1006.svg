@@ -869,7 +869,7 @@ c-19 0 -54 -1 -54 -66c0 -62 30 -96 30 -99c0 -5 -4 -8 -9 -8c-13 0 -99 130 -99 204
 </text>
 </g>
 </a>
-<a style="color:inherit;" xlink:href="textedit:///work/bwv1006.ly:12:17:18">
+<a style="color:inherit;" xlink:href="textedit:///work/bwv1006_ly_main.ly:12:17:18">
 <g transform="translate(19.3380, 9.9955)">
 <rect x="1.0431" y="-2.6727" width="0.1158" height="2.5200" ry="0.0193" fill="currentColor"/>
 </g>
@@ -882,7 +882,7 @@ c-19 0 -54 -1 -54 -66c0 -62 30 -96 30 -99c0 -5 -4 -8 -9 -8c-13 0 -99 130 -99 204
 </text>
 </g>
 </a>
-<a style="color:inherit;" xlink:href="textedit:///work/bwv1006.ly:11:18:19">
+<a style="color:inherit;" xlink:href="textedit:///work/bwv1006_ly_main.ly:11:18:19">
 <g transform="translate(19.4708, 38.0301)">
 <path transform="scale(0.0040, -0.0040)" d="M264 265c0 -34 72 -24 72 -125c0 -92 -80 -140 -180 -140c-79 0 -156 43 -156 115c0 36 29 65 65 65s65 -29 65 -65c0 -25 -40 -29 -40 -54c0 -28 34 -36 66 -36c48 0 61 59 61 115v22c0 50 -3 88 -49 88h-78c-10 0 -15 7 -15 15s5 15 15 15h78c46 0 49 40 49 92v14
 c0 53 -18 89 -66 89c-29 0 -59 -8 -59 -33c0 -22 36 -25 36 -47c0 -31 -26 -57 -57 -57s-57 26 -57 57c0 65 66 105 137 105c92 0 170 -33 170 -114c0 -119 -57 -80 -57 -121z" fill="currentColor"/>
@@ -926,7 +926,7 @@ c0 89 58 175 161 198c-14 58 -29 116 -46 173c-106 -122 -212 -244 -212 -404zM406 1
 <tspan>8</tspan>
 </text>
 </g>
-<a style="color:inherit;" xlink:href="textedit:///work/bwv1006.ly:10:17:18">
+<a style="color:inherit;" xlink:href="textedit:///work/bwv1006_ly_main.ly:10:17:18">
 <g transform="translate(13.7875, 16.1502)">
 <path transform="scale(0.0040, -0.0040)" d="M0 117c0 9 6 18 15 21l43 16v157c0 11 8 19 19 19s20 -8 20 -19v-142l81 30v156c0 11 9 20 20 20s19 -9 19 -20v-142l28 11c3 1 5 1 8 1c12 0 22 -10 22 -23v-57c0 -9 -6 -18 -15 -21l-43 -16v-157l28 10c3 1 5 1 8 1c12 0 22 -9 22 -22v-57c0 -9 -6 -18 -15 -21l-43 -16
 v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-19 9 -19 20v142l-28 -11c-3 -1 -5 -1 -8 -1c-12 0 -22 10 -22 23v57c0 9 6 18 15 21l43 16v157l-28 -10c-3 -1 -5 -1 -8 -1c-12 0 -22 9 -22 22v57zM178 94l-81 -30v-158l81 30v158z" fill="currentColor"/>
@@ -944,7 +944,7 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-19 9 -19 20v142l-28 -11c-3 -1 -5 -1 -8 -1c-12 0 -22 10 -22 23v57c0 9 6 18 15 21l43 16v157l-28 -10c-3 -1 -5 -1 -8 -1c-12 0 -22 9 -22 22v57zM178 94l-81 -30v-158l81 30v158z" fill="currentColor"/>
 </g>
 </a>
-<a style="color:inherit;" xlink:href="textedit:///work/bwv1006.ly:11:18:19">
+<a style="color:inherit;" xlink:href="textedit:///work/bwv1006_ly_main.ly:11:18:19">
 <g transform="translate(19.4708, 18.1502)">
 <path transform="scale(0.0040, -0.0040)" d="M264 265c0 -34 72 -24 72 -125c0 -92 -80 -140 -180 -140c-79 0 -156 43 -156 115c0 36 29 65 65 65s65 -29 65 -65c0 -25 -40 -29 -40 -54c0 -28 34 -36 66 -36c48 0 61 59 61 115v22c0 50 -3 88 -49 88h-78c-10 0 -15 7 -15 15s5 15 15 15h78c46 0 49 40 49 92v14
 c0 53 -18 89 -66 89c-29 0 -59 -8 -59 -33c0 -22 36 -25 36 -47c0 -31 -26 -57 -57 -57s-57 26 -57 57c0 65 66 105 137 105c92 0 170 -33 170 -114c0 -119 -57 -80 -57 -121z" fill="currentColor"/>
@@ -978,7 +978,7 @@ c23 30 22 57 36 57c6 0 14 -6 14 -15v-238h74c10 0 16 -8 16 -16s-6 -15 -16 -15h-74
 <path transform="scale(0.0040, -0.0040)" d="M558 -125c0 28 22 51 50 51s51 -23 51 -51s-23 -51 -51 -51s-50 23 -50 51zM558 125c0 28 22 51 50 51s51 -23 51 -51s-23 -51 -51 -51s-50 23 -50 51zM231 264c172 0 294 -88 294 -251c0 -263 -262 -416 -515 -523c-3 -3 -7 -4 -10 -4c-7 0 -14 7 -14 14c0 3 1 7 4 10
 c201 118 410 265 410 492c0 119 -61 234 -169 234c-72 0 -124 -53 -148 -123c10 4 19 6 29 6c55 0 100 -45 100 -100c0 -58 -44 -106 -100 -106c-60 0 -112 47 -112 106c0 133 101 245 231 245z" fill="currentColor"/>
 </g>
-<a style="color:inherit;" xlink:href="textedit:///work/bwv1006.ly:10:17:18">
+<a style="color:inherit;" xlink:href="textedit:///work/bwv1006_ly_main.ly:10:17:18">
 <g transform="translate(13.7875, 37.0301)">
 <path transform="scale(0.0040, -0.0040)" d="M0 117c0 9 6 18 15 21l43 16v157c0 11 8 19 19 19s20 -8 20 -19v-142l81 30v156c0 11 9 20 20 20s19 -9 19 -20v-142l28 11c3 1 5 1 8 1c12 0 22 -10 22 -23v-57c0 -9 -6 -18 -15 -21l-43 -16v-157l28 10c3 1 5 1 8 1c12 0 22 -9 22 -22v-57c0 -9 -6 -18 -15 -21l-43 -16
 v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-19 9 -19 20v142l-28 -11c-3 -1 -5 -1 -8 -1c-12 0 -22 10 -22 23v57c0 9 6 18 15 21l43 16v157l-28 -10c-3 -1 -5 -1 -8 -1c-12 0 -22 9 -22 22v57zM178 94l-81 -30v-158l81 30v158z" fill="currentColor"/>
@@ -18767,7 +18767,7 @@ c85 -2 113 -61 165 -61c45 0 28 41 57 41c11 0 22 -8 22 -21c0 -29 -48 -109 -144 -1
 <polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0889" fill="currentColor" stroke="currentColor" points="12.1683 0.4908 12.1683 0.8819 0.0444 0.1956 0.0444 -0.1956"/>
 </g>
 </a>
-<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:39:8:9">
+<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:39:9:10">
 <g transform="translate(21.1380, 486.8407)">
 <path stroke-width="0.0858" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5805 -2.0000C3.3613 -3.0402 50.1701 -3.0402 51.9509 -2.0000L51.9509 -2.0000C50.1701 -2.9115 3.3613 -2.9115 1.5805 -2.0000z"/>
 </g>
@@ -19165,7 +19165,7 @@ c0 89 58 175 161 198c-14 58 -29 116 -46 173c-106 -122 -212 -244 -212 -404zM406 1
 <line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1073" stroke="currentColor" x1="111.4251" y1="-0.4406" x2="113.1107" y2="-0.2389"/>
 </g>
 </a>
-<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:40:8:9">
+<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:40:9:10">
 <g transform="translate(73.2888, 486.8407)">
 <path stroke-width="0.0858" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5805 -2.0000C3.3518 -3.0391 47.8313 -3.0391 49.6026 -2.0000L49.6026 -2.0000C47.8313 -2.9103 3.3518 -2.9103 1.5805 -2.0000z"/>
 </g>
@@ -19966,7 +19966,7 @@ c85 -2 113 -61 165 -61c45 0 28 41 57 41c11 0 22 -8 22 -21c0 -29 -48 -109 -144 -1
 <polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0889" fill="currentColor" stroke="currentColor" points="9.8937 0.4908 9.8937 0.8819 0.0444 0.1956 0.0444 -0.1956"/>
 </g>
 </a>
-<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:41:8:9">
+<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:41:9:10">
 <g transform="translate(21.1380, 520.8155)">
 <path stroke-width="0.0858" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5805 -2.0000C3.2847 -3.0303 35.6034 -3.0303 37.3077 -2.0000L37.3077 -2.0000C35.6034 -2.9016 3.2847 -2.9016 1.5805 -2.0000z"/>
 </g>
@@ -20437,7 +20437,7 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <g transform="translate(9.4126, 509.8281)">
 <rect x="0.0000" y="-13.0410" width="0.1717" height="26.0821" ry="0.0537" fill="currentColor"/>
 </g>
-<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:40:8:9">
+<a style="color:inherit;" xlink:href="textedit:///work/_1/m029_042.ly:40:9:10">
 <g transform="translate(9.4843, 520.8155)">
 <path stroke-width="0.0858" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M8.9037 -2.0000C9.4866 -2.6548 10.8709 -2.6548 11.4537 -2.0000L11.4537 -2.0000C10.8709 -2.5261 9.4866 -2.5261 8.9037 -2.0000z"/>
 </g>

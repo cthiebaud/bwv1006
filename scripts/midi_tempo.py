@@ -1,6 +1,6 @@
 from mido import MidiFile, tempo2bpm
 
-midi_file = MidiFile("bwv1006.midi")
+midi_file = MidiFile("bwv1006_ly_one_line.midi")
 
 tempos = []
 for track in midi_file.tracks:

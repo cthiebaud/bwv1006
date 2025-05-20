@@ -1,0 +1,59 @@
+>>> 2025-05-20 10:17:46 Cleaning up old files
+bwv1006_csv_svg_note_heads.csv
+bwv1006_json_notes.json
+bwv1006_ly_one_line.svg
+bwv1006_ly_one_line.midi
+bwv1006.pdf
+bwv1006.svg
+\n>>> 2025-05-20 10:17:46 docker run -v /Users/christophe.thiebaud/github.com/cthiebaud/bwv1006:/work codello/lilypond:dev bwv1006.ly
+Processing `bwv1006.ly'
+Parsing...
+Interpreting music...
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+warning: the property 'midiTranspose' does not exist (perhaps a typing error)
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+[8][16][24][32][40][48][56][64][72][80][88][96][104][112][120][128][136]
+Preprocessing graphical objects...
+Calculating page and line breaks (1 possible page breaks)...
+warning: cannot fit the first page turn onto a single page.  Consider setting first-page-number to an even number.
+[1]
+Drawing systems...
+Converting to `bwv1006.pdf'...
+Success: compilation successfully completed
+\n>>> 2025-05-20 10:17:57 docker run -v /Users/christophe.thiebaud/github.com/cthiebaud/bwv1006:/work codello/lilypond:dev --svg bwv1006.ly
+Processing `bwv1006.ly'
+Parsing...
+Interpreting music...
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+warning: the property 'midiTranspose' does not exist (perhaps a typing error)
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+[8][16][24][32][40][48][56][64][72][80][88][96][104][112][120][128][136]
+Preprocessing graphical objects...
+Calculating line breaks...
+Fitting music on 1 page...
+Success: compilation successfully completed
+\n>>> 2025-05-20 10:18:52 docker run -v /Users/christophe.thiebaud/github.com/cthiebaud/bwv1006:/work codello/lilypond:dev --svg bwv1006_ly_one_line.ly
+Processing `bwv1006_ly_one_line.ly'
+Parsing...
+warning: systems run off the page due to improper paper settings, setting default values
+Interpreting music...
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+warning: the property 'midiTranspose' does not exist (perhaps a typing error)
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+[8][16][24][32][40][48][56][64][72][80][88][96][104][112][120][128][136]
+Preprocessing graphical objects...
+Interpreting music...
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+warning: the property 'midiTranspose' does not exist (perhaps a typing error)
+warning: the property 'midiChannel' does not exist (perhaps a typing error)
+MIDI output to `bwv1006_ly_one_line.midi'...
+Success: compilation successfully completed
+\n>>> 2025-05-20 10:19:36 python3 scripts/midi_map.py
+Computed tempo to match audio: 383999999 μs per beat
+Exported 2083 note events to bwv1006_csv_midi_note_events.csv
+\n>>> 2025-05-20 10:19:37 python3 scripts/svg_extract_note_heads.py
+✅ 2094 note heads written to bwv1006_csv_svg_note_heads.csv
+\n>>> 2025-05-20 10:19:37 python3 scripts/align_pitch_by_geometry_simplified.py
+SVG before secondary removal: 2094
+SVG after secondary removal: 2083
+✅ Wrote 2083 aligned notes to bwv1006_json_notes.json

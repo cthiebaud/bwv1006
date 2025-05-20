@@ -44,7 +44,7 @@ def extract_note_intervals(midi_path):
     return note_events_df
 
 if __name__ == "__main__":
-    midi_file_path = "bwv1006.midi"
+    midi_file_path = "bwv1006_ly_one_line.midi"
     df = extract_note_intervals(midi_file_path)
-    df.to_csv("bwv1006_midi_note_events.csv", index=False)
-    print(f"Exported {len(df)} note events to bwv1006_midi_note_events.csv")
+    df.to_csv("bwv1006_csv_midi_note_events.csv", index=False)
+    print(f"Exported {len(df)} note events to bwv1006_csv_midi_note_events.csv")
