@@ -46,7 +46,7 @@
     async function setup() {
       const [svgText, notesData] = await Promise.all([
         fetch("bwv1006.svg").then(res => res.text()),
-        fetch("notes.json").then(res => res.json())
+        fetch("bwv1006_notes.json").then(res => res.json())
       ]);
 
       svgContainer.innerHTML = svgText;

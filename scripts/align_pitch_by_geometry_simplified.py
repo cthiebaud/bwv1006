@@ -3,7 +3,7 @@
 align_pitch_by_geometry_simplified.py
 
 Matches SVG noteheads with MIDI note events, accounting for ties,
-and builds a simplified `notes.json` for SVG animation.
+and builds a simplified `bwv1006_notes.json` for SVG animation.
 """
 
 import pandas as pd
@@ -124,6 +124,6 @@ for i, (midi_row, svg_row) in enumerate(zip(midi_df.itertuples(), svg_df.itertup
     })
 
 # --- Step 7: Write output file ---
-with open("notes.json", "w") as f:
+with open("bwv1006_notes.json", "w") as f:
     json.dump(notes, f, indent=2)
-print(f"✅ Wrote {len(notes)} aligned notes to notes.json")
+print(f"✅ Wrote {len(notes)} aligned notes to bwv1006_notes.json")
