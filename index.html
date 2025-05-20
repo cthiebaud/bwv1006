@@ -11,9 +11,44 @@
       fill: black;
     }
 
-    svg a.active path {
-      fill: orange !important;
-      filter: drop-shadow(0 0 5px orange) drop-shadow(0 0 10px orange);
+    a.active.channel-0 path {
+      fill: #fc8d59 !important;
+      filter: drop-shadow(0 0 5px #fc8d59) drop-shadow(0 0 10px #fc8d59);
+    }
+
+    a.active.channel-1 path {
+      fill: #91cf60 !important;
+      filter: drop-shadow(0 0 5px #91cf60) drop-shadow(0 0 10px #91cf60);
+    }
+
+    a.active.channel-2 path {
+      fill: #d73027 !important;
+      filter: drop-shadow(0 0 5px #d73027) drop-shadow(0 0 10px #d73027);
+    }
+
+    a.active.channel-3 path {
+      fill: #fee08b !important;
+      filter: drop-shadow(0 0 5px #fee08b) drop-shadow(0 0 10px #fee08b);
+    }
+
+    a.active.channel-4 path {
+      fill: #d9ef8b !important;
+      filter: drop-shadow(0 0 5px #d9ef8b) drop-shadow(0 0 10px #d9ef8b);
+    }
+
+    a.active.channel-5 path {
+      fill: #1a9850 !important;
+      filter: drop-shadow(0 0 5px #1a9850) drop-shadow(0 0 10px #1a9850);
+    }
+
+    a.active.channel-6 path {
+      fill: #4575b4 !important;
+      filter: drop-shadow(0 0 5px #4575b4) drop-shadow(0 0 10px #4575b4);
+    }
+
+    a.active.channel-7 path {
+      fill: #74add1 !important;
+      filter: drop-shadow(0 0 5px #74add1) drop-shadow(0 0 10px #74add1);
     }
   </style>
 </head>
@@ -37,7 +72,7 @@
   </div>
 
   <script>
-    const svgPath = "bwv1006_no_hrefs_in_tabs.svg";
+    const svgPath = "bwv1006_no_hrefs_in_tabs_bounded.svg";
     const notesPath = "bwv1006_json_notes.json";
     const audio = document.getElementById("audio");
 
@@ -51,6 +86,11 @@
           const selector = `[*|href$="${href}"], [href$="${href}"]`;
           return svgGlobal.querySelector(selector);
         }).filter(Boolean);
+
+        // Add CSS class based on MIDI channel
+        elements.forEach(el => {
+          el.classList.add(`channel-${n.channel}`);
+        });
 
         return {
           on: n.on,
@@ -94,17 +134,17 @@
       } catch (err) {
         console.error("Setup error:", err);
       }
-      const svg = document.querySelector("svg");
-      if (svg) {
-        const vb = svg.getAttribute("viewBox");  // e.g. "0.0000 -0.0000 132.7795 1557.5091"
-        if (vb) {
-          const parts = vb.trim().split(/\s+/);
-          if (parts.length === 4) {
-            parts[1] = "78.0000";  // set y offset to 120
-            svg.setAttribute("viewBox", parts.join(" "));
-          }
-        }
-      }      
+      // const svg = document.querySelector("svg");
+      // if (svg) {
+      //   const vb = svg.getAttribute("viewBox");  // e.g. "0.0000 -0.0000 132.7795 1557.5091"
+      //   if (vb) {
+      //     const parts = vb.trim().split(/\s+/);
+      //     if (parts.length === 4) {
+      //       parts[1] = "78.0000";  // set y offset to 120
+      //       svg.setAttribute("viewBox", parts.join(" "));
+      //     }
+      //   }
+      // }      
       document.getElementById("loading")?.classList.add("d-none");
     }
 
