@@ -12,39 +12,39 @@ timeSignature = { \time 3/4 }
 tempoMarking = { \tempo 4=120 }
 
 % https://lsr.di.unimi.it/LSR/Item?id=952
-startModernBarre = 
-#(define-event-function (fretnum) 
+startModernBarre =
+#(define-event-function (fretnum)
    (number?)
-    #{
-      \tweak bound-details.left.text
-        \markup 
-          \small \bold \concat { 
-          %\Prefix
-          #(format #f "~@r" fretnum)
-          \hspace #.2
-          \hspace #.5
-        }
-      \tweak font-size -1
-      \tweak font-shape #'upright
-      \tweak style #'dashed-line
-      \tweak dash-fraction #0.3
-      \tweak dash-period #1 
-      \tweak bound-details.left.stencil-align-dir-y #0.35
-      \tweak bound-details.left.padding 0.25
-      \tweak bound-details.left.attach-dir -1
-      \tweak bound-details.left-broken.text ##f
-      \tweak bound-details.left-broken.attach-dir -1
-      %% adjust the numeric values to fit your needs:
-      \tweak bound-details.left-broken.padding 1.5
-      \tweak bound-details.right-broken.padding 0
-      \tweak bound-details.right.padding 0.25
-      \tweak bound-details.right.attach-dir 2
-      \tweak bound-details.right-broken.text ##f
-      \tweak bound-details.right.text
-        \markup
-          \with-dimensions #'(0 . 0) #'(-.3 . 0) 
-          \draw-line #'(0 . -1)
-      \startTextSpan 
+   #{
+     \tweak bound-details.left.text
+     \markup
+     \small \bold \concat {
+       %\Prefix
+       #(format #f "~@r" fretnum)
+       \hspace #.2
+       \hspace #.5
+     }
+     \tweak font-size -1
+     \tweak font-shape #'upright
+     \tweak style #'dashed-line
+     \tweak dash-fraction #0.3
+     \tweak dash-period #1
+     \tweak bound-details.left.stencil-align-dir-y #0.35
+     \tweak bound-details.left.padding 0.25
+     \tweak bound-details.left.attach-dir -1
+     \tweak bound-details.left-broken.text ##f
+     \tweak bound-details.left-broken.attach-dir -1
+     %% adjust the numeric values to fit your needs:
+     \tweak bound-details.left-broken.padding 1.5
+     \tweak bound-details.right-broken.padding 0
+     \tweak bound-details.right.padding 0.25
+     \tweak bound-details.right.attach-dir 2
+     \tweak bound-details.right-broken.text ##f
+     \tweak bound-details.right.text
+     \markup
+     \with-dimensions #'(0 . 0) #'(-.3 . 0)
+     \draw-line #'(0 . -1)
+     \startTextSpan
    #})
 
 stopBarre = \stopTextSpan
@@ -110,45 +110,46 @@ bassPart = {
   \bassEnd
 }
 
-\paper {
-  #(set-paper-size "a4")
-  indent = 0\mm
-  %% bottom-margin = 30\mm  % Increase this value as needed
-  %% top-margin = 30\mm  % Increase this value as needed
-  page-breaking =
-    #(if (equal? (ly:get-option 'backend) 'svg)
-      ly:one-page-breaking
-      ly:page-turn-breaking) % fallback for other backends  
-  %% line-width = 20000\mm       % absurdly wide
-  %% page-breaking = #ly:one-line-breaking
-  %% systems-per-page = 1
-  %% print-page-number = ##f
-}
+%%%% \paper {
+%%%%   #(set-paper-size "a4")
+%%%%   indent = 0\mm
+%%%%   %% bottom-margin = 30\mm  % Increase this value as needed
+%%%%   %% top-margin = 30\mm  % Increase this value as needed
+%%%%   page-breaking =
+%%%%     #(if (equal? (ly:get-option 'backend) 'svg)
+%%%%       ly:one-page-breaking
+%%%%       ly:page-turn-breaking) % fallback for other backends
+%%%%   %% line-width = 20000\mm       % absurdly wide
+%%%%   %% page-breaking = #ly:one-line-breaking
+%%%%   %% systems-per-page = 1
+%%%%   %% print-page-number = ##f
+%%%% }
 
 % Score setup
-\score {
+bwvOneThousandSixScore = {
   <<
     \new StaffGroup <<
-        \new Staff = "Guitar" <<
-          \set Staff.midiInstrument = #"electric guitar (jazz)"
-          \set Staff.midiMinimumVolume = #0.5  % Increase from default 0.2
-          \set Staff.midiMaximumVolume = #0.8  % Max volume        
-          \set Staff.midiChannel = #0
-          \clef "treble_8"
-          \keySignature
-          \timeSignature
-          \tempoMarking
-          \guitarPart
-        >>
-        \new TabStaff {
-          \clef "moderntab"
-          \guitarPart
-        }
+      \new Staff = "Guitar" <<
+        \set Staff.midiInstrument = #"electric guitar (jazz)"
+        \set Staff.midiMinimumVolume = #0.5  % Increase from default 0.2
+        \set Staff.midiMaximumVolume = #0.8  % Max volume
+        \set Staff.midiChannel = #0
+        \clef "treble_8"
+        \keySignature
+        \timeSignature
+        \tempoMarking
+        \guitarPart
+      >>
+      \new TabStaff {
+        \clef "moderntab"
+        \guitarPart
+      }
     >>
     \new Staff = "Bass" <<
+      \set Staff.midiTranspose = -12
       \set Staff.midiInstrument = #"electric bass (finger)"
       \set Staff.midiMinimumVolume = #0.5  % Increase from default 0.2
-      \set Staff.midiMaximumVolume = #0.8  % Max volume        
+      \set Staff.midiMaximumVolume = #0.8  % Max volume
       \set Staff.midiChannel = #1
       \clef "bass"
       \keySignature
@@ -156,45 +157,49 @@ bassPart = {
       \bassPart
     >>
   >>
-  \layout {
-    \context {
-      \Voice
-      \override StringNumber.stencil = ##f
-    }
-  }
-  \midi {}
 }
 
-%%%% % One-line score for notehead extraction
-%%%% \book {
-%%%%   \bookOutputName "score_linear"
-%%%%   \paper {
-%%%%     output-format = "svg"
-%%%%     indent = 0
-%%%%     line-width = 160\mm
-%%%%     line-break-system-details = #'((line-count . 1)) % force single system
-%%%%     ragged-right = ##t
-%%%%     ragged-last = ##t
-%%%%   }
-%%%% 
-%%%%   \score {
-%%%%     \new Staff \myMusic
-%%%%     \layout {}
-%%%%   }
-%%%% }
-%%%% 
-%%%% % Formatted one-pager for display
-%%%% \book {
-%%%%   \bookOutputName "score_fullpage"
-%%%%   \paper {
-%%%%     output-format = "svg"
-%%%%     indent = 20
-%%%%     line-width = 150\mm
-%%%%     #(set-paper-size "a4")
-%%%%   }
-%%%% 
-%%%%   \score {
-%%%%     \new Staff \myMusic
-%%%%     \layout {}
-%%%%   }
-%%%% }
+% One-line score for notehead extraction
+\book {
+  \bookOutputName "bwv1006_one_line"
+  \paper {
+    indent = 0
+    line-width = 20000\mm       % absurdly wide
+    page-breaking = #ly:one-line-breaking
+    systems-per-page = 1
+    print-page-number = ##f
+  }
+
+  \score {
+    \bwvOneThousandSixScore
+    \layout {
+      \context {
+        \Voice
+        \override StringNumber.stencil = ##f
+      }
+    }
+    \midi {}
+  }
+}
+
+% Formatted one-pager for display
+\book {
+  \bookOutputName "bwv1006"
+  \paper {
+    page-breaking =
+    #(if (equal? (ly:get-option 'backend) 'svg)
+      ly:one-page-breaking
+      ly:page-turn-breaking) % fallback for other backends
+  }
+
+  \score {
+    \bwvOneThousandSixScore
+    \layout {
+      \context {
+        \Voice
+        \override StringNumber.stencil = ##f
+      }
+    }
+    \midi {}
+  }
+}
