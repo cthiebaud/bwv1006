@@ -25,13 +25,19 @@
       <audio id="audio" controls src="wavs/bwv1006202505191946.wav"></audio>
     </div>
   </div>
+  <div id="loading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div>Loading score and notes…</div>
+  </div>
   <!-- Centered SVG container -->
   <div class="container my-4">
     <div id="svg-container" class="d-flex justify-content-center"></div>
   </div>
 
   <script>
-    const svgPath = "bwv1006.svg";
+    const svgPath = "bwv1006_no_hrefs_in_tabs.svg";
     const notesPath = "bwv1006_json_notes.json";
     const audio = document.getElementById("audio");
 
@@ -88,6 +94,18 @@
       } catch (err) {
         console.error("Setup error:", err);
       }
+      const svg = document.querySelector("svg");
+      if (svg) {
+        const vb = svg.getAttribute("viewBox");  // e.g. "0.0000 -0.0000 132.7795 1557.5091"
+        if (vb) {
+          const parts = vb.trim().split(/\s+/);
+          if (parts.length === 4) {
+            parts[1] = "78.0000";  // set y offset to 120
+            svg.setAttribute("viewBox", parts.join(" "));
+          }
+        }
+      }      
+      document.getElementById("loading")?.classList.add("d-none");
     }
 
     function highlightNote(note) {
@@ -131,10 +149,10 @@
     } else {
       audio.addEventListener("loadedmetadata", setup);
     }
+
     function initEventHandlers() {
 
       audio.addEventListener("play", () => {
-        // resetAnimationState();
         isPlaying = true;
         requestAnimationFrame(syncLoop);
         console.log("Playback started.");
