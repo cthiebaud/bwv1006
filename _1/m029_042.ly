@@ -36,9 +36,9 @@ bassTwentynineFortytwo = {
   %% cis 4                                           r2                                                                                                              | % 36
   fis,4                                           r8                           fis                          gis                        bis,                       | % 37
   cis4                                            r8                           e                            cis                        e                          | % 38
-  gis2. ~                                                                                                                                                         | % 39
-  gis2. ~                                                                                                                                                         | % 40
-  gis2. ~                                                                                                                                                         | % 41
-  gis2.                                                                                                                                                           | % 42
+  gis 2. ~                                                                                                                                                        | % 39
+  gis 2. ~                                                                                                                                                        | % 40
+  gis 2. ~                                                                                                                                                        | % 41
+  gis 2.                                                                                                                                                          | % 42
 }
        

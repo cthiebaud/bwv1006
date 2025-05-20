@@ -85,7 +85,7 @@ for a in root.findall(".//svg:a", NS):
                 })
 
 # Sort by x position
-notehead_data.sort(key=lambda n: (n["x"], -n["y"]))  # ascending y = bottom-to-top
+notehead_data.sort(key=lambda n: (n["x"], -n["y"]))  # descending y = top-to-bottom
 
 # Write to CSV
 with open(OUTPUT_CSV, "w", newline="") as f:
