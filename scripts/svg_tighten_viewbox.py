@@ -34,9 +34,16 @@ def tighten_viewbox(input_svg_path, output_svg_path):
                 max_y = max(max_y, y)
 
     if min_x < float("inf") and min_y < float("inf"):
-        width = max_x - min_x
-        height = max_y - min_y
+        vertical_margin = 5.0
+        horizontal_margin = 0.0  # optional, can add too
+
+        min_x -= horizontal_margin
+        min_y -= vertical_margin
+        width = (max_x - min_x) + 2 * horizontal_margin
+        height = (max_y - min_y) + 2 * vertical_margin
+
         new_viewbox = f"{min_x:.4f} {min_y:.4f} {width:.4f} {height:.4f}"
+
         root.set("viewBox", new_viewbox)
         print(f"✅ Updated viewBox to: {new_viewbox}")
     else:

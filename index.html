@@ -50,12 +50,18 @@
       fill: #74add1 !important;
       filter: drop-shadow(0 0 5px #74add1) drop-shadow(0 0 10px #74add1);
     }
+
+    #svg-container {
+      display: grid;
+      place-items: start center; /* align top, center horizontally */
+    }
+
   </style>
 </head>
 
 <body>
   <div class="sticky-top bg-light py-2 shadow-sm border-bottom">
-    <div class="container text-center">
+    <div class="container-fluid text-center">
       <h2>BWV 1006</h2>
       <audio id="audio" controls src="wavs/bwv1006202505191946.wav"></audio>
     </div>
@@ -67,8 +73,8 @@
     <div>Loading score and notes…</div>
   </div>
   <!-- Centered SVG container -->
-  <div class="container my-4">
-    <div id="svg-container" class="d-flex justify-content-center"></div>
+  <div class="container-fluid">
+    <div id="svg-container" class="" style="display: grid;"></div>
   </div>
 
   <script>

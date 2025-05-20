@@ -24,8 +24,9 @@ logrun docker run -v "$(pwd):/work" codello/lilypond:dev bwv1006.ly
 # LilyPond SVG (main)
 logrun docker run -v "$(pwd):/work" codello/lilypond:dev --svg bwv1006.ly
 
-# remove hrefs in tabs 
+# remove hrefs in tabs, tighten viewbox
 logrun python3 scripts/svg_remove_hrefs_in_tabs.py
+logrun python3 scripts/svg_tighten_viewbox.py  
 
 # LilyPond SVG (one-line)
 logrun docker run -v "$(pwd):/work" codello/lilypond:dev --svg bwv1006_ly_one_line.ly
