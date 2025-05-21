@@ -8,14 +8,16 @@
   \paper {
     indent = 0
     page-breaking = #(if (equal? (ly:get-option 'backend) 'svg)
-      ly:one-page-breaking
-      ly:page-turn-breaking) % fallback for other backends
+                         ly:one-page-breaking
+                         ly:page-turn-breaking) % fallback for other backends
+
     line-width = #(if (equal? (ly:get-option 'backend) 'svg)
-      (* 280 mm)
-      (ly:output-def-lookup (ly:make-output-def) 'line-width))
+                      (* 240 mm)
+                      (* 160 mm))   % ← Default
+
     paper-width = #(if (equal? (ly:get-option 'backend) 'svg)
-      (* 300 mm)
-      (ly:output-def-lookup (ly:make-output-def) 'paper-width))
+                       (* 250 mm)
+                       (* 210 mm))   % ← Default A4  
   }
 
   \score {
