@@ -40,4 +40,4 @@ for i, track in enumerate(mid.tracks):
 
 # Save the modified file
 mid.save(output_file)
-print(f"Pan-adjusted MIDI saved to: {output_file}")
+print(f"💾 Saved: {output_file}")

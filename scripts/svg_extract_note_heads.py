@@ -101,4 +101,7 @@ with open(OUTPUT_CSV, "w", newline="") as f:
             "href": note["href"]
         })
 
-print(f"✅ {len(notehead_data)} note heads written to {OUTPUT_CSV}")
+details = f"[ {len(notehead_data)} note heads ]"
+print(f"💾 Saved: {OUTPUT_CSV} {details}")
+
+

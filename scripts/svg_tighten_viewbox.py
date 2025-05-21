@@ -33,6 +33,7 @@ def tighten_viewbox(input_svg_path, output_svg_path):
                 max_x = max(max_x, x)
                 max_y = max(max_y, y)
 
+    
     if min_x < float("inf") and min_y < float("inf"):
         vertical_margin = 5.0
         horizontal_margin = 0.0  # optional, can add too
@@ -45,12 +46,12 @@ def tighten_viewbox(input_svg_path, output_svg_path):
         new_viewbox = f"{min_x:.4f} {min_y:.4f} {width:.4f} {height:.4f}"
 
         root.set("viewBox", new_viewbox)
-        print(f"✅ Updated viewBox to: {new_viewbox}")
+        res = f"[ updated viewBox to: {new_viewbox} ]"
     else:
-        print("⚠️ No valid transform=translate(x, y) found.")
+        res = "[ ⚠️ no valid transform=translate(x, y) found. ]"
 
     tree.write(output_svg, encoding="utf-8", xml_declaration=True)
-    print(f"💾 Saved: {output_svg}")
+    print(f"💾 Saved: {output_svg} {res}")
 
 # Example usage:
 if __name__ == "__main__":

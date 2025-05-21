@@ -37,8 +37,7 @@ def remove_href_from_tab_links(in_path: Path, out_path: Path):
                 removed_count += 1
 
     tree.write(out_path, encoding="utf-8", xml_declaration=True)
-    print(f"✅ Saved cleaned SVG to: {out_path}")
-    print(f"🧹 Removed href from {removed_count} <a> elements")
+    print(f"💾 Saved: {out_path} [ removed href from {removed_count} <a> elements ]")
 
 # Example usage:
 if __name__ == "__main__":

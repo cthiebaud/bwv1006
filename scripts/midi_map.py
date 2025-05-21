@@ -29,7 +29,7 @@ def extract_note_intervals(midi_path):
 
     # Compute tempo so that max_tick maps to audio_duration
     tempo = int(audio_duration_seconds * 1_000_000 * ticks_per_beat / max_tick)
-    print(f"Computed tempo to match audio: {tempo} μs per beat")
+    ## print(f"Computed tempo to match audio: {tempo} μs per beat")
 
     # Convert tick values to seconds using computed tempo
     for note in note_events:
@@ -46,5 +46,8 @@ def extract_note_intervals(midi_path):
 if __name__ == "__main__":
     midi_file_path = "bwv1006_ly_one_line.midi"
     df = extract_note_intervals(midi_file_path)
-    df.to_csv("bwv1006_csv_midi_note_events.csv", index=False)
-    print(f"Exported {len(df)} note events to bwv1006_csv_midi_note_events.csv")
+    output_file = "bwv1006_csv_midi_note_events.csv"
+    df.to_csv(output_file, index=False)
+    details = f"[ exported {len(df)} note events ]"
+    print(f"💾 Saved: {output_file} {details}")
+

@@ -23,9 +23,9 @@ svg_df["href"] = (
 
 # --- Step 2: Filter out secondaries ---
 secondary_hrefs = set(ties_df["secondary"])
-print(f"SVG before secondary removal: {len(svg_df)}")
+## print(f"SVG before secondary removal: {len(svg_df)}")
 svg_df = svg_df[~svg_df["href"].isin(secondary_hrefs)].copy()
-print(f"SVG after secondary removal: {len(svg_df)}")
+## print(f"SVG after secondary removal: {len(svg_df)}")
 
 # --- Step 3: Sort datasets ---
 midi_df = midi_df.sort_values(by=["on", "channel", "pitch"], ascending=[True, False, True]).reset_index(drop=True)
@@ -124,6 +124,9 @@ for i, (midi_row, svg_row) in enumerate(zip(midi_df.itertuples(), svg_df.itertup
     })
 
 # --- Step 7: Write output file ---
-with open("bwv1006_json_notes.json", "w") as f:
+ouput_file = "bwv1006_json_notes.json"
+with open(ouput_file, "w") as f:
     json.dump(notes, f, indent=2)
-print(f"✅ Wrote {len(notes)} aligned notes to bwv1006_json_notes.json")
+
+details = f"[ wrote {len(notes)} aligned notes ]"
+print(f"💾 Saved: {ouput_file} {details}")
