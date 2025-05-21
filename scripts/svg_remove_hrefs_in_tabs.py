@@ -42,5 +42,5 @@ def remove_href_from_tab_links(in_path: Path, out_path: Path):
 # Example usage:
 if __name__ == "__main__":
     input_svg = Path("bwv1006.svg")
-    output_svg = Path("bwv1006_no_hrefs_in_tabs.svg")
+    output_svg = Path("bwv1006_svg_no_hrefs_in_tabs.svg")
     remove_href_from_tab_links(input_svg, output_svg)

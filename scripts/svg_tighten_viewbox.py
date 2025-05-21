@@ -55,4 +55,4 @@ def tighten_viewbox(input_svg_path, output_svg_path):
 
 # Example usage:
 if __name__ == "__main__":
-    tighten_viewbox("bwv1006_no_hrefs_in_tabs.svg", "bwv1006_no_hrefs_in_tabs_bounded.svg")
+    tighten_viewbox("bwv1006_svg_no_hrefs_in_tabs.svg", "bwv1006_svg_no_hrefs_in_tabs_bounded.svg")

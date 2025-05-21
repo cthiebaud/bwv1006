@@ -10,12 +10,15 @@ CACHE_FILE = Path(".build_cache.json")
 
 # 🔧 Utility to delete files
 def remove_outputs(*filenames, force=True):
+    deleted = []
     for name in filenames:
         path = Path(name)
         if path.exists():
             path.unlink()
-            print(f"🗑️  Deleted: {path.name}")
-
+            deleted.append(path.name)
+    if deleted:
+        print(f"🗑️  Deleted: {', '.join(deleted)}")
+        
 # 📁 Get all shared .ly dependencies
 def shared_ly_sources():
     return [Path("bwv1006_ly_main.ly"), Path("defs.ly")] + list(Path(".").rglob("_?/*.ly"))
@@ -56,6 +59,10 @@ def smart_task(c, *, sources, targets, commands, force=False):
         print(f"🔧 Rebuilding {task_name}...")
         for cmd in commands:
             c.run(cmd)
+        if targets:
+            print(f"✅ Generated: {', '.join(str(t) for t in targets)}")
+        else:
+            print(f"✅ Task {task_name} completed")
     else:
         if targets:
             print("✅ Up to date:")
@@ -98,7 +105,7 @@ def process_svg(c, force=False):
     smart_task(
         c,
         sources=[Path("bwv1006.svg")],
-        targets=["bwv1006_no_hrefs_in_tabs.svg", "bwv1006_no_hrefs_in_tabs_bounded.svg"],
+        targets=["bwv1006_svg_no_hrefs_in_tabs.svg", "bwv1006_svg_no_hrefs_in_tabs_bounded.svg"],
         commands=[
             "python3 scripts/svg_remove_hrefs_in_tabs.py",
             "python3 scripts/svg_tighten_viewbox.py",
