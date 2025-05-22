@@ -9,7 +9,7 @@
    (equal? (ly:get-option 'backend) 'svg))
 
 #(if (not is-svg?)
-     (set-global-staff-size 10))   
+     (set-global-staff-size 16))   
 
 % Define invisible line-break-only voice (adapt to your bar structure)
 
