@@ -24,14 +24,12 @@ pip install invoke
 ### 📦 Install dependencies
 
 ```bash
-cd scripts
-pip install -r requirements.txt
+pip install -r scripts/requirements.txt
 ```
 
 Alternatively, you can install packages manually:
 
 ```bash
-cd scripts
 pip install librosa matplotlib midi2audio mido numpy pandas soundfile
 ```
 
