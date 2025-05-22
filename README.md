@@ -21,6 +21,21 @@ Make sure you have the following installed:
 pip install invoke
 ```
 
+### 📦 Install dependencies
+
+```bash
+cd scripts
+pip install -r requirements.txt
+```
+
+Alternatively, you can install packages manually:
+
+```bash
+cd scripts
+pip install librosa matplotlib midi2audio mido numpy pandas soundfile
+```
+
+
 ### ⚙️ Step 2: Build everything
 
 Run this from the project root:
