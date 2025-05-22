@@ -9,19 +9,23 @@
 #(define bar-count-hash (make-hash-table 10))
 
 #(define (add-bar-number-to-bar-grob grob)
+
+   ; (display (ly:grob-property grob 'meta))
+   ; (newline)
+
    (let* ((staff-context (ly:grob-property grob 'staff-symbol-referred))
           (staff-id (if (ly:grob? staff-context)
                         (object-address staff-context)
                         0))
           (current-bar-number 1))
-     
+
      ;; Get the current bar number or initialize it
      (if (hash-ref bar-count-hash staff-id #f)
          (begin
-           (set! current-bar-number (1+ (hash-ref bar-count-hash staff-id)))
-           (hash-set! bar-count-hash staff-id current-bar-number))
+          (set! current-bar-number (1+ (hash-ref bar-count-hash staff-id)))
+          (hash-set! bar-count-hash staff-id current-bar-number))
          (hash-set! bar-count-hash staff-id current-bar-number))
-     
+
      ;; Add the bar number as an output attribute
      (ly:grob-set-property! grob 'output-attributes
                             (append
@@ -167,6 +171,7 @@ bwvOneThousandSixScoreNoTabs = {
 
 % Score setup
 bwvOneThousandSixScore = {
+  \addBarNumberAttributes
   <<
     \new StaffGroup <<
       \new Staff \with {

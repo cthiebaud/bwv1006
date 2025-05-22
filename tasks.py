@@ -145,9 +145,14 @@ def json_notes(c, force=False):
         force=force,
     )
 
-@task(pre=[json_notes])
-def all(c):
+@task
+def all(c, force=False):
     """Run the full build and post-processing pipeline."""
+    build_pdf(c, force=force)
+    build_svg(c, force=force)
+    process_svg(c, force=force)
+    build_svg_one_line(c, force=force)
+    json_notes(c, force=force)
     print(f"\n✅✅✅ All steps completed successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ✅✅✅")
 
 @task
