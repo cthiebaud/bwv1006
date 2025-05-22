@@ -1,43 +1,59 @@
 \version "2.25.26"
 
-#(define bar-count-hash (make-hash-table 10))
+#(define divisions 384)
+#(define quarter (ly:make-moment 1/4))
+#(define bar-count-hash (make-hash-table))
 
-#(define (add-bar-number-to-barline grob)
-   (let* ((staff-context (ly:grob-property grob 'staff-symbol-referred))
-          (staff-id (if (ly:grob? staff-context)
-                        (object-address staff-context)
-                        0))
-          (current-bar-number 1))
-     
-     ;; Get the current bar number or initialize it
-     (if (hash-ref bar-count-hash staff-id #f)
-         (begin
-           (set! current-bar-number (1+ (hash-ref bar-count-hash staff-id)))
-           (hash-set! bar-count-hash staff-id current-bar-number))
-         (hash-set! bar-count-hash staff-id current-bar-number))
-     
-     ;; Add the bar number as an output attribute
-     (ly:grob-set-property! grob 'output-attributes
-                            (append
-                             (ly:grob-property grob 'output-attributes '())
-                             (list (cons 'data-bar (number->string current-bar-number)))))))
+BarNumberEngraver =
+#(lambda (context)
+   (make-engraver
+    (acknowledgers
+     ((bar-line-interface engraver grob source-engraver)
+      (let* ((staff-context (ly:grob-property grob 'staff-symbol-referred))
+             (staff-id (if (ly:grob? staff-context)
+                           (object-address staff-context)
+                           0))
+             (current-bar-number 1)
+             (moment (ly:context-current-moment context))
+             (midiclocks (* divisions (ly:moment-main (ly:moment-div moment quarter)))))
 
-addBarNumberAttributes = {
-  \override Score.BarLine.before-line-breaking = #add-bar-number-to-barline
+        ;; Get the current bar number or initialize it
+        (if (hash-ref bar-count-hash staff-id #f)
+            (begin
+             (set! current-bar-number (1+ (hash-ref bar-count-hash staff-id)))
+             (hash-set! bar-count-hash staff-id current-bar-number))
+            (hash-set! bar-count-hash staff-id current-bar-number))
+
+        ;; Add both bar number and MIDI clock as output attributes
+        (ly:grob-set-property! grob 'output-attributes
+                               (append
+                                (ly:grob-property grob 'output-attributes '())
+                                (list (cons 'data-bar (number->string current-bar-number))
+                                      (cons 'data-midiclock (number->string midiclocks))))))))))
+                                            
+\layout {
+  \context {
+    \Score
+    %% \override SystemStartBar.collapse-height = #1
+  }  
+  \context { 
+    \Staff 
+    \consists \BarNumberEngraver 
+    \override BarLine.space-alist.first-note = #'(minimum-space . 0)
+    \override BarLine.break-visibility = ##(#f #t #t)
+  }
 }
 
 \score {
-  \new Staff \with {
-    \addBarNumberAttributes
-  } {
+  \new Staff {
+    %% \once \override Staff.BarLine.transparent = ##t
     \key d\minor
     \time 3/4
-    \override Score.BarNumber.break-visibility = ##(#t #t #t)
-    \set Score.barNumberVisibility = #all-bar-numbers-visible
-    <<
+    \bar "|"
+    <<   
       \new Voice {
         \voiceOne
-        \partial 2 a'4. a'8 |
+        s4  a'4. a'8 |
         e''4 e''4. e''8 |
         f''4 d''4. c''8 |
         bes'4 a' g'16[( f' e' f')] |
@@ -45,7 +61,7 @@ addBarNumberAttributes = {
       }
       \new Voice {
         \voiceThree
-        \partial 2 f'2 |
+        s4  f'2 |
         bes'4 a'2 |
         a'4 s2 |
         g'4 f'4 s4 |
@@ -53,7 +69,7 @@ addBarNumberAttributes = {
       }
       \new Voice {
         \voiceFour
-        \partial 2 s2 |
+        s4  s2 |
         g4  g'2 |
         f'4 f'2 |
         s2. |
@@ -61,15 +77,13 @@ addBarNumberAttributes = {
       }
       \new Voice {
         \voiceTwo
-        \partial 2 d'2 |
+        s4  d'2 |
         d'4 cis'2 |
         d'4 bes2 |
         g'4 a cis' |
         d'8 s8
       }
     >>
-    
+    \bar "|"
   }
-  }
-
-
+}
