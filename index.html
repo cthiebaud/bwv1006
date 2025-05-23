@@ -11,8 +11,8 @@
       fill: black;
     }
 
-    /* Only show bar highlights when playing */
-    svg:not(.playing) g[data-bar] {
+    /* Only show bar highlights when playing - updated selector for rect elements */
+    svg:not(.playing) rect[data-bar] {
       visibility: hidden !important;
     }    
 
@@ -83,7 +83,8 @@
   </div>
 
   <script>
-    const svgPath = "bwv1006_svg_no_hrefs_in_tabs_bounded.svg";
+    // Updated to use the optimized SVG file
+    const svgPath = "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg";
     const notesPath = "bwv1006_json_notes.json";
     const audio = document.getElementById("audio");
 
@@ -121,14 +122,16 @@
     }
 
     function hideAllBars() {
-      document.querySelectorAll('g[data-bar]').forEach(g => {
-        g.style.visibility = 'hidden';
+      // Updated selector: data-bar is now on rect elements, not g elements
+      document.querySelectorAll('rect[data-bar]').forEach(rect => {
+        rect.style.visibility = 'hidden';
       });
     }
 
     function showBar(barNumber) {
-      document.querySelectorAll(`g[data-bar="${barNumber}"]`).forEach(g => {
-        g.style.visibility = 'visible';
+      // Updated selector: data-bar is now on rect elements, not g elements
+      document.querySelectorAll(`rect[data-bar="${barNumber}"]`).forEach(rect => {
+        rect.style.visibility = 'visible';
       });
     }
 

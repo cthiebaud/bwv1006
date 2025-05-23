@@ -114,6 +114,19 @@ def process_svg(c, force=False):
     )
 
 @task(pre=[process_svg])
+def optimize_svg(c, force=False):
+    """Optimize SVG files with SVGO."""
+    smart_task(
+        c,
+        sources=[Path("bwv1006_svg_no_hrefs_in_tabs_bounded.svg")],
+        targets=["bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg"],
+        commands=[
+            "python3 scripts/optimize_svg.py"
+        ],
+        force=force,
+    )
+
+@task(pre=[optimize_svg])
 def build_svg_one_line(c, force=False):
     """Generate one-line SVG score with LilyPond."""
     smart_task(
