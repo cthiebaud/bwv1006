@@ -1,4 +1,4 @@
-\include "defs.ly"
+\include "defs.ily"
 
 guitarOneHeight = {
     r8                      e''16-3\1\I     dis''-2\1\M e  ''8-4\1\I            b  '-3\2\M \G  gis' -3\2\I                 b  ' -1\1\M                          | % 1

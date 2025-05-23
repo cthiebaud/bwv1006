@@ -1,4 +1,4 @@
-\include "defs.ly"
+\include "defs.ily"
 
 guitarFiftyOneFiftyheight = {
   cis16 [ cis' b   a   ] gis [ cis' gis fis ] e   [ gis e   dis ] | % 51

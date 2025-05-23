@@ -1,4 +1,4 @@
-\include "defs.ly"                                                                                                                                              
+\include "defs.ily"                                                                                                                                              
                                                                                                                                                                 
 guitarNineSixteen = {                                                                                                                                           
   % 9 - 12                                                                                                                                                      

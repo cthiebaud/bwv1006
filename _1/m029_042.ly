@@ -1,4 +1,4 @@
-\include "defs.ly"
+\include "defs.ily"
 
 guitarTwentynineFortytwo = {
   \override Glissando.breakable = ##t

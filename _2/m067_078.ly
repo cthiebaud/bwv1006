@@ -1,4 +1,4 @@
-\include "defs.ly"
+\include "defs.ily"
 
 guitarSixtysevenSeventyheight = {
     \override Script.direction = #up

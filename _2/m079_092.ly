@@ -1,4 +1,4 @@
-\include "defs.ly"
+\include "defs.ily"
 
 guitarSeventynineNinetytwo = {
     a  ,16-4\6\P [ b  ,-1\5\M a  ,-4\6\I b   ,-1\5\M ] cis  -3\5\I [ e    -1\4\A a  ,-4\6\I b  ,-1\5\M ] cis -3\5\I [ e    -1\4\A a  ,-4\6\I b  ,-1\5\M ] | % 79
