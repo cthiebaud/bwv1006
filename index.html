@@ -11,42 +11,47 @@
       fill: black;
     }
 
-    a.active.channel-0 path {
+    /* Only show bar highlights when playing */
+    svg:not(.playing) g[data-bar] {
+      visibility: hidden !important;
+    }    
+
+    svg.playing a.active.channel-0 path {
       fill: #fc8d59 !important;
       filter: drop-shadow(0 0 5px #fc8d59) drop-shadow(0 0 10px #fc8d59);
     }
 
-    a.active.channel-1 path {
+    svg.playing a.active.channel-1 path {
       fill: #91cf60 !important;
       filter: drop-shadow(0 0 5px #91cf60) drop-shadow(0 0 10px #91cf60);
     }
 
-    a.active.channel-2 path {
+    svg.playing a.active.channel-2 path {
       fill: #d73027 !important;
       filter: drop-shadow(0 0 5px #d73027) drop-shadow(0 0 10px #d73027);
     }
 
-    a.active.channel-3 path {
+    svg.playing a.active.channel-3 path {
       fill: #fee08b !important;
       filter: drop-shadow(0 0 5px #fee08b) drop-shadow(0 0 10px #fee08b);
     }
 
-    a.active.channel-4 path {
+    svg.playing a.active.channel-4 path {
       fill: #d9ef8b !important;
       filter: drop-shadow(0 0 5px #d9ef8b) drop-shadow(0 0 10px #d9ef8b);
     }
 
-    a.active.channel-5 path {
+    svg.playing a.active.channel-5 path {
       fill: #1a9850 !important;
       filter: drop-shadow(0 0 5px #1a9850) drop-shadow(0 0 10px #1a9850);
     }
 
-    a.active.channel-6 path {
+    svg.playing a.active.channel-6 path {
       fill: #4575b4 !important;
       filter: drop-shadow(0 0 5px #4575b4) drop-shadow(0 0 10px #4575b4);
     }
 
-    a.active.channel-7 path {
+    svg.playing a.active.channel-7 path {
       fill: #74add1 !important;
       filter: drop-shadow(0 0 5px #74add1) drop-shadow(0 0 10px #74add1);
     }
@@ -86,11 +91,26 @@
     const TOTAL_DURATION_SECONDS = 207;
     const TOTAL_BARS = 138;
     const SECONDS_PER_BAR = TOTAL_DURATION_SECONDS / TOTAL_BARS; // = 1.5 seconds per bar
+    const VISUAL_LEAD_TIME = 0.1; // Adjust this value (in seconds)
 
     let notes = [], remainingNotes = [], offCandidateNotes = [];
     let svgGlobal, noteDataGlobal;
     let isPlaying = false;
     let currentVisibleBar = -1; // ADD THIS NEW VARIABLE
+
+    function setPlayingState(isPlayingState) {
+      if (svgGlobal) {
+        if (isPlayingState) {
+          svgGlobal.classList.add('playing');
+        } else {
+          svgGlobal.classList.remove('playing');
+          // Also clean up any active states
+          svgGlobal.querySelectorAll("a.active").forEach(el => el.classList.remove("active"));
+          hideAllBars();
+          currentVisibleBar = -1;
+        }
+      }
+    }    
 
     // ADD THESE NEW FUNCTIONS FOR BAR HIGHLIGHTING
     function getCurrentBar(currentTime) {
@@ -186,7 +206,10 @@
       if (!isPlaying) return; // Don't proceed if audio is paused or ended
 
       const now = audio.currentTime;
-      while (remainingNotes.length && remainingNotes[0].on <= now + 0.2) {
+
+      const visualTime = now + VISUAL_LEAD_TIME;
+
+      while (remainingNotes.length && remainingNotes[0].on <= visualTime) {
         const note = remainingNotes.shift();
         highlightNote(note);
         offCandidateNotes.push(note);
@@ -201,7 +224,7 @@
       });
 
       // ADD BAR HIGHLIGHTING
-      const currentBar = getCurrentBar(now);
+      const currentBar = getCurrentBar(visualTime);
       if (currentBar !== currentVisibleBar) {
         hideAllBars();
         showBar(currentBar);
@@ -215,6 +238,7 @@
     // MODIFY THIS FUNCTION: Add bar reset
     function resetAnimationState() {
       isPlaying = false;
+      setPlayingState(false);
       audio.currentTime = 0;
       initializeNotes();
       svgGlobal?.querySelectorAll("a.active").forEach(el => el.classList.remove("active"));
@@ -233,6 +257,7 @@
 
       audio.addEventListener("play", () => {
         isPlaying = true;
+        setPlayingState(true);
         requestAnimationFrame(syncLoop);
         console.log("Playback started.");
       });
@@ -258,6 +283,7 @@
 
       audio.addEventListener("pause", () => {
         isPlaying = false;
+        setPlayingState(false);
         console.log("Playback paused.");
       });
 
