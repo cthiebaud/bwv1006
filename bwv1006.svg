@@ -4,34 +4,46 @@
 tspan { white-space: pre; }
 ]]>
 </style>
+<g data-bar="1">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 14.4962)">
 <rect x="13.1804" y="-2.0537" width="73.8541" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="2">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(89.9920, 43.3760)">
 <rect x="0.2039" y="0.0" width="77.3592" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="2">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(89.9920, 34.3760)">
 <rect x="0.2039" y="-2.0537" width="77.3592" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="1">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 34.3760)">
 <rect x="13.1804" y="-2.0537" width="73.8541" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="2">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(89.9920, 14.4962)">
 <rect x="0.2039" y="-2.0537" width="77.3592" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="1">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 43.3760)">
 <rect x="13.1804" y="0.0" width="73.8541" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(3.1614, 16.4962)">
@@ -862,64 +874,88 @@ c0 43 -20 70 -61 70c-34 0 -71 -8 -71 -38c0 -19 32 -23 32 -42c0 -28 -23 -51 -51 -
 </text>
 </g>
 </a>
+<g data-bar="4">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.2972, 84.2559)">
 <rect x="0.2039" y="0.0" width="39.2186" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="4">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.2972, 75.2559)">
 <rect x="0.2039" y="-2.0537" width="39.2186" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="5">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5158, 55.3760)">
 <rect x="0.2039" y="-2.0537" width="38.4730" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="4">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.2972, 55.3760)">
 <rect x="0.2039" y="-2.0537" width="39.2186" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="5">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5158, 75.2559)">
 <rect x="0.2039" y="-2.0537" width="38.4730" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="5">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5158, 84.2559)">
 <rect x="0.2039" y="0.0" width="38.4730" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="6">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.9889, 84.2559)">
 <rect x="0.2039" y="0.0" width="39.3624" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="6">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.9889, 75.2559)">
 <rect x="0.2039" y="-2.0537" width="39.3624" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="6">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.9889, 55.3760)">
 <rect x="0.2039" y="-2.0537" width="39.3624" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="3">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 84.2559)">
 <rect x="9.2037" y="0.0" width="38.1359" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="3">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 75.2559)">
 <rect x="9.2037" y="-2.0537" width="38.1359" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="3">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 55.3760)">
 <rect x="9.2037" y="-2.0537" width="38.1359" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 64.7559)">
@@ -3036,34 +3072,46 @@ c-5 -10 -14 -15 -23 -15c-14 0 -28 12 -28 27c0 4 1 8 3 13l129 250c2 4 7 6 11 6c18
 <g transform="translate(67.2293, 75.2559)">
 <rect x="-0.0697" y="-3.8207" width="0.1395" height="3.6363" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="8">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(88.6128, 125.1357)">
 <rect x="0.2039" y="0.0" width="78.7384" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="8">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(88.6128, 116.1357)">
 <rect x="0.2039" y="-2.0537" width="78.7384" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="8">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(88.6128, 96.2559)">
 <rect x="0.2039" y="-2.0537" width="78.7384" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="7">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 125.1357)">
 <rect x="9.2037" y="0.0" width="76.4516" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="7">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 116.1357)">
 <rect x="9.2037" y="-2.0537" width="76.4516" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="7">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 96.2559)">
 <rect x="9.2037" y="-2.0537" width="76.4516" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(3.1614, 98.2559)">
@@ -4182,64 +4230,88 @@ c-5 -10 -14 -15 -23 -15c-14 0 -28 12 -28 27c0 4 1 8 3 13l129 250c2 4 7 6 11 6c18
 </text>
 </g>
 </a>
+<g data-bar="10">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(48.9372, 167.9769)">
 <rect x="0.2039" y="0.0" width="40.5733" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="11">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.5105, 167.9769)">
 <rect x="0.2039" y="0.0" width="37.2674" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="11">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.5105, 158.9769)">
 <rect x="0.2039" y="-2.0537" width="37.2674" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="11">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.5105, 139.0349)">
 <rect x="0.2039" y="-2.0537" width="37.2674" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="12">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(126.7779, 167.9769)">
 <rect x="0.2039" y="0.0" width="40.5733" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="12">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(126.7779, 158.9769)">
 <rect x="0.2039" y="-2.0537" width="40.5733" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="12">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(126.7779, 139.0349)">
 <rect x="0.2039" y="-2.0537" width="40.5733" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="9">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 167.9769)">
 <rect x="9.2037" y="0.0" width="36.7759" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="9">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 158.9769)">
 <rect x="9.2037" y="-2.0537" width="36.7759" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="9">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 139.0349)">
 <rect x="9.2037" y="-2.0537" width="36.7759" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="10">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(48.9372, 158.9769)">
 <rect x="0.2039" y="-2.0537" width="40.5733" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="10">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(48.9372, 139.0349)">
 <rect x="0.2039" y="-2.0537" width="40.5733" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(48.9372, 158.9769)">
@@ -6327,64 +6399,88 @@ c-33 -12 -67 -22 -102 -22c-58 0 -86 41 -86 80c0 36 25 71 72 71z" fill="currentCo
 </text>
 </g>
 </a>
+<g data-bar="15">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.7272, 208.8567)">
 <rect x="0.2039" y="0.0" width="39.3150" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="15">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.7272, 199.8567)">
 <rect x="0.2039" y="-2.0537" width="39.3150" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="16">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(129.0422, 208.8567)">
 <rect x="0.2039" y="0.0" width="38.3090" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="16">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(129.0422, 199.8567)">
 <rect x="0.2039" y="-2.0537" width="38.3090" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="15">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.7272, 179.9769)">
 <rect x="0.2039" y="-2.0537" width="39.3150" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="16">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(129.0422, 179.9769)">
 <rect x="0.2039" y="-2.0537" width="38.3090" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="13">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 208.8567)">
 <rect x="9.2037" y="0.0" width="38.8017" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="13">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 199.8567)">
 <rect x="9.2037" y="-2.0537" width="38.8017" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="14">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(50.9630, 179.9769)">
 <rect x="0.2039" y="-2.0537" width="38.7643" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="14">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(50.9630, 199.8567)">
 <rect x="0.2039" y="-2.0537" width="38.7643" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="14">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(50.9630, 208.8567)">
 <rect x="0.2039" y="0.0" width="38.7643" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="13">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 179.9769)">
 <rect x="9.2037" y="-2.0537" width="38.8017" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(50.9630, 199.8567)">
@@ -8236,64 +8332,88 @@ c-5 -10 -14 -15 -23 -15c-14 0 -28 12 -28 27c0 4 1 8 3 13l129 250c2 4 7 6 11 6c18
 </text>
 </g>
 </a>
+<g data-bar="18">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.9733, 249.7365)">
 <rect x="0.2039" y="0.0" width="37.8317" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="19">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(87.8050, 220.8567)">
 <rect x="0.2039" y="-2.0537" width="39.2118" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="19">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(87.8050, 240.7365)">
 <rect x="0.2039" y="-2.0537" width="39.2118" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="19">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(87.8050, 249.7365)">
 <rect x="0.2039" y="0.0" width="39.2118" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="18">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.9733, 240.7365)">
 <rect x="0.2039" y="-2.0537" width="37.8317" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="20">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(127.0168, 249.7365)">
 <rect x="0.2039" y="0.0" width="40.3344" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="20">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(127.0168, 240.7365)">
 <rect x="0.2039" y="-2.0537" width="40.3344" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="20">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(127.0168, 220.8567)">
 <rect x="0.2039" y="-2.0537" width="40.3344" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="17">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 249.7365)">
 <rect x="9.2037" y="0.0" width="37.8121" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="17">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 240.7365)">
 <rect x="9.2037" y="-2.0537" width="37.8121" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="17">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 220.8567)">
 <rect x="9.2037" y="-2.0537" width="37.8121" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="18">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.9733, 220.8567)">
 <rect x="0.2039" y="-2.0537" width="37.8317" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 214.7185)">
@@ -9940,64 +10060,88 @@ c85 -2 113 -61 165 -61c45 0 28 41 57 41c11 0 22 -8 22 -21c0 -29 -48 -109 -144 -1
 <g transform="translate(57.6224, 240.7365)">
 <rect x="-0.0697" y="-0.3207" width="0.1395" height="3.1343" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="23">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(90.2780, 261.7365)">
 <rect x="0.2039" y="-2.0537" width="38.4101" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="23">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(90.2780, 281.6164)">
 <rect x="0.2039" y="-2.0537" width="38.4101" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="23">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(90.2780, 290.6164)">
 <rect x="0.2039" y="0.0" width="38.4101" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="24">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.6881, 290.6164)">
 <rect x="0.2039" y="0.0" width="38.6632" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="24">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.6881, 281.6164)">
 <rect x="0.2039" y="-2.0537" width="38.6632" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="24">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.6881, 261.7365)">
 <rect x="0.2039" y="-2.0537" width="38.6632" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="21">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 290.6164)">
 <rect x="9.2037" y="0.0" width="39.7245" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="21">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 281.6164)">
 <rect x="9.2037" y="-2.0537" width="39.7245" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="22">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(51.8858, 261.7365)">
 <rect x="0.2039" y="-2.0537" width="38.3922" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="22">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(51.8858, 281.6164)">
 <rect x="0.2039" y="-2.0537" width="38.3922" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="22">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(51.8858, 290.6164)">
 <rect x="0.2039" y="0.0" width="38.3922" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="21">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 261.7365)">
 <rect x="9.2037" y="-2.0537" width="39.7245" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(128.6881, 281.6164)">
@@ -11716,64 +11860,88 @@ c-5 -10 -14 -15 -23 -15c-14 0 -28 12 -28 27c0 4 1 8 3 13l129 250c2 4 7 6 11 6c18
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="26">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(50.8433, 331.4962)">
 <rect x="0.2039" y="0.0" width="38.7801" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="26">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(50.8433, 322.4962)">
 <rect x="0.2039" y="-2.0537" width="38.7801" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="27">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.6234, 302.6164)">
 <rect x="0.2039" y="-2.0537" width="38.7980" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="27">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.6234, 322.4962)">
 <rect x="0.2039" y="-2.0537" width="38.7980" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="27">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(89.6234, 331.4962)">
 <rect x="0.2039" y="0.0" width="38.7980" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="26">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(50.8433, 302.6164)">
 <rect x="0.2039" y="-2.0537" width="38.7801" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="28">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.4213, 331.4962)">
 <rect x="0.2039" y="0.0" width="38.9299" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="28">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.4213, 322.4962)">
 <rect x="0.2039" y="-2.0537" width="38.9299" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="28">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.4213, 302.6164)">
 <rect x="0.2039" y="-2.0537" width="38.9299" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="25">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 331.4962)">
 <rect x="9.2037" y="0.0" width="38.6820" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="25">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 322.4962)">
 <rect x="9.2037" y="-2.0537" width="38.6820" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="25">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 302.6164)">
 <rect x="9.2037" y="-2.0537" width="38.6820" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 296.7404)">
@@ -13575,64 +13743,88 @@ c0 43 -20 70 -61 70c-34 0 -71 -8 -71 -38c0 -19 32 -23 32 -42c0 -28 -23 -51 -51 -
 <g transform="translate(61.7149, 302.6164)">
 <rect x="-0.0697" y="1.1793" width="0.1395" height="2.6268" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="32">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(127.5239, 373.8485)">
 <rect x="0.2039" y="0.0" width="39.8273" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="29">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 373.8485)">
 <rect x="9.2037" y="0.0" width="37.3561" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="29">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 364.8485)">
 <rect x="9.2037" y="-2.0537" width="37.3561" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="29">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 343.4962)">
 <rect x="9.2037" y="-2.0537" width="37.3561" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="32">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(127.5239, 343.4962)">
 <rect x="0.2039" y="-2.0537" width="39.8273" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="31">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(88.4780, 343.4962)">
 <rect x="0.2039" y="-2.0537" width="39.0459" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="31">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(88.4780, 364.8485)">
 <rect x="0.2039" y="-2.0537" width="39.0459" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="31">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(88.4780, 373.8485)">
 <rect x="0.2039" y="0.0" width="39.0459" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="32">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(127.5239, 364.8485)">
 <rect x="0.2039" y="-2.0537" width="39.8273" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="30">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.5174, 373.8485)">
 <rect x="0.2039" y="0.0" width="38.9605" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="30">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.5174, 364.8485)">
 <rect x="0.2039" y="-2.0537" width="38.9605" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="30">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.5174, 343.4962)">
 <rect x="0.2039" y="-2.0537" width="38.9605" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(49.5174, 343.4962)">
@@ -15488,49 +15680,67 @@ c-19 0 -54 -1 -54 -66c0 -62 30 -96 30 -99c0 -5 -4 -8 -9 -8c-13 0 -99 130 -99 204
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="34">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(64.3591, 405.7283)">
 <rect x="0.2039" y="-2.0537" width="51.2422" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="35">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(115.6013, 414.7283)">
 <rect x="0.2039" y="0.0" width="51.7499" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="35">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(115.6013, 405.7283)">
 <rect x="0.2039" y="-2.0537" width="51.7499" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="35">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(115.6013, 385.8485)">
 <rect x="0.2039" y="-2.0537" width="51.7499" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="33">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 414.7283)">
 <rect x="9.2037" y="0.0" width="52.1978" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="33">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 405.7283)">
 <rect x="9.2037" y="-2.0537" width="52.1978" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="33">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 385.8485)">
 <rect x="9.2037" y="-2.0537" width="52.1978" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="34">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(64.3591, 414.7283)">
 <rect x="0.2039" y="0.0" width="51.2422" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="34">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(64.3591, 385.8485)">
 <rect x="0.2039" y="-2.0537" width="51.2422" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 405.7283)">
@@ -16942,49 +17152,67 @@ s-8 -22 -22 -22c-49 0 -96 14 -145 14s-97 -14 -146 -14c-14 0 -21 11 -21 22s7 21 2
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="38">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(116.6439, 426.7283)">
 <rect x="0.2039" y="-2.0537" width="50.7074" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="36">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(3.1614, 455.6081)">
 <rect x="9.2037" y="0.0" width="53.0417" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="36">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(3.1614, 446.6081)">
 <rect x="9.2037" y="-2.0537" width="53.0417" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="36">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(3.1614, 426.7283)">
 <rect x="9.2037" y="-2.0537" width="53.0417" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="38">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(116.6439, 446.6081)">
 <rect x="0.2039" y="-2.0537" width="50.7074" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="38">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(116.6439, 455.6081)">
 <rect x="0.2039" y="0.0" width="50.7074" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="37">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(65.2029, 455.6081)">
 <rect x="0.2039" y="0.0" width="51.4409" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="37">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(65.2029, 446.6081)">
 <rect x="0.2039" y="-2.0537" width="51.4409" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="37">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(65.2029, 426.7283)">
 <rect x="0.2039" y="-2.0537" width="51.4409" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 426.7283)">
@@ -18588,64 +18816,88 @@ c85 -2 113 -61 165 -61c45 0 28 41 57 41c11 0 22 -8 22 -21c0 -29 -48 -109 -144 -1
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="41">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(94.0763, 496.9118)">
 <rect x="0.2039" y="0.0" width="37.8395" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="40">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(52.6023, 496.9118)">
 <rect x="0.2039" y="0.0" width="41.4740" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="40">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(52.6023, 487.9118)">
 <rect x="0.2039" y="-2.0537" width="41.4740" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="40">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(52.6023, 467.6081)">
 <rect x="0.2039" y="-2.0537" width="41.4740" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="41">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(94.0763, 467.6081)">
 <rect x="0.2039" y="-2.0537" width="37.8395" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="41">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(94.0763, 487.9118)">
 <rect x="0.2039" y="-2.0537" width="37.8395" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="42">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(131.9158, 496.9118)">
 <rect x="0.2039" y="0.0" width="35.4354" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="42">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(131.9158, 487.9118)">
 <rect x="0.2039" y="-2.0537" width="35.4354" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="42">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(131.9158, 467.6081)">
 <rect x="0.2039" y="-2.0537" width="35.4354" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="39">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 496.9118)">
 <rect x="9.2037" y="0.0" width="40.4411" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="39">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 487.9118)">
 <rect x="9.2037" y="-2.0537" width="40.4411" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="39">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 467.6081)">
 <rect x="9.2037" y="-2.0537" width="40.4411" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(131.9158, 467.6081)">
@@ -20634,64 +20886,88 @@ s-8 -22 -22 -22c-49 0 -96 14 -145 14s-97 -14 -146 -14c-14 0 -21 11 -21 22s7 21 2
 </text>
 </g>
 </a>
+<g data-bar="44">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(51.1478, 539.8866)">
 <rect x="0.2039" y="0.0" width="38.4327" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="44">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(51.1478, 530.8866)">
 <rect x="0.2039" y="-2.0537" width="38.4327" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="45">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5805, 508.9118)">
 <rect x="0.2039" y="-2.0537" width="39.3380" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="45">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5805, 530.8866)">
 <rect x="0.2039" y="-2.0537" width="39.3380" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="45">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5805, 539.8866)">
 <rect x="0.2039" y="0.0" width="39.3380" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="46">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.9185, 539.8866)">
 <rect x="0.2039" y="0.0" width="38.4327" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="46">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.9185, 530.8866)">
 <rect x="0.2039" y="-2.0537" width="38.4327" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="46">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.9185, 508.9118)">
 <rect x="0.2039" y="-2.0537" width="38.4327" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="43">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 539.8866)">
 <rect x="9.2037" y="0.0" width="38.9865" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="43">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 530.8866)">
 <rect x="9.2037" y="-2.0537" width="38.9865" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="43">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 508.9118)">
 <rect x="9.2037" y="-2.0537" width="38.9865" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="44">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(51.1478, 508.9118)">
 <rect x="0.2039" y="-2.0537" width="38.4327" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 502.8696)">
@@ -22409,64 +22685,88 @@ c0 43 -20 70 -61 70c-34 0 -71 -8 -71 -38c0 -19 32 -23 32 -42c0 -28 -23 -51 -51 -
 s-8 -22 -22 -22c-49 0 -96 14 -145 14s-97 -14 -146 -14c-14 0 -21 11 -21 22s7 21 21 21c44 0 79 37 81 82h-134c-43 0 -57 25 -57 42c0 5 1 10 3 12c73 81 123 182 123 291c0 17 11 31 25 31z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="50">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.8524, 582.8748)">
 <rect x="0.2039" y="0.0" width="39.4988" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="47">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 582.8748)">
 <rect x="9.2037" y="0.0" width="38.3763" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="47">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 573.8748)">
 <rect x="9.2037" y="-2.0537" width="38.3763" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="47">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 551.8866)">
 <rect x="9.2037" y="-2.0537" width="38.3763" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="49">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.2692, 551.8866)">
 <rect x="0.2039" y="-2.0537" width="38.5833" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="49">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.2692, 573.8748)">
 <rect x="0.2039" y="-2.0537" width="38.5833" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="49">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.2692, 582.8748)">
 <rect x="0.2039" y="0.0" width="38.5833" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="50">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.8524, 551.8866)">
 <rect x="0.2039" y="-2.0537" width="39.4988" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="50">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.8524, 573.8748)">
 <rect x="0.2039" y="-2.0537" width="39.4988" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="48">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.5375, 582.8748)">
 <rect x="0.2039" y="0.0" width="38.7317" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="48">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.5375, 573.8748)">
 <rect x="0.2039" y="-2.0537" width="38.7317" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="48">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.5375, 551.8866)">
 <rect x="0.2039" y="-2.0537" width="38.7317" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 545.8466)">
@@ -24124,64 +24424,88 @@ c0 43 -20 70 -61 70c-34 0 -71 -8 -71 -38c0 -19 32 -23 32 -42c0 -28 -23 -51 -51 -
 </text>
 </g>
 </a>
+<g data-bar="52">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3766, 594.8748)">
 <rect x="0.2039" y="-2.0537" width="38.4393" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="52">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3766, 624.6785)">
 <rect x="0.2039" y="0.0" width="38.4393" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="52">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3766, 615.6785)">
 <rect x="0.2039" y="-2.0537" width="38.4393" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="53">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.8159, 594.8748)">
 <rect x="0.2039" y="-2.0537" width="39.2677" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="54">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.0836, 624.6785)">
 <rect x="0.2039" y="0.0" width="39.2677" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="54">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.0836, 615.6785)">
 <rect x="0.2039" y="-2.0537" width="39.2677" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="54">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.0836, 594.8748)">
 <rect x="0.2039" y="-2.0537" width="39.2677" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="51">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 624.6785)">
 <rect x="9.2037" y="0.0" width="38.2154" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="51">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 615.6785)">
 <rect x="9.2037" y="-2.0537" width="38.2154" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="51">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 594.8748)">
 <rect x="9.2037" y="-2.0537" width="38.2154" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="53">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.8159, 615.6785)">
 <rect x="0.2039" y="-2.0537" width="39.2677" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="53">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.8159, 624.6785)">
 <rect x="0.2039" y="0.0" width="39.2677" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(3.1614, 596.8748)">
@@ -25599,64 +25923,88 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <g transform="translate(58.1371, 615.6785)">
 <rect x="-0.0697" y="0.6793" width="0.1395" height="2.3207" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="56">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.9154, 636.6785)">
 <rect x="0.2039" y="-2.0537" width="38.5496" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="56">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.9154, 656.5583)">
 <rect x="0.2039" y="-2.0537" width="38.5496" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="56">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.9154, 665.5583)">
 <rect x="0.2039" y="0.0" width="38.5496" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="57">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.4650, 636.6785)">
 <rect x="0.2039" y="-2.0537" width="38.9431" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="58">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.4081, 665.5583)">
 <rect x="0.2039" y="0.0" width="38.9431" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="58">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.4081, 656.5583)">
 <rect x="0.2039" y="-2.0537" width="38.9431" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="58">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.4081, 636.6785)">
 <rect x="0.2039" y="-2.0537" width="38.9431" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="55">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 665.5583)">
 <rect x="9.2037" y="0.0" width="38.7541" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="55">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 656.5583)">
 <rect x="9.2037" y="-2.0537" width="38.7541" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="57">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.4650, 665.5583)">
 <rect x="0.2039" y="0.0" width="38.9431" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="57">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.4650, 656.5583)">
 <rect x="0.2039" y="-2.0537" width="38.9431" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="55">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 636.6785)">
 <rect x="9.2037" y="-2.0537" width="38.7541" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(89.4650, 646.0583)">
@@ -27067,64 +27415,88 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 </text>
 </g>
 </a>
+<g data-bar="60">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(52.1549, 709.7874)">
 <rect x="0.2039" y="0.0" width="38.8736" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="61">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(91.0285, 709.7874)">
 <rect x="0.2039" y="0.0" width="37.8664" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="61">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(91.0285, 700.7874)">
 <rect x="0.2039" y="-2.0537" width="37.8664" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="61">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(91.0285, 680.6099)">
 <rect x="0.2039" y="-2.0537" width="37.8664" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="62">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.8949, 709.7874)">
 <rect x="0.2039" y="0.0" width="38.4563" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="62">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.8949, 700.7874)">
 <rect x="0.2039" y="-2.0537" width="38.4563" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="62">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.8949, 680.6099)">
 <rect x="0.2039" y="-2.0537" width="38.4563" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="59">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 709.7874)">
 <rect x="9.2037" y="0.0" width="39.9936" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="59">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 700.7874)">
 <rect x="9.2037" y="-2.0537" width="39.9936" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="59">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 680.6099)">
 <rect x="9.2037" y="-2.0537" width="39.9936" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="60">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(52.1549, 700.7874)">
 <rect x="0.2039" y="-2.0537" width="38.8736" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="60">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(52.1549, 680.6099)">
 <rect x="0.2039" y="-2.0537" width="38.8736" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(52.1549, 700.7874)">
@@ -29183,64 +29555,88 @@ c-33 -12 -67 -22 -102 -22c-58 0 -86 41 -86 80c0 36 25 71 72 71z" fill="currentCo
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="65">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5031, 753.1447)">
 <rect x="0.2039" y="0.0" width="37.9933" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="65">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5031, 744.1447)">
 <rect x="0.2039" y="-2.0537" width="37.9933" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="66">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.4964, 753.1447)">
 <rect x="0.2039" y="0.0" width="39.8549" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="66">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.4964, 744.1447)">
 <rect x="0.2039" y="-2.0537" width="39.8549" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="65">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.5031, 721.7874)">
 <rect x="0.2039" y="-2.0537" width="37.9933" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="66">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.4964, 721.7874)">
 <rect x="0.2039" y="-2.0537" width="39.8549" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="63">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 753.1447)">
 <rect x="9.2037" y="0.0" width="37.4870" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="63">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 744.1447)">
 <rect x="9.2037" y="-2.0537" width="37.4870" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="64">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(49.6482, 721.7874)">
 <rect x="0.2039" y="-2.0537" width="39.8549" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="64">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(49.6482, 744.1447)">
 <rect x="0.2039" y="-2.0537" width="39.8549" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="64">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(49.6482, 753.1447)">
 <rect x="0.2039" y="0.0" width="39.8549" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="63">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 721.7874)">
 <rect x="9.2037" y="-2.0537" width="37.4870" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(49.6482, 744.1447)">
@@ -31150,64 +31546,88 @@ c0 43 -20 70 -61 70c-34 0 -71 -8 -71 -38c0 -19 32 -23 32 -42c0 -28 -23 -51 -51 -
 </text>
 </g>
 </a>
+<g data-bar="68">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.6496, 794.0246)">
 <rect x="0.2039" y="0.0" width="38.6848" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="69">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.3344, 765.1447)">
 <rect x="0.2039" y="-2.0537" width="39.8755" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="69">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.3344, 785.0246)">
 <rect x="0.2039" y="-2.0537" width="39.8755" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="70">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(129.2098, 794.0246)">
 <rect x="0.2039" y="0.0" width="38.1414" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="70">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(129.2098, 785.0246)">
 <rect x="0.2039" y="-2.0537" width="38.1414" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="70">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(129.2098, 765.1447)">
 <rect x="0.2039" y="-2.0537" width="38.1414" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="67">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 794.0246)">
 <rect x="9.2037" y="0.0" width="38.4883" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="67">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 785.0246)">
 <rect x="9.2037" y="-2.0537" width="38.4883" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="67">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 765.1447)">
 <rect x="9.2037" y="-2.0537" width="38.4883" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="69">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.3344, 794.0246)">
 <rect x="0.2039" y="0.0" width="39.8755" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="68">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.6496, 765.1447)">
 <rect x="0.2039" y="-2.0537" width="38.6848" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="68">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.6496, 785.0246)">
 <rect x="0.2039" y="-2.0537" width="38.6848" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(89.3344, 765.1447)">
@@ -32995,64 +33415,88 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <g transform="translate(68.8754, 765.1447)">
 <rect x="-0.0697" y="-3.5000" width="0.1395" height="3.8207" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="73">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.3879, 834.9044)">
 <rect x="0.2039" y="0.0" width="38.8833" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="72">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.6296, 825.9044)">
 <rect x="0.2039" y="-2.0537" width="38.7583" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="72">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.6296, 834.9044)">
 <rect x="0.2039" y="0.0" width="38.7583" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="72">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.6296, 806.0246)">
 <rect x="0.2039" y="-2.0537" width="38.7583" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="73">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.3879, 806.0246)">
 <rect x="0.2039" y="-2.0537" width="38.8833" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="73">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.3879, 825.9044)">
 <rect x="0.2039" y="-2.0537" width="38.8833" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="74">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.2712, 834.9044)">
 <rect x="0.2039" y="0.0" width="39.0800" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="74">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.2712, 825.9044)">
 <rect x="0.2039" y="-2.0537" width="39.0800" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="74">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.2712, 806.0246)">
 <rect x="0.2039" y="-2.0537" width="39.0800" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="71">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 834.9044)">
 <rect x="9.2037" y="0.0" width="38.4683" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="71">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 825.9044)">
 <rect x="9.2037" y="-2.0537" width="38.4683" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="71">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 806.0246)">
 <rect x="9.2037" y="-2.0537" width="38.4683" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(128.2712, 806.0246)">
@@ -34843,64 +35287,88 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 </text>
 </g>
 </a>
+<g data-bar="77">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.8883, 875.7842)">
 <rect x="0.2039" y="0.0" width="39.2315" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="76">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3976, 866.7842)">
 <rect x="0.2039" y="-2.0537" width="38.4907" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="76">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3976, 875.7842)">
 <rect x="0.2039" y="0.0" width="38.4907" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="76">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3976, 846.9044)">
 <rect x="0.2039" y="-2.0537" width="38.4907" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="77">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.8883, 846.9044)">
 <rect x="0.2039" y="-2.0537" width="39.2315" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="77">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.8883, 866.7842)">
 <rect x="0.2039" y="-2.0537" width="39.2315" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="78">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.1198, 875.7842)">
 <rect x="0.2039" y="0.0" width="39.2315" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="78">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.1198, 866.7842)">
 <rect x="0.2039" y="-2.0537" width="39.2315" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="78">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(128.1198, 846.9044)">
 <rect x="0.2039" y="-2.0537" width="39.2315" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="75">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 875.7842)">
 <rect x="9.2037" y="0.0" width="38.2363" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="75">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 866.7842)">
 <rect x="9.2037" y="-2.0537" width="38.2363" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="75">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 846.9044)">
 <rect x="9.2037" y="-2.0537" width="38.2363" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(128.1198, 846.9044)">
@@ -36724,64 +37192,88 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <g transform="translate(65.5095, 866.7842)">
 <rect x="-0.0697" y="-1.8137" width="0.1395" height="3.1343" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="82">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(129.2710, 916.6641)">
 <rect x="0.2039" y="0.0" width="38.0803" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="79">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 907.6641)">
 <rect x="9.2037" y="-2.0537" width="38.0808" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="79">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 887.7842)">
 <rect x="9.2037" y="-2.0537" width="38.0808" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="79">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 916.6641)">
 <rect x="9.2037" y="0.0" width="38.0808" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="81">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.7565, 887.7842)">
 <rect x="0.2039" y="-2.0537" width="39.5144" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="81">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.7565, 907.6641)">
 <rect x="0.2039" y="-2.0537" width="39.5144" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="81">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(89.7565, 916.6641)">
 <rect x="0.2039" y="0.0" width="39.5144" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="82">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(129.2710, 887.7842)">
 <rect x="0.2039" y="-2.0537" width="38.0803" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="82">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(129.2710, 907.6641)">
 <rect x="0.2039" y="-2.0537" width="38.0803" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="80">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.2421, 916.6641)">
 <rect x="0.2039" y="0.0" width="39.5144" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="80">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.2421, 907.6641)">
 <rect x="0.2039" y="-2.0537" width="39.5144" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="80">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.2421, 887.7842)">
 <rect x="0.2039" y="-2.0537" width="39.5144" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 883.0946)">
@@ -38633,49 +39125,67 @@ c-19 0 -54 -1 -54 -66c0 -62 30 -96 30 -99c0 -5 -4 -8 -9 -8c-13 0 -99 130 -99 204
 </text>
 </g>
 </a>
+<g data-bar="85">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(115.9813, 948.5439)">
 <rect x="0.2039" y="-2.0537" width="51.3699" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="85">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(115.9813, 928.6641)">
 <rect x="0.2039" y="-2.0537" width="51.3699" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="83">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 957.5439)">
 <rect x="9.2037" y="0.0" width="51.8878" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="83">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 948.5439)">
 <rect x="9.2037" y="-2.0537" width="51.8878" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="83">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 928.6641)">
 <rect x="9.2037" y="-2.0537" width="51.8878" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="85">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(115.9813, 957.5439)">
 <rect x="0.2039" y="0.0" width="51.3699" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="84">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(64.0490, 928.6641)">
 <rect x="0.2039" y="-2.0537" width="51.9323" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="84">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(64.0490, 948.5439)">
 <rect x="0.2039" y="-2.0537" width="51.9323" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="84">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(64.0490, 957.5439)">
 <rect x="0.2039" y="0.0" width="51.9323" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(115.9813, 924.2934)">
@@ -39720,64 +40230,88 @@ c1 19 2 37 2 56c0 30 -2 60 -4 90c-28 -5 -54 -8 -79 -8c-240 0 -342 219 -342 375c0
 zM403 150c28 -135 50 -272 59 -352c75 27 110 93 110 161c0 88 -59 178 -169 191zM75 26c0 -112 97 -245 277 -245c21 0 43 2 67 6c-7 65 -27 206 -61 363c-79 -8 -124 -61 -124 -119c0 -43 25 -89 80 -121c5 -5 7 -11 7 -16c0 -12 -10 -23 -22 -23c-16 0 -127 63 -127 188
 c0 89 58 175 161 198c-14 58 -29 116 -46 173c-106 -122 -212 -244 -212 -404zM406 1042c-40 -19 -161 -92 -161 -259c0 -42 7 -93 37 -189c78 95 145 199 145 325c0 39 -7 80 -21 123z" fill="currentColor"/>
 </g>
+<g data-bar="88">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(89.6777, 989.5876)">
 <rect x="0.2039" y="-2.0537" width="38.9120" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="87">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(50.7416, 989.5876)">
 <rect x="0.2039" y="-2.0537" width="38.9361" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="87">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(50.7416, 998.5876)">
 <rect x="0.2039" y="0.0" width="38.9361" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="87">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(50.7416, 969.5439)">
 <rect x="0.2039" y="-2.0537" width="38.9361" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="89">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(128.5897, 998.5876)">
 <rect x="0.2039" y="0.0" width="38.7615" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="89">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(128.5897, 989.5876)">
 <rect x="0.2039" y="-2.0537" width="38.7615" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="89">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(128.5897, 969.5439)">
 <rect x="0.2039" y="-2.0537" width="38.7615" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="86">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 998.5876)">
 <rect x="9.2037" y="0.0" width="38.5803" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="86">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 989.5876)">
 <rect x="9.2037" y="-2.0537" width="38.5803" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="86">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 969.5439)">
 <rect x="9.2037" y="-2.0537" width="38.5803" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="88">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(89.6777, 969.5439)">
 <rect x="0.2039" y="-2.0537" width="38.9120" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="88">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(89.6777, 998.5876)">
 <rect x="0.2039" y="0.0" width="38.9120" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(3.1614, 971.5439)">
@@ -41180,49 +41714,67 @@ c-19 0 -54 -1 -54 -66c0 -62 30 -96 30 -99c0 -5 -4 -8 -9 -8c-13 0 -99 130 -99 204
 </text>
 </g>
 </a>
+<g data-bar="92">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(114.1075, 1039.5111)">
 <rect x="0.2039" y="0.0" width="53.2438" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="92">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(114.1075, 1030.5111)">
 <rect x="0.2039" y="-2.0537" width="53.2438" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="92">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(114.1075, 1010.5876)">
 <rect x="0.2039" y="-2.0537" width="53.2438" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="90">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1039.5111)">
 <rect x="9.2037" y="0.0" width="50.9333" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="90">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1030.5111)">
 <rect x="9.2037" y="-2.0537" width="50.9333" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="90">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1010.5876)">
 <rect x="9.2037" y="-2.0537" width="50.9333" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="91">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(63.0945, 1039.5111)">
 <rect x="0.2039" y="0.0" width="51.0130" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="91">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(63.0945, 1030.5111)">
 <rect x="0.2039" y="-2.0537" width="51.0130" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="91">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(63.0945, 1010.5876)">
 <rect x="0.2039" y="-2.0537" width="51.0130" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 1004.5596)">
@@ -42390,49 +42942,67 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="95">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(115.8996, 1051.5111)">
 <rect x="0.2039" y="-2.0537" width="51.4516" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="93">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1080.3909)">
 <rect x="9.2037" y="0.0" width="51.9618" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="93">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1071.3909)">
 <rect x="9.2037" y="-2.0537" width="51.9618" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="93">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1051.5111)">
 <rect x="9.2037" y="-2.0537" width="51.9618" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="94">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(64.1231, 1071.3909)">
 <rect x="0.2039" y="-2.0537" width="51.7765" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="94">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(64.1231, 1080.3909)">
 <rect x="0.2039" y="0.0" width="51.7765" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="94">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(64.1231, 1051.5111)">
 <rect x="0.2039" y="-2.0537" width="51.7765" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="95">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(115.8996, 1071.3909)">
 <rect x="0.2039" y="-2.0537" width="51.4516" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="95">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(115.8996, 1080.3909)">
 <rect x="0.2039" y="0.0" width="51.4516" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(64.1231, 1051.5111)">
@@ -43567,49 +44137,67 @@ c-33 -12 -67 -22 -102 -22c-58 0 -86 41 -86 80c0 36 25 71 72 71z" fill="currentCo
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="96">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(3.1614, 1121.3612)">
 <rect x="9.2037" y="0.0" width="51.3935" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="96">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(3.1614, 1112.3612)">
 <rect x="9.2037" y="-2.0537" width="51.3935" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="97">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(63.5547, 1092.3909)">
 <rect x="0.2039" y="-2.0537" width="51.3699" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="96">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(3.1614, 1092.3909)">
 <rect x="9.2037" y="-2.0537" width="51.3935" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="98">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(114.9246, 1092.3909)">
 <rect x="0.2039" y="-2.0537" width="52.4267" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="98">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(114.9246, 1112.3612)">
 <rect x="0.2039" y="-2.0537" width="52.4267" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="97">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(63.5547, 1112.3612)">
 <rect x="0.2039" y="-2.0537" width="51.3699" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="97">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(63.5547, 1121.3612)">
 <rect x="0.2039" y="0.0" width="51.3699" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="98">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(114.9246, 1121.3612)">
 <rect x="0.2039" y="0.0" width="52.4267" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(114.9246, 1112.3612)">
@@ -44614,49 +45202,67 @@ c-33 -12 -67 -22 -102 -22c-58 0 -86 41 -86 80c0 36 25 71 72 71z" fill="currentCo
 </text>
 </g>
 </a>
+<g data-bar="101">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(113.5542, 1163.2135)">
 <rect x="0.2039" y="0.0" width="53.7971" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="101">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(113.5542, 1154.2135)">
 <rect x="0.2039" y="-2.0537" width="53.7971" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="101">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(113.5542, 1133.3612)">
 <rect x="0.2039" y="-2.0537" width="53.7971" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="99">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1163.2135)">
 <rect x="9.2037" y="0.0" width="49.5285" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="99">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1154.2135)">
 <rect x="9.2037" y="-2.0537" width="49.5285" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="99">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1133.3612)">
 <rect x="9.2037" y="-2.0537" width="49.5285" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="100">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(61.6897, 1163.2135)">
 <rect x="0.2039" y="0.0" width="51.8644" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="100">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(61.6897, 1154.2135)">
 <rect x="0.2039" y="-2.0537" width="51.8644" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="100">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(61.6897, 1133.3612)">
 <rect x="0.2039" y="-2.0537" width="51.8644" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(113.5542, 1133.3612)">
@@ -46092,49 +46698,67 @@ s-8 -22 -22 -22c-49 0 -96 14 -145 14s-97 -14 -146 -14c-14 0 -21 11 -21 22s7 21 2
 <path transform="scale(0.0040, -0.0040)" d="M0 117c0 9 6 18 15 21l43 16v157c0 11 8 19 19 19s20 -8 20 -19v-142l81 30v156c0 11 9 20 20 20s19 -9 19 -20v-142l28 11c3 1 5 1 8 1c12 0 22 -10 22 -23v-57c0 -9 -6 -18 -15 -21l-43 -16v-157l28 10c3 1 5 1 8 1c12 0 22 -9 22 -22v-57c0 -9 -6 -18 -15 -21l-43 -16
 v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-19 9 -19 20v142l-28 -11c-3 -1 -5 -1 -8 -1c-12 0 -22 10 -22 23v57c0 9 6 18 15 21l43 16v157l-28 -10c-3 -1 -5 -1 -8 -1c-12 0 -22 9 -22 22v57zM178 94l-81 -30v-158l81 30v158z" fill="currentColor"/>
 </g>
+<g data-bar="104">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(116.8948, 1195.0933)">
 <rect x="0.2039" y="-2.0537" width="50.4565" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="104">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(116.8948, 1175.2135)">
 <rect x="0.2039" y="-2.0537" width="50.4565" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="102">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1204.0933)">
 <rect x="9.2037" y="0.0" width="52.3756" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="102">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1195.0933)">
 <rect x="9.2037" y="-2.0537" width="52.3756" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="102">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1175.2135)">
 <rect x="9.2037" y="-2.0537" width="52.3756" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="104">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(116.8948, 1204.0933)">
 <rect x="0.2039" y="0.0" width="50.4565" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="103">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(64.5369, 1204.0933)">
 <rect x="0.2039" y="0.0" width="52.3579" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="103">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(64.5369, 1195.0933)">
 <rect x="0.2039" y="-2.0537" width="52.3579" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="103">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(64.5369, 1175.2135)">
 <rect x="0.2039" y="-2.0537" width="52.3579" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 1195.0933)">
@@ -47522,64 +48146,88 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <path transform="scale(0.0040, -0.0040)" d="M0 117c0 9 6 18 15 21l43 16v157c0 11 8 19 19 19s20 -8 20 -19v-142l81 30v156c0 11 9 20 20 20s19 -9 19 -20v-142l28 11c3 1 5 1 8 1c12 0 22 -10 22 -23v-57c0 -9 -6 -18 -15 -21l-43 -16v-157l28 10c3 1 5 1 8 1c12 0 22 -9 22 -22v-57c0 -9 -6 -18 -15 -21l-43 -16
 v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-19 9 -19 20v142l-28 -11c-3 -1 -5 -1 -8 -1c-12 0 -22 10 -22 23v57c0 9 6 18 15 21l43 16v157l-28 -10c-3 -1 -5 -1 -8 -1c-12 0 -22 9 -22 22v57zM178 94l-81 -30v-158l81 30v158z" fill="currentColor"/>
 </g>
+<g data-bar="106">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(51.4852, 1216.0933)">
 <rect x="0.2039" y="-2.0537" width="38.7589" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="107">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(90.2441, 1216.0933)">
 <rect x="0.2039" y="-2.0537" width="39.7848" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="107">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(90.2441, 1238.3231)">
 <rect x="0.2039" y="-2.0537" width="39.7848" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="108">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(130.0289, 1247.3231)">
 <rect x="0.2039" y="0.0" width="37.3224" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="108">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(130.0289, 1238.3231)">
 <rect x="0.2039" y="-2.0537" width="37.3224" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="108">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(130.0289, 1216.0933)">
 <rect x="0.2039" y="-2.0537" width="37.3224" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="107">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(90.2441, 1247.3231)">
 <rect x="0.2039" y="0.0" width="39.7848" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="105">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1247.3231)">
 <rect x="9.2037" y="0.0" width="39.3239" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="105">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1238.3231)">
 <rect x="9.2037" y="-2.0537" width="39.3239" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="105">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1216.0933)">
 <rect x="9.2037" y="-2.0537" width="39.3239" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="106">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(51.4852, 1247.3231)">
 <rect x="0.2039" y="0.0" width="38.7589" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="106">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(51.4852, 1238.3231)">
 <rect x="0.2039" y="-2.0537" width="38.7589" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 1210.3302)">
@@ -49565,64 +50213,88 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="110">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.6584, 1289.9840)">
 <rect x="0.2039" y="0.0" width="38.0018" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="110">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.6584, 1280.9840)">
 <rect x="0.2039" y="-2.0537" width="38.0018" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="110">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(49.6584, 1259.3231)">
 <rect x="0.2039" y="-2.0537" width="38.0018" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="111">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(87.6602, 1259.3231)">
 <rect x="0.2039" y="-2.0537" width="40.8068" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="111">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(87.6602, 1280.9840)">
 <rect x="0.2039" y="-2.0537" width="40.8068" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="111">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(87.6602, 1289.9840)">
 <rect x="0.2039" y="0.0" width="40.8068" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="112">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.4670, 1289.9840)">
 <rect x="0.2039" y="0.0" width="38.8842" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="112">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.4670, 1280.9840)">
 <rect x="0.2039" y="-2.0537" width="38.8842" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="112">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(128.4670, 1259.3231)">
 <rect x="0.2039" y="-2.0537" width="38.8842" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="109">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1289.9840)">
 <rect x="9.2037" y="0.0" width="37.4972" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="109">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1280.9840)">
 <rect x="9.2037" y="-2.0537" width="37.4972" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="109">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1259.3231)">
 <rect x="9.2037" y="-2.0537" width="37.4972" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 1269.1804)">
@@ -51059,94 +51731,130 @@ v-157c0 -11 -8 -19 -19 -19s-20 8 -20 19v142l-81 -30v-156c0 -11 -9 -20 -20 -20s-1
 <g transform="translate(63.7528, 1259.3231)">
 <rect x="-0.0697" y="1.6793" width="0.1395" height="2.1306" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="113">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1326.1353)">
 <rect x="9.2037" y="-2.0537" width="29.0262" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="116">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(92.8108, 1335.1353)">
 <rect x="0.2039" y="0.0" width="22.1753" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="116">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(92.8108, 1326.1353)">
 <rect x="0.2039" y="-2.0537" width="22.1753" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="116">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(92.8108, 1301.9840)">
 <rect x="0.2039" y="-2.0537" width="22.1753" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="115">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(63.3449, 1335.1353)">
 <rect x="0.2039" y="0.0" width="29.4659" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="117">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(114.9861, 1301.9840)">
 <rect x="0.2039" y="-2.0537" width="29.0521" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="117">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(114.9861, 1326.1353)">
 <rect x="0.2039" y="-2.0537" width="29.0521" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="117">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(114.9861, 1335.1353)">
 <rect x="0.2039" y="0.0" width="29.0521" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="115">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(63.3449, 1326.1353)">
 <rect x="0.2039" y="-2.0537" width="29.4659" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="115">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(63.3449, 1301.9840)">
 <rect x="0.2039" y="-2.0537" width="29.4659" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="118">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(144.0383, 1335.1353)">
 <rect x="0.2039" y="0.0" width="23.3130" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="118">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(144.0383, 1326.1353)">
 <rect x="0.2039" y="-2.0537" width="23.3130" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="118">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(144.0383, 1301.9840)">
 <rect x="0.2039" y="-2.0537" width="23.3130" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="113">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1335.1353)">
 <rect x="9.2037" y="0.0" width="29.0262" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="113">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(3.1614, 1301.9840)">
 <rect x="9.2037" y="-2.0537" width="29.0262" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="114">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(41.1875, 1335.1353)">
 <rect x="0.2039" y="0.0" width="22.1574" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="114">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(41.1875, 1326.1353)">
 <rect x="0.2039" y="-2.0537" width="22.1574" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="114">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(41.1875, 1301.9840)">
 <rect x="0.2039" y="-2.0537" width="22.1574" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(41.1875, 1314.8317)">
@@ -53326,64 +54034,88 @@ c-33 -12 -67 -22 -102 -22c-58 0 -86 41 -86 80c0 36 25 71 72 71z" fill="currentCo
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="120">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3096, 1377.9390)">
 <rect x="0.2039" y="0.0" width="38.4867" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="120">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3096, 1368.9390)">
 <rect x="0.2039" y="-2.0537" width="38.4867" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="121">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.7962, 1347.1353)">
 <rect x="0.2039" y="-2.0537" width="38.4981" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="121">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.7962, 1368.9390)">
 <rect x="0.2039" y="-2.0537" width="38.4981" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="121">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(88.7962, 1377.9390)">
 <rect x="0.2039" y="0.0" width="38.4981" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="122">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.2944, 1377.9390)">
 <rect x="0.2039" y="0.0" width="40.0569" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="122">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.2944, 1368.9390)">
 <rect x="0.2039" y="-2.0537" width="40.0569" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="122">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(127.2944, 1347.1353)">
 <rect x="0.2039" y="-2.0537" width="40.0569" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="119">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1377.9390)">
 <rect x="9.2037" y="0.0" width="38.1483" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="119">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1368.9390)">
 <rect x="9.2037" y="-2.0537" width="38.1483" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="119">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1347.1353)">
 <rect x="9.2037" y="-2.0537" width="38.1483" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="120">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(50.3096, 1347.1353)">
 <rect x="0.2039" y="-2.0537" width="38.4867" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 1340.3953)">
@@ -54853,49 +55585,67 @@ c-33 -12 -67 -22 -102 -22c-58 0 -86 41 -86 80c0 36 25 71 72 71z" fill="currentCo
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="125">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(115.5491, 1420.2426)">
 <rect x="0.2039" y="0.0" width="51.8022" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="125">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(115.5491, 1411.2426)">
 <rect x="0.2039" y="-2.0537" width="51.8022" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="125">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(115.5491, 1389.9390)">
 <rect x="0.2039" y="-2.0537" width="51.8022" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="123">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1420.2426)">
 <rect x="9.2037" y="0.0" width="51.6035" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="123">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1411.2426)">
 <rect x="9.2037" y="-2.0537" width="51.6035" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="123">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(3.1614, 1389.9390)">
 <rect x="9.2037" y="-2.0537" width="51.6035" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="124">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(63.7648, 1389.9390)">
 <rect x="0.2039" y="-2.0537" width="51.7843" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="124">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(63.7648, 1411.2426)">
 <rect x="0.2039" y="-2.0537" width="51.7843" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="124">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(63.7648, 1420.2426)">
 <rect x="0.2039" y="0.0" width="51.7843" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 1383.5126)">
@@ -55964,64 +56714,88 @@ c-19 0 -54 -1 -54 -66c0 -62 30 -96 30 -99c0 -5 -4 -8 -9 -8c-13 0 -99 130 -99 204
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="127">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(50.3113, 1461.1225)">
 <rect x="0.2039" y="0.0" width="38.5405" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="127">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(50.3113, 1452.1225)">
 <rect x="0.2039" y="-2.0537" width="38.5405" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="127">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(50.3113, 1432.2426)">
 <rect x="0.2039" y="-2.0537" width="38.5405" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="128">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(88.8518, 1432.2426)">
 <rect x="0.2039" y="-2.0537" width="38.8795" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="128">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(88.8518, 1452.1225)">
 <rect x="0.2039" y="-2.0537" width="38.8795" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="129">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(127.7313, 1461.1225)">
 <rect x="0.2039" y="0.0" width="39.6199" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="129">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(127.7313, 1452.1225)">
 <rect x="0.2039" y="-2.0537" width="39.6199" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="129">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(127.7313, 1432.2426)">
 <rect x="0.2039" y="-2.0537" width="39.6199" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="126">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1461.1225)">
 <rect x="9.2037" y="0.0" width="38.1501" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="126">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1452.1225)">
 <rect x="9.2037" y="-2.0537" width="38.1501" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="126">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1432.2426)">
 <rect x="9.2037" y="-2.0537" width="38.1501" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="128">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(88.8518, 1461.1225)">
 <rect x="0.2039" y="0.0" width="38.8795" height="0.0" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(50.3113, 1441.6225)">
@@ -57447,64 +58221,88 @@ c-19 0 -54 -1 -54 -66c0 -62 30 -96 30 -99c0 -5 -4 -8 -9 -8c-13 0 -99 130 -99 204
 <g transform="translate(65.3897, 1432.2426)">
 <rect x="-0.0697" y="-2.9986" width="0.1395" height="3.3193" ry="0.0444" fill="currentColor"/>
 </g>
+<g data-bar="131">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(49.7983, 1502.0023)">
 <rect x="0.2039" y="0.0" width="37.7138" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="132">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(87.5122, 1473.1225)">
 <rect x="0.2039" y="-2.0537" width="37.7138" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="132">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(87.5122, 1493.0023)">
 <rect x="0.2039" y="-2.0537" width="37.7138" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="132">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(87.5122, 1502.0023)">
 <rect x="0.2039" y="0.0" width="37.7138" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="131">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(49.7983, 1493.0023)">
 <rect x="0.2039" y="-2.0537" width="37.7138" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="131">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(49.7983, 1473.1225)">
 <rect x="0.2039" y="-2.0537" width="37.7138" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="133">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(125.2260, 1502.0023)">
 <rect x="0.2039" y="0.0" width="42.1252" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="133">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(125.2260, 1493.0023)">
 <rect x="0.2039" y="-2.0537" width="42.1252" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="133">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(125.2260, 1473.1225)">
 <rect x="0.2039" y="-2.0537" width="42.1252" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="130">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1502.0023)">
 <rect x="9.2037" y="0.0" width="37.6371" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="130">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1493.0023)">
 <rect x="9.2037" y="-2.0537" width="37.6371" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="130">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1473.1225)">
 <rect x="9.2037" y="-2.0537" width="37.6371" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(167.3512, 1482.5023)">
@@ -58943,94 +59741,130 @@ c-33 -12 -67 -22 -102 -22c-58 0 -86 41 -86 80c0 36 25 71 72 71z" fill="currentCo
 <path transform="scale(0.0040, -0.0040)" d="M0 -45c0 92 113 182 214 182c64 0 112 -36 112 -92c0 -88 -108 -182 -217 -182c-68 0 -109 39 -109 92z" fill="currentColor"/>
 </g>
 </a>
+<g data-bar="134">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1539.9416)">
 <rect x="9.2037" y="-2.0537" width="19.5222" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="136">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(64.0562, 1548.9416)">
 <rect x="0.2039" y="0.0" width="34.2740" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="136">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(64.0562, 1539.9416)">
 <rect x="0.2039" y="-2.0537" width="34.2740" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="136">
 <g color="rgba(67.8431%, 84.7059%, 90.1961%, 100.0000%)">
 <g transform="translate(64.0562, 1516.0437)">
 <rect x="0.2039" y="-2.0537" width="34.2740" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="137">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(98.3301, 1516.0437)">
 <rect x="0.2039" y="-2.0537" width="32.6364" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="137">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(98.3301, 1539.9416)">
 <rect x="0.2039" y="-2.0537" width="32.6364" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="139">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(167.5551, 1548.9416)">
 <rect x="0.0000" y="0.0" width="0.0000" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="139">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(167.5551, 1539.9416)">
 <rect x="0.0000" y="0.0" width="0.0000" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="139">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(167.5551, 1516.0437)">
 <rect x="0.0000" y="0.0" width="0.0000" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="138">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(130.9666, 1548.9416)">
 <rect x="0.2039" y="0.0" width="36.3847" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="138">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(130.9666, 1539.9416)">
 <rect x="0.2039" y="-2.0537" width="36.3847" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="138">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(130.9666, 1516.0437)">
 <rect x="0.2039" y="-2.0537" width="36.3847" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="134">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1548.9416)">
 <rect x="9.2037" y="0.0" width="19.5222" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="134">
 <g color="rgba(100%, 100%, 87.8431%, 100.0000%)">
 <g transform="translate(3.1614, 1516.0437)">
 <rect x="9.2037" y="-2.0537" width="19.5222" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="135">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(31.6835, 1548.9416)">
 <rect x="0.2039" y="0.0" width="32.3727" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="137">
 <g color="rgba(56.4706%, 93.3333%, 56.4706%, 100.0000%)">
 <g transform="translate(98.3301, 1548.9416)">
 <rect x="0.2039" y="0.0" width="32.6364" height="0.0" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="135">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(31.6835, 1539.9416)">
 <rect x="0.2039" y="-2.0537" width="32.3727" height="4.1073" ry="0.0000" fill="currentColor"/>
 </g>
 </g>
+</g>
+<g data-bar="135">
 <g color="rgba(100%, 71.3725%, 75.6863%, 100.0000%)">
 <g transform="translate(31.6835, 1516.0437)">
 <rect x="0.2039" y="-2.0537" width="32.3727" height="4.1073" ry="0.0000" fill="currentColor"/>
+</g>
 </g>
 </g>
 <g transform="translate(64.0562, 1516.0437)">

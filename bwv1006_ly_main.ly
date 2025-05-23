@@ -144,6 +144,7 @@ bwvOneThousandSixScore = {
   <<
     \new StaffGroup <<
       \new Staff {
+        \set Staff.midiInstrument = #"electric guitar (jazz)"
         \set Staff.midiMinimumVolume = #0.5  % Increase from default 0.2
         \set Staff.midiMaximumVolume = #0.8  % Max volume
         \set Staff.midiChannel = #0

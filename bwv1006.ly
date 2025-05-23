@@ -92,12 +92,22 @@ layoutBreaks = {
         \Voice
         \override StringNumber.stencil = ##f
       }
-      \context {
-        \Staff
-        \consists \Auto_measure_highlight_engraver
-        \consists Staff_highlight_engraver
-        \override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
-      }      
+      %% \context {
+      %%   \Staff
+      %%   \consists \Auto_measure_highlight_engraver
+      %%   \consists Staff_highlight_engraver
+      %%   \override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
+      %% }            
+      #(if (equal? (ly:get-option 'backend) 'svg)
+        (ly:parser-include-string 
+          "\\context {
+            \\Staff
+            \\consists \\Auto_measure_highlight_engraver
+            \\consists Staff_highlight_engraver
+            \\override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
+          }"
+        )
+      )      
     }
   }
 }

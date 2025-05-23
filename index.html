@@ -140,17 +140,6 @@
       } catch (err) {
         console.error("Setup error:", err);
       }
-      // const svg = document.querySelector("svg");
-      // if (svg) {
-      //   const vb = svg.getAttribute("viewBox");  // e.g. "0.0000 -0.0000 132.7795 1557.5091"
-      //   if (vb) {
-      //     const parts = vb.trim().split(/\s+/);
-      //     if (parts.length === 4) {
-      //       parts[1] = "78.0000";  // set y offset to 120
-      //       svg.setAttribute("viewBox", parts.join(" "));
-      //     }
-      //   }
-      // }      
       document.getElementById("loading")?.classList.add("d-none");
     }
 

@@ -38,7 +38,7 @@ Auto_measure_highlight_engraver =
    (let ((props '(name cause stencil color span-direction
                        direction after-line-breaking
                        output-attributes extent bar-number)))
-     (display ">>>> grob debug dump:\n")
+     ;; (display ">>>> grob debug dump:\n")
      (for-each
       (lambda (key)
         (let ((val (ly:grob-property grob key #f)))
@@ -51,10 +51,10 @@ Auto_measure_highlight_engraver =
    (let* ((ev     (ly:grob-property grob 'cause))
           (clazz  (and ev (ly:event-property ev 'class)))
           (bar-num (and ev (ly:event-property ev 'bar-number))))
-     (display
-      (format #f ">>>> event class: ~a, bar-num: ~a~%"
-              clazz
-              (if (number? bar-num) bar-num "NOT A NUMBER")))
+     ;; (display
+     ;;  (format #f ">>>> event class: ~a, bar-num: ~a~%"
+     ;;          clazz
+     ;;          (if (number? bar-num) bar-num "NOT A NUMBER")))
      (when (and (list? clazz)
                 (member 'staff-highlight-event clazz)
                 (number? bar-num))
