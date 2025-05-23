@@ -1,5 +1,6 @@
 \version "2.25.26"
 
+\include "highlight-bars.ily"
 \include "bwv1006_ly_main.ly"
 
 #(set-global-staff-size 18) % Slightly smaller staff
@@ -91,6 +92,11 @@ layoutBreaks = {
         \Voice
         \override StringNumber.stencil = ##f
       }
+      \context {
+        \Staff
+        \consists \Auto_measure_highlight_engraver
+        \consists Staff_highlight_engraver
+      }      
     }
   }
 }
