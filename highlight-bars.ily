@@ -34,19 +34,6 @@ Auto_measure_highlight_engraver =
              (ly:broadcast (ly:context-event-source context) start))
            (set! last-bar current-bar)))))))
 
-#(define (debug-print-grob-properties grob)
-   (let ((props '(name cause stencil color span-direction
-                       direction after-line-breaking
-                       output-attributes extent bar-number)))
-     ;; (display ">>>> grob debug dump:\n")
-     (for-each
-      (lambda (key)
-        (let ((val (ly:grob-property grob key #f)))
-          (when val
-            (display (format #f "    ~a = ~a\n" key val)))))
-      props)))
-
-
 #(define (add-data-bar-to-highlight grob)
    (let* ((ev     (ly:grob-property grob 'cause))
           (clazz  (and ev (ly:event-property ev 'class)))
