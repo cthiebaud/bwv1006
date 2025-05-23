@@ -79,4 +79,4 @@ http://localhost:8000
 to view the animated score.
 
 
-![Bach's Seal](images/Bach_Seal_blurred_gray_bg_final.svg)
+![Bach's Seal](media/Bach_Seal_blurred_gray_bg_final.svg)
