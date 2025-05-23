@@ -82,9 +82,35 @@
     const notesPath = "bwv1006_json_notes.json";
     const audio = document.getElementById("audio");
 
+    // ADD THESE NEW CONSTANTS FOR BAR CALCULATION
+    const TOTAL_DURATION_SECONDS = 207;
+    const TOTAL_BARS = 138;
+    const SECONDS_PER_BAR = TOTAL_DURATION_SECONDS / TOTAL_BARS; // = 1.5 seconds per bar
+
     let notes = [], remainingNotes = [], offCandidateNotes = [];
     let svgGlobal, noteDataGlobal;
     let isPlaying = false;
+    let currentVisibleBar = -1; // ADD THIS NEW VARIABLE
+
+    // ADD THESE NEW FUNCTIONS FOR BAR HIGHLIGHTING
+    function getCurrentBar(currentTime) {
+      // Calculate which bar we're in (1-indexed)
+      // Clamp to valid range: bars 1-138
+      const barNumber = Math.floor(currentTime / SECONDS_PER_BAR) + 1;
+      return Math.max(1, Math.min(TOTAL_BARS, barNumber));
+    }
+
+    function hideAllBars() {
+      document.querySelectorAll('g[data-bar]').forEach(g => {
+        g.style.visibility = 'hidden';
+      });
+    }
+
+    function showBar(barNumber) {
+      document.querySelectorAll(`g[data-bar="${barNumber}"]`).forEach(g => {
+        g.style.visibility = 'visible';
+      });
+    }
 
     function initializeNotes() {
       notes = noteDataGlobal.map(n => {
@@ -136,7 +162,11 @@
         initializeNotes();
         initEventHandlers();
 
+        // ADD THIS LINE: Hide all bars initially
+        hideAllBars();
+
         console.log(`Loaded ${notes.length} notes`);
+        console.log(`Calculated: ${SECONDS_PER_BAR.toFixed(2)} seconds per bar (${TOTAL_BARS} bars in ${TOTAL_DURATION_SECONDS}s)`);
       } catch (err) {
         console.error("Setup error:", err);
       }
@@ -151,6 +181,7 @@
       note.elements.forEach(el => el.classList.remove("active"));
     }
 
+    // MODIFY THIS FUNCTION: Add bar highlighting to syncLoop
     function syncLoop() {
       if (!isPlaying) return; // Don't proceed if audio is paused or ended
 
@@ -169,14 +200,26 @@
         return true;
       });
 
+      // ADD BAR HIGHLIGHTING
+      const currentBar = getCurrentBar(now);
+      if (currentBar !== currentVisibleBar) {
+        hideAllBars();
+        showBar(currentBar);
+        currentVisibleBar = currentBar;
+        console.log(`Showing bar ${currentBar} at time ${now.toFixed(2)}s`);
+      }
+
       requestAnimationFrame(syncLoop);
     }
 
+    // MODIFY THIS FUNCTION: Add bar reset
     function resetAnimationState() {
       isPlaying = false;
       audio.currentTime = 0;
       initializeNotes();
       svgGlobal?.querySelectorAll("a.active").forEach(el => el.classList.remove("active"));
+      hideAllBars(); // ADD THIS LINE
+      currentVisibleBar = -1; // ADD THIS LINE
     }
 
     if (audio.readyState >= 1) {
@@ -185,6 +228,7 @@
       audio.addEventListener("loadedmetadata", setup);
     }
 
+    // MODIFY THIS FUNCTION: Add bar highlighting to seeked event
     function initEventHandlers() {
 
       audio.addEventListener("play", () => {
@@ -202,7 +246,14 @@
 
         svgGlobal?.querySelectorAll("a.active").forEach(el => el.classList.remove("active"));
         offCandidateNotes.forEach(note => highlightNote(note));
-        console.log("seeked to", now.toFixed(3), "→ notes updated");
+        
+        // ADD BAR HIGHLIGHTING ON SEEK
+        const currentBar = getCurrentBar(now);
+        hideAllBars();
+        showBar(currentBar);
+        currentVisibleBar = currentBar;
+        
+        console.log("seeked to", now.toFixed(3), "→ notes updated, showing bar", currentBar);
       });
 
       audio.addEventListener("pause", () => {

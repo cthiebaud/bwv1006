@@ -29,7 +29,7 @@ def extract_note_intervals(midi_path):
 
     # Compute tempo so that max_tick maps to audio_duration
     tempo = int(audio_duration_seconds * 1_000_000 * ticks_per_beat / max_tick)
-    ## print(f"Computed tempo to match audio: {tempo} μs per beat")
+    print(f"Computed tempo to match audio: {tempo} μs per beat")
 
     # Convert tick values to seconds using computed tempo
     for note in note_events:
