@@ -153,13 +153,17 @@ layoutBreaks = #(generate-layout-breaks break-structure)
     % >>
     \bwvOneThousandSixScore
     \layout {
-      \override NoteHead.font-size = #2
+      % Apply larger note heads only for SVG output
+      #(if is-svg?
+           (ly:parser-include-string 
+             "\\override NoteHead.font-size = #2")
+           )
       \context {
         \Voice
         \override StringNumber.stencil = ##f
       }
       % Apply highlighting only for SVG output
-      #(if (equal? (ly:get-option 'backend) 'svg)
+      #(if is-svg?
            (ly:parser-include-string 
              "\\context {
                \\Staff

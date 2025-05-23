@@ -9,3 +9,5 @@ bwv1006_ly_one_line.svg
 bwv1006_ly_one_line.midi
 debug.txt
 .build_cache.json
+bwv1006_svg_no_hrefs_in_tabs_bounded.svg
+bwv1006_svg_no_hrefs_in_tabs.svg

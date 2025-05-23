@@ -121,7 +121,7 @@ def optimize_svg(c, force=False):
         sources=[Path("bwv1006_svg_no_hrefs_in_tabs_bounded.svg")],
         targets=["bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg"],
         commands=[
-            "python3 scripts/optimize_svg.py"
+            "python3 scripts/svg_optimize.py"
         ],
         force=force,
     )
