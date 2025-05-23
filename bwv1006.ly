@@ -88,6 +88,7 @@ layoutBreaks = {
       %%   #{ <> #})
     >>
     \layout {
+      \override NoteHead.font-size = #2
       \context {
         \Voice
         \override StringNumber.stencil = ##f
