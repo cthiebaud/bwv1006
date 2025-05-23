@@ -1,7 +1,5 @@
 # BWV 1006
 
-[▶️ Watch the animated score on Facebook](https://www.facebook.com/christophe.thiebaud/videos/1061199609199250)
-
 ![bwv1006](bwv1006.svg)
 
 
