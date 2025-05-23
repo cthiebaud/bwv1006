@@ -12,52 +12,64 @@
 #(if (not is-svg?)
      (set-global-staff-size 16))   
 
-breakEvery = #(define-music-function (count bars-per-line) (integer? integer?)
-  #{
-    \repeat unfold #count {
-      \repeat unfold #bars-per-line { s2. | }
-      \break
-    }
-  #})     
-
 % Common break structure - list of (count bars-per-line) pairs
 #(define break-structure
-   (list (list 1  2)
-         (list 1  4)
-         (list 1  2)
-         (list 6  4)
-         (list 2  3)
-         (list 11 4)
-         (list 1  3)
-         (list 1  4)
-         (list 1  3)
-         (list 1  6)
-         (list 2  3)
-         (list 2  4)
-         (list 1  6)
-         (list 1  4)
-         (list 1  3)
-         (list 1  4)
-         (list 1  4)
-         (list 1  5)))
+   (list (list 1  2 )  ;  1   
+         (list 1  4 )  ;  3  
+         (list 1  2 )  ;  7  
+         (list 2  4 )  ;  9
+         (list 1  12)  ;  17   
+         (list 1  4 )  ;  29  
+         (list 1  6 )  ;  33  
+         (list 1  4 )  ;  39  
+         (list 6  4 )  ;  43  
+         (list 1  12)  ;  67  
+         (list 1  4 )  ;  79  
+         (list 1  7 )  ;  83  
+         (list 1  3 )  ;  90  
+         (list 1  6 )  ;  93  
+         (list 1  3 )  ;  99  
+         (list 1  7 )  ; 102  
+         (list 1  4 )  ; 109   
+         (list 3  2 )  ; 113   
+         (list 1  4 )  ; 119   
+         (list 1  7 )  ; 123   
+         (list 2  4 )  ; 130    
+         (list 1  1 )  ; 138
+  )               
+)
+
+
+% % % % % % % % % % % % % % % % % % % 
+% not used anynore, left to ensure it still compiles
+
+breakEvery = #(define-music-function (count bars-per-line whole-bar-silence) (integer? integer? ly:music?)
+  #{
+    \repeat unfold #count {
+      \repeat unfold #bars-per-line { #whole-bar-silence | }
+      \break
+    }
+  #})    
 
 % Generate layoutBreaks from the structure
 #(define (generate-layout-breaks structure)
-   (let ((music-list (list)))
+   (let ((music-list (list))
+         (bar-rest (make-music 'SkipEvent 'duration (ly:make-duration 1 1))))
      (for-each
       (lambda (break-item)
         (let ((count (car break-item))
               (bars-per-line (cadr break-item)))
           (set! music-list 
                 (append music-list 
-                        (list #{
-                          \breakEvery #count #bars-per-line
-                        #})))))
+                        (list (breakEvery count bars-per-line bar-rest))))))
       structure)
      (make-sequential-music music-list)))
 
 % Generate the layoutBreaks using our structure
 layoutBreaks = #(generate-layout-breaks break-structure)
+
+% end of not used anynore
+% % % % % % % % % % % % % % % % % % % 
 
 % Generate line-starting bars from the structure  
 #(define (calculate-line-starts structure)
@@ -82,11 +94,11 @@ layoutBreaks = #(generate-layout-breaks break-structure)
      (let ((sorted-list (sort line-starts <)))
        (reverse (cdr (reverse sorted-list))))))
 
-% Debug: Print the calculated line starts
-#(display (format #f "Line starting bars: ~a~%" (calculate-line-starts break-structure)))
-
 % Generate the line-starting bars list
 #(define line-starting-bars (calculate-line-starts break-structure))
+
+% Debug: Print the calculated line starts (uncomment to see)
+#(display (format #f "Line starting bars: ~a~%" line-starting-bars))
 
 % Define the condition function using the calculated line starts
 #(define (highlight-line-breaks bar-num colors-list)
@@ -95,9 +107,6 @@ layoutBreaks = #(generate-layout-breaks break-structure)
        1))
 
 % The highlighting will be applied in the \layout block of the score
-
-% Debug: Print the calculated line starts (uncomment to see)
-% #(display (format #f "Line starting bars: ~a~%" line-starting-bars))
 
 % Formatted one-pager for display
 \book {
@@ -118,27 +127,31 @@ layoutBreaks = #(generate-layout-breaks break-structure)
   }
 
   \score {
-    <<
-      \bwvOneThousandSixScore
-      % Include break logic
-      \new Staff \with {
-        \remove "Staff_symbol_engraver"
-        \remove "Clef_engraver"
-        \remove "Time_signature_engraver"
-        \remove "Bar_engraver"
-        \override VerticalAxisGroup.staff-staff-spacing = #'((basic-distance . 0))
-        \override StaffSymbol.line-count = #0
-      } 
-      <<
-        \new Voice \with {
-          \remove "Note_heads_engraver"
-          \remove "Rest_engraver"
-          \remove "Stem_engraver"
-          \remove "Beam_engraver"
-          \remove "Tuplet_engraver"
-        } \layoutBreaks
-      >>
-    >>
+    % % % % % % % % % % % % % % % % % % % 
+    % not used anynore
+    %
+    % <<
+    %   \bwvOneThousandSixScore
+    %   % Include break logic
+    %   \new Staff \with {
+    %     \remove "Staff_symbol_engraver"
+    %     \remove "Clef_engraver"
+    %     \remove "Time_signature_engraver"
+    %     \remove "Bar_engraver"
+    %     \override VerticalAxisGroup.staff-staff-spacing = #'((basic-distance . 0))
+    %     \override StaffSymbol.line-count = #0
+    %   } 
+    %   <<
+    %     \new Voice \with {
+    %       \remove "Note_heads_engraver"
+    %       \remove "Rest_engraver"
+    %       \remove "Stem_engraver"
+    %       \remove "Beam_engraver"
+    %       \remove "Tuplet_engraver"
+    %     } \layoutBreaks
+    %   >>
+    % >>
+    \bwvOneThousandSixScore
     \layout {
       \override NoteHead.font-size = #2
       \context {
