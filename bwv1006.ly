@@ -96,6 +96,7 @@ layoutBreaks = {
         \Staff
         \consists \Auto_measure_highlight_engraver
         \consists Staff_highlight_engraver
+        \override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
       }      
     }
   }
