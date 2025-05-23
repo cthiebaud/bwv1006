@@ -43,6 +43,14 @@ layoutBreaks = {
   \breakEvery 1  5  % 138
 }
 
+% Define some custom condition functions
+#(define (highlight-strong-beats bar-num colors-list)
+   "Highlight strong beats (bars 1, 5, 9, etc.) with first color, others with second"
+   (if (= (modulo (- bar-num 1) 4) 0)
+       0  ; first color for strong beats
+       1)) % second color for other beats
+
+
 % Formatted one-pager for display
 \book {
   \bookOutputName "bwv1006"
@@ -99,16 +107,34 @@ layoutBreaks = {
       %%   \consists Staff_highlight_engraver
       %%   \override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
       %% }            
+      %%%%%% #(if (equal? (ly:get-option 'backend) 'svg)
+      %%%%%%   (ly:parser-include-string 
+      %%%%%%     "\\context {
+      %%%%%%       \\Staff
+      %%%%%%       \\consists \\Auto_measure_highlight_engraver
+      %%%%%%       \\consists Staff_highlight_engraver
+      %%%%%%       \\override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
+      %%%%%%     }"
+      %%%%%%   )
+      %%%%%% )
       #(if (equal? (ly:get-option 'backend) 'svg)
-        (ly:parser-include-string 
-          "\\context {
-            \\Staff
-            \\consists \\Auto_measure_highlight_engraver
-            \\consists Staff_highlight_engraver
-            \\override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
-          }"
+          (ly:parser-include-string 
+            "\\context {
+                \\Staff
+                % Example 1: Highlight strong beats (every 4th bar gets special color)
+                \\consists #(make-conditional-highlight-engraver 
+                              '(\"gainsboro\" \"whitesmoke\") 
+                              highlight-strong-beats)
+                \\consists Staff_highlight_engraver
+              }
+              \\context {
+                \\Score
+                % Add the data-bar attribute to spans for web output
+                \\override StaffHighlight.after-line-breaking = #add-data-bar-to-highlight
+              }
+            ")
         )
-      )      
+
     }
   }
 }
