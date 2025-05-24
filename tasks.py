@@ -21,7 +21,7 @@ def remove_outputs(*filenames, force=True):
         
 # 📁 Get all shared .ly dependencies
 def shared_ly_sources():
-    return [Path("bwv1006_ly_main.ly"), Path("defs.ily")] + list(Path(".").rglob("_?/*.ly"))
+    return [Path("bwv1006_ly_main.ly"), Path("highlight-bars.ily"), Path("defs.ily")] + list(Path(".").rglob("_?/*.ly"))
 
 # 🔐 Compute SHA256 hash of a file
 def hash_file(path):
