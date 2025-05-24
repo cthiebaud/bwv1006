@@ -23,22 +23,18 @@ def optimize_svg(input_file, output_file=None):
     output_path = Path(output_file)
     
     try:
-        # Copy original file first
-        shutil.copy2(input_path, output_path)
-        print(f"📄 Copied {input_file} → {output_file}")
-        
-        # Run SVGO optimization
-        cmd = ["npx", "svgo", "--config=svgo.config.js", str(output_path)]
+        # Run SVGO optimization (shortest syntax)
+        cmd = ["npx", "svgo", "--config=svgo.config.js", str(input_path), "-o", str(output_path)]
         result = subprocess.run(cmd, capture_output=True, text=True)
-        
+        # print(f"🎯 Optimized {input_file} → {output_file}")
+
         if result.returncode == 0:
             # Get file sizes for comparison
             original_size = input_path.stat().st_size
             optimized_size = output_path.stat().st_size
             reduction = ((original_size - optimized_size) / original_size) * 100
             
-            print(f"✅ Optimized {output_file}")
-            print(f"   📊 Size: {original_size:,} → {optimized_size:,} bytes ({reduction:.1f}% reduction)")
+            print(f"💾 Saved: {output_file} [ 📊 Size: {original_size:,} → {optimized_size:,} bytes ({reduction:.1f}% reduction) ]")
             return True
         else:
             print(f"❌ SVGO failed: {result.stderr}")
@@ -64,4 +60,4 @@ if __name__ == "__main__":
         if optimize_svg(file):
             success_count += 1
     
-    print(f"\n🎯 Optimized {success_count}/{len(files_to_optimize)} files successfully")
+    # print(f"\n🎯 Optimized {success_count}/{len(files_to_optimize)} files successfully")

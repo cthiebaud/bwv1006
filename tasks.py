@@ -54,6 +54,7 @@ def sources_changed(task_name, source_paths):
 # ✨ Unified smart task runner
 def smart_task(c, *, sources, targets, commands, force=False):
     task_name = inspect.stack()[1].function
+    print(f"--- {task_name}")
     if force or sources_changed(task_name, sources):
         remove_outputs(*targets)
         print(f"🔧 Rebuilding {task_name}...")
@@ -100,33 +101,27 @@ def build_svg(c, force=False):
     )
 
 @task(pre=[build_svg])
-def process_svg(c, force=False):
-    """Post-process the SVG to clean and adjust."""
+def postprocess_svg(c, force=False):
+    """Post-process and optimize the SVG files."""
     smart_task(
         c,
         sources=[Path("bwv1006.svg")],
-        targets=["bwv1006_svg_no_hrefs_in_tabs.svg", "bwv1006_svg_no_hrefs_in_tabs_bounded.svg"],
+        targets=[
+            "bwv1006_svg_no_hrefs_in_tabs.svg", 
+            "bwv1006_svg_no_hrefs_in_tabs_bounded.svg",
+            "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg",
+            "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg"
+        ],
         commands=[
             "python3 scripts/svg_remove_hrefs_in_tabs.py",
             "python3 scripts/svg_tighten_viewbox.py",
+            "python3 scripts/svg_optimize.py",
+            "python3 scripts/svg_prepare_for_swell.py bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg"
         ],
         force=force,
     )
 
-@task(pre=[process_svg])
-def optimize_svg(c, force=False):
-    """Optimize SVG files with SVGO."""
-    smart_task(
-        c,
-        sources=[Path("bwv1006_svg_no_hrefs_in_tabs_bounded.svg")],
-        targets=["bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg"],
-        commands=[
-            "python3 scripts/svg_optimize.py"
-        ],
-        force=force,
-    )
-
-@task(pre=[optimize_svg])
+@task
 def build_svg_one_line(c, force=False):
     """Generate one-line SVG score with LilyPond."""
     smart_task(
@@ -163,7 +158,7 @@ def all(c, force=False):
     """Run the full build and post-processing pipeline."""
     build_pdf(c, force=force)
     build_svg(c, force=force)
-    process_svg(c, force=force)
+    postprocess_svg(c, force=force)
     build_svg_one_line(c, force=force)
     json_notes(c, force=force)
     print(f"\n✅✅✅ All steps completed successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ✅✅✅")
