@@ -1,0 +1,32 @@
+{
+  "lilypond_test": {
+    "command": "docker run -v \"$(pwd):/work\" codello/lilypond:dev bwv1006.ly",
+    "reads": [
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_3/m130_133.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_1/m017_028_alternate.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_1/m001_008.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_2/m093_098.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_3/m109_118.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_1/m051_058.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/bwv1006.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/bwv1006_ly_one_line.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_2/m079_092.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_3/m134_end.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_3/m119_122.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_1/m043_050.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_2/m067_078.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_1/m017_028.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_1/m009_016.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_1/m029_042.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_3/m123_129.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/highlight-bars.ily",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_2/m059_066.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/bwv1006_ly_main.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_2/m099_108.ly",
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/_2/m067_078_alternate.ly"
+    ],
+    "writes": [
+      "/Users/christophe.thiebaud/github.com/cthiebaud/bwv1006/bwv1006.pdf"
+    ]
+  }
+}

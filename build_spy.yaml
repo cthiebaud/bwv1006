@@ -1,0 +1,55 @@
+# Build Spy Configuration
+# Monitor these commands to discover build dependencies
+
+watch_directories:
+  - "."
+  - "./scripts"
+  - "./output"
+
+ignore_patterns:
+  - "\\.git/"
+  - "__pycache__/"
+  - "\\.pyc$"
+  - "\\.tmp$"
+  - "/tmp/"
+  - "\\.log$"
+  - "node_modules/"
+  - "\\.DS_Store"
+
+commands:
+  - name: "build_pdf"
+    command: 'docker run -v "$(pwd):/work" codello/lilypond:dev bwv1006.ly'
+    
+  - name: "build_svg" 
+    command: 'docker run -v "$(pwd):/work" codello/lilypond:dev --svg bwv1006.ly'
+    
+  - name: "process_svg"
+    command: "python3 scripts/svg_remove_hrefs_in_tabs.py"
+    
+  - name: "process_svg_bounds"
+    command: "python3 scripts/svg_tighten_viewbox.py"
+    
+  - name: "optimize_svg"
+    command: "python3 scripts/svg_optimize.py"
+    
+  - name: "build_one_line"
+    command: 'docker run -v "$(pwd):/work" codello/lilypond:dev --svg bwv1006_ly_one_line.ly'
+    
+  - name: "extract_midi"
+    command: "python3 scripts/midi_map.py"
+    
+  - name: "extract_svg_notes"
+    command: "python3 scripts/svg_extract_note_heads.py"
+    
+  - name: "align_notes"
+    command: "python3 scripts/align_pitch_by_geometry_simplified.py"
+
+# Alternative: Monitor existing build system
+existing_build_commands:
+  - "make clean"
+  - "make all"
+  # or
+  - "doit clean" 
+  - "doit"
+  # or
+  - "npm run build"

@@ -1,0 +1,91 @@
+digraph BuildPipeline {
+    rankdir=TD;
+    
+    // Files (ellipses)
+    node [shape=ellipse, style=filled, fillcolor=lightblue];
+    
+    // Source files
+    "bwv1006.ly" [label="bwv1006.ly\n(main score)"];
+    "bwv1006_ly_one_line.ly" [label="bwv1006_ly_one_line.ly\n(single line version)"];
+    "bwv1006_ly_main.ly" [label="bwv1006_ly_main.ly\n(shared)"];
+    "highlight-bars.ily" [label="highlight-bars.ily\n(shared)"];
+    "defs.ily" [label="defs.ily\n(shared)"];
+    
+    // Wildcard patterns (special notation)
+    "glob:_?/*.ly" [label="*.ly files\n(glob: _?/*.ly)", fillcolor=lightcyan, style="dashed,filled"];
+    "glob:**/*.ily" [label="*.ily files\n(glob: **/*.ily)", fillcolor=lightcyan, style="dashed,filled"];
+    "glob:scripts/*.py" [label="Python scripts\n(glob: scripts/*.py)", fillcolor=lightcyan, style="dashed,filled"];
+    
+    // Intermediate files
+    "bwv1006.pdf" [fillcolor=lightyellow];
+    "bwv1006.svg" [fillcolor=lightyellow];
+    "bwv1006_svg_no_hrefs_in_tabs.svg" [fillcolor=lightyellow];
+    "bwv1006_svg_no_hrefs_in_tabs_bounded.svg" [fillcolor=lightyellow];
+    "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg" [fillcolor=lightyellow];
+    "bwv1006_ly_one_line.svg" [fillcolor=lightyellow];
+    "bwv1006_ly_one_line.midi" [fillcolor=lightyellow];
+    
+    // Final outputs
+    "bwv1006_csv_midi_note_events.csv" [fillcolor=lightgreen];
+    "bwv1006_csv_svg_note_heads.csv" [fillcolor=lightgreen];
+    "bwv1006_json_notes.json" [fillcolor=lightgreen];
+    
+    // Wildcard outputs (generated files)
+    "glob:output/*.json" [label="JSON outputs\n(glob: output/*.json)", fillcolor=lightgreen, style="dashed,filled"];
+    "glob:temp/*.tmp" [label="Temp files\n(glob: temp/*.tmp)", fillcolor=orange, style="dashed,filled"];
+    
+    // Tasks (rectangles)
+    node [shape=box, style=filled, fillcolor=lightgray];
+    
+    "build_pdf" [label="build_pdf\ndocker run lilypond\nbwv1006.ly"];
+    "build_svg" [label="build_svg\ndocker run lilypond --svg\nbwv1006.ly"];
+    "process_svg" [label="process_svg\nsvg_remove_hrefs_in_tabs.py\nsvg_tighten_viewbox.py"];
+    "optimize_svg" [label="optimize_svg\nsvg_optimize.py"];
+    "build_svg_one_line" [label="build_svg_one_line\ndocker run lilypond --svg\nbwv1006_ly_one_line.ly"];
+    "json_notes" [label="json_notes\nmidi_map.py\nsvg_extract_note_heads.py\nalign_pitch_by_geometry_simplified.py"];
+    
+    // File -> Task dependencies (inputs)
+    "bwv1006.ly" -> "build_pdf" [color=blue, style=dashed];
+    "bwv1006_ly_main.ly" -> "build_pdf" [color=blue, style=dashed];
+    "highlight-bars.ily" -> "build_pdf" [color=blue, style=dashed];
+    "defs.ily" -> "build_pdf" [color=blue, style=dashed];
+    "glob:_?/*.ly" -> "build_pdf" [color=blue, style=dashed];
+    
+    "bwv1006.ly" -> "build_svg" [color=blue, style=dashed];
+    "glob:_?/*.ly" -> "build_svg" [color=blue, style=dashed];
+    "glob:**/*.ily" -> "build_svg" [color=blue, style=dashed];
+    
+    "bwv1006.svg" -> "process_svg" [color=blue, style=dashed];
+    "bwv1006_svg_no_hrefs_in_tabs_bounded.svg" -> "optimize_svg" [color=blue, style=dashed];
+    
+    "bwv1006_ly_one_line.ly" -> "build_svg_one_line" [color=blue, style=dashed];
+    "glob:_?/*.ly" -> "build_svg_one_line" [color=blue, style=dashed];
+    "glob:**/*.ily" -> "build_svg_one_line" [color=blue, style=dashed];
+    
+    "bwv1006_ly_one_line.svg" -> "json_notes" [color=blue, style=dashed];
+    "bwv1006_ly_one_line.midi" -> "json_notes" [color=blue, style=dashed];
+    "glob:scripts/*.py" -> "json_notes" [color=blue, style=dashed];
+    
+    // Task -> File dependencies (outputs)
+    "build_pdf" -> "bwv1006.pdf" [color=green, style=dashed];
+    "build_svg" -> "bwv1006.svg" [color=green, style=dashed];
+    "process_svg" -> "bwv1006_svg_no_hrefs_in_tabs.svg" [color=green, style=dashed];
+    "process_svg" -> "bwv1006_svg_no_hrefs_in_tabs_bounded.svg" [color=green, style=dashed];
+    "optimize_svg" -> "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg" [color=green, style=dashed];
+    "build_svg_one_line" -> "bwv1006_ly_one_line.svg" [color=green, style=dashed];
+    "build_svg_one_line" -> "bwv1006_ly_one_line.midi" [color=green, style=dashed];
+    "json_notes" -> "bwv1006_csv_midi_note_events.csv" [color=green, style=dashed];
+    "json_notes" -> "bwv1006_csv_svg_note_heads.csv" [color=green, style=dashed];
+    "json_notes" -> "bwv1006_json_notes.json" [color=green, style=dashed];
+    "json_notes" -> "glob:output/*.json" [color=green, style=dashed];
+    
+    // Cleanup task outputs
+    "cleanup" -> "glob:temp/*.tmp" [color=red, style=dashed];
+    
+    // Task -> Task dependencies (execution order)
+    "build_pdf" -> "build_svg" [color=black, style=solid];
+    "build_svg" -> "process_svg" [color=black, style=solid];
+    "process_svg" -> "optimize_svg" [color=black, style=solid];
+    "optimize_svg" -> "build_svg_one_line" [color=black, style=solid];
+    "build_svg_one_line" -> "json_notes" [color=black, style=solid];
+}
