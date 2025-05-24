@@ -1,0 +1,29 @@
+### Bach_Seal
+
+rsvg-convert -w 3840 media/Bach_Seal_full_middle_120x120.svg -o media/Bach_Seal_full_middle_120x120.png
+
+ffmpeg -loop 1 -i media/Bach_Seal_full_middle.png \
+-t 10 \
+-vf "color=white:s=3840x2160 [bg]; \
+     [0:v]scale=-1:-1 [fg]; \
+     [bg][fg]overlay=(W-w)/2:(H-h)/2,fps=60,format=yuv420p" \
+-c:v libx264 -r 60 -pix_fmt yuv420p -profile:v high -level 4.0 -preset veryslow \
+media/Bach_Seal_full_middle.mp4
+
+### Video
+
+ffmpeg -ss 5 -i video/input.mp4 -c copy video/input_shorter.mp4
+
+ffmpeg -i video/input_shorter.mp4 -i media/Bach_Seal_full_middle.mp4 \
+-filter_complex "\
+[0:v]fps=60,format=yuv420p[v0]; \
+[1:v]fps=60,format=yuv420p[v1]; \
+[v0][v1]xfade=transition=fade:duration=10:offset=43[v]; \
+[0:a]afade=out:st=43:d=10[a]" \
+-map "[v]" -map "[a]" \
+-c:v libx264 -crf 20 -preset veryslow \
+-c:a aac -b:a 192k -movflags +faststart \
+video/output.mp4
+
+ffmpeg -i output.mp4 -c copy -movflags +faststart facebook_ready.mp4
+
