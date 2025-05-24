@@ -2,131 +2,272 @@
 """
 align_pitch_by_geometry_simplified.py
 
-Matches SVG noteheads with MIDI note events, accounting for ties,
-and builds a simplified `bwv1006_json_notes.json` for SVG animation.
+Musical Score Alignment Pipeline
+================================
+
+This script aligns MIDI note events with SVG noteheads from LilyPond-generated 
+musical scores, creating a synchronized dataset for score animation. It handles
+complex musical notation including ties, accidentals, and octave variations.
+
+Input Files Required:
+- bwv1006_csv_midi_note_events.csv (MIDI timing and pitch data)
+- bwv1006_csv_svg_note_heads.csv (SVG notehead positions and LilyPond snippets)
+- bwv1006_csv_ties.csv (tie relationships between notes)
+
+Output:
+- bwv1006_json_notes.json (aligned notes with timing, pitch, and SVG references)
+
+The alignment process ensures that visual noteheads in the SVG match their
+corresponding MIDI events for precise animated score following.
 """
 
 import pandas as pd
 import json
 
-# --- Load Data ---
+# =============================================================================
+# DATA LOADING
+# =============================================================================
+
+print("📁 Loading input data files...")
 midi_df = pd.read_csv("bwv1006_csv_midi_note_events.csv")
-svg_df = pd.read_csv("bwv1006_csv_svg_note_heads.csv")
+svg_df = pd.read_csv("bwv1006_csv_svg_note_heads.csv") 
 ties_df = pd.read_csv("bwv1006_csv_ties.csv")
 
-# --- Step 1: Normalize href paths (remove editor artifacts) ---
+# =============================================================================
+# STEP 1: CLEAN SVG HREF PATHS
+# =============================================================================
+
+# Remove LilyPond editor artifacts from href paths to normalize references
+# Example: "textedit:///work/file.ly:10:5" -> "file.ly:10:5"
+print("🧹 Normalizing SVG href paths...")
 svg_df["href"] = (
     svg_df["href"]
-    .str.replace("textedit://", "", regex=False)
-    .str.replace("/work/", "", regex=False)
+    .str.replace("textedit://", "", regex=False)  # Remove protocol prefix
+    .str.replace("/work/", "", regex=False)       # Remove workspace path
 )
 
-# --- Step 2: Filter out secondaries ---
+# =============================================================================
+# STEP 2: HANDLE TIED NOTES
+# =============================================================================
+
+# In musical notation, tied notes connect multiple noteheads but represent
+# a single sustained sound. We only want the primary (first) notehead for
+# alignment, so we filter out secondary tied noteheads.
+print("🎵 Filtering out secondary tied noteheads...")
 secondary_hrefs = set(ties_df["secondary"])
-## print(f"SVG before secondary removal: {len(svg_df)}")
+original_count = len(svg_df)
 svg_df = svg_df[~svg_df["href"].isin(secondary_hrefs)].copy()
-## print(f"SVG after secondary removal: {len(svg_df)}")
+filtered_count = len(svg_df)
+print(f"   Removed {original_count - filtered_count} secondary noteheads")
 
-# --- Step 3: Sort datasets ---
-midi_df = midi_df.sort_values(by=["on", "channel", "pitch"], ascending=[True, False, True]).reset_index(drop=True)
-svg_df = svg_df.sort_values(by=["x", "y"], ascending=[True, False]).reset_index(drop=True)
+# =============================================================================
+# STEP 3: SORT DATASETS FOR ALIGNMENT
+# =============================================================================
 
-# --- Step 5: Pitch class mapping with extended accidentals ---
+# Sort MIDI events chronologically with tie-breaking rules:
+# 1. Primary: onset time (ascending)
+# 2. Secondary: channel (descending - higher channels first)  
+# 3. Tertiary: pitch (ascending)
+print("📊 Sorting datasets for geometric alignment...")
+midi_df = midi_df.sort_values(
+    by=["on", "channel", "pitch"], 
+    ascending=[True, False, True]
+).reset_index(drop=True)
+
+# Sort SVG noteheads by visual position:
+# 1. Primary: x-coordinate (left to right)
+# 2. Secondary: y-coordinate (top to bottom, hence descending)
+svg_df = svg_df.sort_values(
+    by=["x", "y"], 
+    ascending=[True, False]
+).reset_index(drop=True)
+
+# =============================================================================
+# LILYPOND PITCH PARSING
+# =============================================================================
+
 def parse_lilypond_note(note_str):
     """
     Convert LilyPond note notation to MIDI pitch value.
     
-    LilyPond uses letter notation with modifiers for accidentals and octaves:
-    - Base notes: c, d, e, f, g, a, b
-    - Accidentals: is (sharp), es/s (flat), isis (double sharp), eses (double flat)
-    - Octaves: ' (up one octave), , (down one octave)
+    LilyPond Notation System:
+    ========================
+    - Base notes: c, d, e, f, g, a, b (letter names)
+    - Sharps: add 'is' (cis = C#, fis = F#)
+    - Flats: add 'es' or 's' (bes = Bb, as = Ab) 
+    - Double sharps: add 'isis' (cisis = C##)
+    - Double flats: add 'eses' (ceses = Cbb)
+    - Octaves up: add apostrophes (c' = C4, c'' = C5)
+    - Octaves down: add commas (c, = C2, c,, = C1)
     
     Args:
-        note_str (str): LilyPond notation string (e.g., "cis'", "bes,,")
+        note_str (str): LilyPond notation (e.g., "cis'", "bes,,", "f")
         
     Returns:
-        int: Corresponding MIDI pitch value, or -1 if parsing failed
+        int: MIDI pitch number (0-127), or -1 if parsing failed
+        
+    Examples:
+        "c" -> 36 (C3 in MIDI)
+        "cis'" -> 49 (C#4)  
+        "bes,," -> 22 (Bb1)
     """
-    # Define base MIDI values for notes in the middle octave (C3 to B3)
+    # Base MIDI values for middle octave (C3=36 to B3=47)
+    # This octave choice aligns with typical LilyPond default octave
     base_notes = {
-        'c': 36, 'cis': 37, 'des': 37, 'd': 38, 'dis': 39, 'ees': 39, 'es': 39,
-        'e': 40, 'f': 41, 'fis': 42, 'ges': 42, 'g': 43, 'gis': 44, 'aes': 44,
-        'as': 44, 'a': 45, 'ais': 46, 'bes': 46, 'b': 47,
+        # Natural notes
+        'c': 36, 'd': 38, 'e': 40, 'f': 41, 'g': 43, 'a': 45, 'b': 47,
         
-        # Less common accidentals
-        'eis': 41, 'bis': 48, 'ces': 35, 'fes': 40,
+        # Single accidentals (sharps)
+        'cis': 37, 'dis': 39, 'fis': 42, 'gis': 44, 'ais': 46,
         
-        # Double accidentals
+        # Single accidentals (flats) - multiple spellings supported
+        'des': 37, 'es': 39, 'ees': 39, 'ges': 42, 'aes': 44, 'as': 44, 'bes': 46,
+        
+        # Enharmonic edge cases (rare but valid)
+        'eis': 41,  # E# = F
+        'bis': 48,  # B# = C (next octave)
+        'ces': 35,  # Cb = B (previous octave) 
+        'fes': 40,  # Fb = E
+        
+        # Double accidentals (very rare in practice)
         'cisis': 38, 'disis': 40, 'eisis': 42, 'fisis': 43, 'gisis': 45,
         'aisis': 47, 'bisis': 49,
         'ceses': 34, 'deses': 36, 'eses': 38, 'feses': 39, 'geses': 41, 
         'aeses': 43, 'beses': 45
     }
     
-    # Generate octave variations (commas for lower octaves)
-    for i in range(1, 4):  # Add up to 3 octaves down
-        for note in list(base_notes):
-            key = f"{note}{',' * i}"  # Add commas for lower octaves
-            value = base_notes[note] - i * 12  # Each octave is 12 semitones
-            if value >= 0:  # Ensure we don't go below MIDI range
-                base_notes[key] = value
+    # Generate octave variations - lower octaves (commas)
+    # Each comma drops the pitch by one octave (12 semitones)
+    base_notes_copy = dict(base_notes)  # Avoid modifying during iteration
+    for comma_count in range(1, 4):  # Support up to 3 octaves down
+        for base_note, base_pitch in base_notes_copy.items():
+            octave_note = base_note + (',' * comma_count)
+            octave_pitch = base_pitch - (comma_count * 12)
+            if octave_pitch >= 0:  # Stay within MIDI range
+                base_notes[octave_note] = octave_pitch
     
-    # Generate octave variations (apostrophes for higher octaves)
-    for i in range(1, 8):  # Add up to 7 octaves up
-        for note in list(base_notes):
-            key = f"{note}" + ("'" * i)  # Add apostrophes for higher octaves
-            value = base_notes[note] + i * 12  # Each octave is 12 semitones
-            if value <= 127:  # Ensure we don't exceed MIDI range
-                base_notes[key] = value
+    # Generate octave variations - higher octaves (apostrophes)  
+    # Each apostrophe raises the pitch by one octave (12 semitones)
+    for apostrophe_count in range(1, 8):  # Support up to 7 octaves up
+        for base_note, base_pitch in base_notes_copy.items():
+            octave_note = base_note + ("'" * apostrophe_count)
+            octave_pitch = base_pitch + (apostrophe_count * 12)
+            if octave_pitch <= 127:  # Stay within MIDI range
+                base_notes[octave_note] = octave_pitch
     
-    # Return the MIDI pitch, or -1 if not found
-    return base_notes.get(note_str.strip(), -1)
+    # Look up the note, returning -1 if not found
+    cleaned_note = note_str.strip()
+    return base_notes.get(cleaned_note, -1)
 
-# --- Step 5: Tie expansion helper ---
+# =============================================================================
+# TIE GROUP PROCESSING
+# =============================================================================
+
 def collect_full_tie_group(primary_href, ties_df):
     """
-    Given a primary href, follow all chained secondaries recursively.
+    Collect all noteheads connected by ties, starting from a primary notehead.
+    
+    Musical ties can form chains: Note A -> Note B -> Note C, where each
+    arrow represents a tie. This function follows the entire chain to collect
+    all connected noteheads for a single sustained musical event.
+    
+    Args:
+        primary_href (str): Starting notehead reference
+        ties_df (DataFrame): Tie relationships with 'primary' and 'secondary' columns
+        
+    Returns:
+        list: All href references in the tie group, including the starting primary
+        
+    Example:
+        If Note A ties to B, and B ties to C:
+        collect_full_tie_group("A", ties_df) -> ["A", "B", "C"]
     """
-    group = [primary_href]
-    visited = set(group)
-    queue = [primary_href]
+    tie_group = [primary_href]  # Start with the primary notehead
+    visited = set(tie_group)    # Track visited notes to prevent infinite loops
+    processing_queue = [primary_href]  # Notes whose ties we still need to check
 
-    while queue:
-        current = queue.pop(0)
-        secondaries = ties_df.loc[ties_df["primary"] == current, "secondary"].tolist()
-        for sec in secondaries:
-            if sec not in visited:
-                group.append(sec)
-                visited.add(sec)
-                queue.append(sec)
+    # Breadth-first search through the tie network
+    while processing_queue:
+        current_href = processing_queue.pop(0)
+        
+        # Find all notes that this current note ties TO
+        tied_secondaries = ties_df.loc[
+            ties_df["primary"] == current_href, 
+            "secondary"
+        ].tolist()
+        
+        # Add newly discovered tied notes to our group
+        for secondary_href in tied_secondaries:
+            if secondary_href not in visited:
+                tie_group.append(secondary_href)
+                visited.add(secondary_href)
+                processing_queue.append(secondary_href)  # Check its ties too
 
-    return group
+    return tie_group
 
-# --- Step 6: Match MIDI with SVG noteheads ---
-notes = []
-for i, (midi_row, svg_row) in enumerate(zip(midi_df.itertuples(), svg_df.itertuples())):
-    lp_pitch = parse_lilypond_note(svg_row.snippet)
-    midi_pc = midi_row.pitch % 12
-    lp_pc_val = lp_pitch % 12 if lp_pitch != -1 else -1
+# =============================================================================
+# MAIN ALIGNMENT PROCESS
+# =============================================================================
 
-    if lp_pc_val != midi_pc:
-        print(f"Mismatch at {i}: MIDI pitch={midi_row.pitch} ({midi_pc}) vs LP='{svg_row.snippet}' → {lp_pc_val} {svg_row.href}")
-        exit()
+print("🎯 Aligning MIDI events with SVG noteheads...")
+aligned_notes = []
+mismatch_count = 0
 
-    tie_group = collect_full_tie_group(svg_row.href, ties_df)
+# Process each MIDI-SVG pair in synchronized order
+for index, (midi_row, svg_row) in enumerate(zip(midi_df.itertuples(), svg_df.itertuples())):
+    
+    # Extract pitch information from both sources
+    lilypond_pitch = parse_lilypond_note(svg_row.snippet)
+    midi_pitch_class = midi_row.pitch % 12  # Reduce to pitch class (0-11)
+    
+    # Convert LilyPond pitch to pitch class for comparison
+    if lilypond_pitch != -1:
+        lilypond_pitch_class = lilypond_pitch % 12
+    else:
+        lilypond_pitch_class = -1  # Parsing failed
+    
+    # Verify pitch class alignment
+    if lilypond_pitch_class != midi_pitch_class:
+        print(f"⚠️  Pitch mismatch at position {index}:")
+        print(f"    MIDI: pitch={midi_row.pitch} (class={midi_pitch_class})")
+        print(f"    LilyPond: '{svg_row.snippet}' -> pitch={lilypond_pitch} (class={lilypond_pitch_class})")
+        print(f"    SVG href: {svg_row.href}")
+        mismatch_count += 1
+        exit(1)  # Stop on first mismatch for debugging
 
-    notes.append({
-        "hrefs": tie_group,
-        "on": midi_row.on,
-        "off": midi_row.off,
-        "pitch": midi_row.pitch,
-        "channel": midi_row.channel
-    })
+    # Collect all noteheads connected by ties to this primary notehead
+    complete_tie_group = collect_full_tie_group(svg_row.href, ties_df)
 
-# --- Step 7: Write output file ---
-ouput_file = "bwv1006_json_notes.json"
-with open(ouput_file, "w") as f:
-    json.dump(notes, f, indent=2)
+    # Create aligned note entry with all necessary information for animation
+    aligned_note = {
+        "hrefs": complete_tie_group,      # All SVG noteheads for this musical event
+        "on": midi_row.on,                # Start time in seconds
+        "off": midi_row.off,              # End time in seconds  
+        "pitch": midi_row.pitch,          # MIDI pitch number
+        "channel": midi_row.channel       # MIDI channel (for multi-voice music)
+    }
+    
+    aligned_notes.append(aligned_note)
 
-details = f"[ wrote {len(notes)} aligned notes ]"
-print(f"💾 Saved: {ouput_file} {details}")
+# =============================================================================
+# OUTPUT GENERATION
+# =============================================================================
+
+output_filename = "bwv1006_json_notes.json"
+print(f"💾 Writing aligned data to {output_filename}...")
+
+with open(output_filename, "w") as output_file:
+    json.dump(aligned_notes, output_file, indent=2)
+
+# Summary statistics
+note_count = len(aligned_notes)
+total_hrefs = sum(len(note["hrefs"]) for note in aligned_notes)
+tie_count = total_hrefs - note_count
+
+print(f"✅ Successfully aligned {note_count} musical events")
+print(f"   📊 {total_hrefs} total SVG noteheads")
+print(f"   🔗 {tie_count} tied noteheads")
+print(f"   💾 Saved: {output_filename}")
+
+if mismatch_count > 0:
+    print(f"⚠️  {mismatch_count} pitch mismatches detected")
