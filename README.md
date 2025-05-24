@@ -50,34 +50,36 @@ invoke all
 This will:
 
 1. Compile `bwv1006.ly` to PDF and SVG using LilyPond in Docker
-2. Post-process the SVG (remove tab anchors, tighten viewbox)
-3. **Optimize the SVG files** using SVGO for faster loading
-4. Generate the one-line score used for synchronization
-5. Extract and align MIDI and SVG data
-6. Produce a `bwv1006_json_notes.json` file for animation timing
+2. Post-process the SVG (remove tab anchors, tighten viewbox, optimize, and prepare for swell animations)
+3. Generate the one-line score used for synchronization
+4. Extract and align MIDI and SVG data
+5. Produce a `bwv1006_json_notes.json` file for animation timing
 
 You can also run steps individually:
 
 ```bash
 invoke build-pdf
 invoke build-svg
-invoke process-svg
-invoke optimize-svg      # New SVG optimization step
+invoke postprocess-svg    # Handles all SVG post-processing steps
 invoke build-svg-one-line
 invoke json-notes
 ```
 
 Add `--force` to any task to force a rebuild regardless of file changes.
 
-### 🎨 SVG Optimization
+### 🎨 SVG Post-Processing
 
-The `optimize-svg` task uses SVGO to reduce file sizes while preserving:
+The `postprocess-svg` task performs multiple optimization steps:
+- Removes href anchors from tabs
+- Tightens the SVG viewbox for better display
+- Optimizes the SVG using SVGO to reduce file sizes by 10-30%
+- Prepares the SVG for swell animations
+
+The optimization preserves:
 - Musical notation positioning and structure
 - `data-bar` attributes needed for bar highlighting
 - Element IDs required for note synchronization
 - All animation-related functionality
-
-The optimization typically reduces SVG file sizes by 10-30% for faster web loading.
 
 ---
 
