@@ -19,7 +19,7 @@ Make sure you have the following installed:
 pip install invoke
 ```
 
-### 📦 Install dependencies
+### 📦 Step 2: Install dependencies
 
 ```bash
 pip install -r scripts/requirements.txt
@@ -39,7 +39,7 @@ For SVG optimization, SVGO is automatically handled via npx (comes with Node.js)
 npm install -g svgo
 ```
 
-### ⚙️ Step 2: Build everything
+### ⚙️ Step 3: Build everything
 
 Run this from the project root:
 
