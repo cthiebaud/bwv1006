@@ -1,6 +1,6 @@
 # BWV 1006
 
-![bwv1006](bwv1006.svg)
+![bwv1006](bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg)
 
 ## 🛠️ Building the Project
 
