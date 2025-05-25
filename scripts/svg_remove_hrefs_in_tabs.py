@@ -20,6 +20,10 @@ Selective Link Removal:
 - REMOVES links from: <rect> elements (boxes, tablature backgrounds)  
 - PRESERVES links on: <path> elements (actual noteheads and musical symbols)
 
+Additionally performs namespace cleanup:
+- CONVERTS legacy xlink:href to modern href attributes
+- ELIMINATES useless xlink namespace declarations
+
 This creates cleaner SVG files optimized for musical score interaction.
 """
 
@@ -50,23 +54,24 @@ NAMESPACE_MAP = {
 
 def remove_href_from_tab_links(input_path: Path, output_path: Path):
     """
-    Remove hyperlinks from text and rectangular elements in SVG musical scores.
+    Remove hyperlinks from text and rectangular elements in SVG musical scores,
+    and convert all xlink:href attributes to modern href format.
     
-    This function processes LilyPond-generated SVG files to selectively remove
-    href attributes from elements that typically contain tablature numbers,
-    fingering annotations, or other textual content, while preserving links
-    on actual musical noteheads.
+    This function processes LilyPond-generated SVG files to:
+    1. Convert legacy xlink:href attributes to modern href attributes
+    2. Selectively remove href attributes from non-musical elements
+    3. Preserve links on actual musical noteheads
     
     Args:
         input_path (Path): Path to input SVG file with embedded links
         output_path (Path): Path where cleaned SVG will be written
         
     Process:
-    1. Parse SVG file and locate all anchor (<a>) elements
-    2. Check each anchor for text or rectangle child elements
+    1. Parse SVG file and convert all xlink:href to href (namespace cleanup)
+    2. Locate all anchor (<a>) elements for link processing
     3. Remove href attributes from anchors containing text/rect elements
     4. Preserve href attributes on anchors containing only musical paths
-    5. Write cleaned SVG maintaining all other attributes and structure
+    5. Write cleaned SVG with modern href format and no xlink namespace
     
     Target Elements for Link Removal:
     - <text>: Tablature numbers, fingerings, lyrics, tempo markings
@@ -94,6 +99,28 @@ def remove_href_from_tab_links(input_path: Path, output_path: Path):
     except FileNotFoundError:
         print(f"   ❌ Input file not found: {input_path}")
         return
+    
+    # =================================================================
+    # NAMESPACE CLEANUP: CONVERT xlink:href TO href
+    # =================================================================
+    
+    print("   🔧 Converting legacy xlink:href to modern href...")
+    
+    xlink_conversion_count = 0
+    namespaced_href = f"{{{XLINK_NAMESPACE}}}href"
+    
+    # Convert xlink:href to href on ALL elements throughout the document
+    for element in svg_root.iter():
+        if namespaced_href in element.attrib:
+            # Get the href value
+            href_value = element.attrib[namespaced_href]
+            # Remove the namespaced version
+            del element.attrib[namespaced_href]
+            # Add the modern version
+            element.attrib["href"] = href_value
+            xlink_conversion_count += 1
+    
+    print(f"   ✅ Converted {xlink_conversion_count} xlink:href attributes to href")
     
     # =================================================================
     # LINK ANALYSIS AND REMOVAL
@@ -124,21 +151,9 @@ def remove_href_from_tab_links(input_path: Path, output_path: Path):
         
         # Remove href if anchor contains text or rect elements
         if contains_text or contains_rect:
-            # Handle both namespaced and non-namespaced href attributes
-            href_removed = False
-            
-            # Try namespaced href first (most common in LilyPond output)
-            namespaced_href = f"{{{XLINK_NAMESPACE}}}href"
-            if namespaced_href in anchor_element.attrib:
-                del anchor_element.attrib[namespaced_href]
-                href_removed = True
-            
-            # Try simple href attribute (alternative format)
-            elif "href" in anchor_element.attrib:
+            # Since we converted xlink:href to href above, we only need to check href
+            if "href" in anchor_element.attrib:
                 del anchor_element.attrib["href"]
-                href_removed = True
-            
-            if href_removed:
                 removed_link_count += 1
                 
     print(f"   📊 Link removal analysis:")
@@ -167,13 +182,14 @@ def remove_href_from_tab_links(input_path: Path, output_path: Path):
         size_change = cleaned_size - original_size
         
         print(f"✅ Cleanup complete: {output_path}")
-        print(f"   🔗 Removed {removed_link_count} non-musical links")
+        print(f"   🔗 Converted {xlink_conversion_count} legacy xlink:href to modern href")
+        print(f"   🗑️  Removed {removed_link_count} non-musical links")
         print(f"   📏 File size change: {original_size:,} → {cleaned_size:,} bytes ({size_change:+,})")
         
         # Provide guidance on what was preserved
         preserved_links = total_anchor_count - removed_link_count
         if preserved_links > 0:
-            print(f"   🎵 Preserved {preserved_links} musical notehead links")
+            print(f"   🎵 Preserved {preserved_links} musical notehead links (now using modern href)")
         
     except Exception as write_error:
         print(f"   ❌ Failed to write output file: {write_error}")
