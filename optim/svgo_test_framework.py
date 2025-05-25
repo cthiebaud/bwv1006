@@ -476,7 +476,7 @@ def main():
     
     input_file = sys.argv[1]
     test_command = sys.argv[2] if len(sys.argv) > 2 and sys.argv[2] else None
-    size_threshold = float(sys.argv[3]) if len(sys.argv) > 3 else 1.0
+    size_threshold = float(sys.argv[3]) if len(sys.argv) > 3 else 0.5
     
     if not Path(input_file).exists():
         print(f"❌ Input file not found: {input_file}")
