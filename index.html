@@ -22,17 +22,17 @@
     svg a[href].active {
       transform-box: fill-box;
       transform-origin: center;
-      transform: scale(1.2);
+      transform: scale(1.25);
     }
 
     /* slow transition out */
     svg a[href] path {
-      transition: fill 0.8s ease, filter 0.5s ease, transform .8s ease;
+      transition: fill 1.25s ease, filter 1.25s ease, transform 1.25s ease;
     }
 
     /* fast transition in */
     svg a[href].active path {
-      transition: fill 0.1s ease, filter 1s ease, transform 0.1s ease;
+      transition: fill 0.15s linear, filter 0.15s linear, transform 0.15s linear;
     }
 
     /* Only show bar highlights when playing - updated selector for rect elements */
@@ -86,15 +86,29 @@
   <div class="sticky-top bg-light py-2 shadow-sm border-bottom">
     <div class="container-fluid text-center">
       <h2 class="d-flex align-items-center justify-content-center position-relative">
-        <a href="https://en.wikipedia.org/wiki/Partita_for_Violin_No._3_(Bach)" target="_blank" rel="noopener noreferrer"
-          class="btn btn-light rounded-circle d-inline-flex align-items-center justify-content-center p-2 position-absolute" title="Wikipedia: Partita for Violin No. 3 (Bach)"
-          style="width: 28px; height: 28px; border: 1px solid gray; right: 33%;">
+        <span>Preludio BWV 1006</span>
+        <a id="button_wikipedia" type="button" href="https://en.wikipedia.org/wiki/Partita_for_Violin_No._3_(Bach)" target="_blank" rel="noopener noreferrer"
+          class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center justify-content-center position-absolute rounded-circle" title="Wikipedia: Partita for Violin No. 3 (Bach)"
+          style="visibility: hidden; width: 28px; height: 28px; border: 1px solid gray; right: 0;">
           <img src="media/Wikipedia's_W.svg" width="32" height="32" alt="Wikipedia"
             style="filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(388%) hue-rotate(314deg) brightness(89%) contrast(87%);">
         </a>
-        <span>Preludio BWV 1006</span>
       </h2>
-      <audio id="audio" controls src="audio/bwv1006202505211530.wav"></audio>
+      <div class="d-flex align-items-center justify-content-center position-relative">
+        <audio id="audio" class="flex-shrink-1" controls src="audio/bwv1006202505211530.wav"></audio>
+        <a id="button_scroll_to_top" type="button" 
+        class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center justify-content-center position-absolute" 
+        style="visibility: hidden; width: 28px; height: 28px; border: 1px solid gray; right: 0;"
+          title="scroll_to_top"
+          onclick="document.getElementById('svg-container').scrollIntoView({ behavior: 'smooth', block: 'start'}); return false;"
+          > 
+          <img src="media/up-arrow-svgrepo-com.svg" width="16" height="16" alt="scroll_up"
+            style="filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(388%) hue-rotate(314deg) brightness(89%) contrast(87%);">
+
+
+            
+        </a>
+      </div>
     </div>
   </div>
   <div id="loading" class="text-center my-5">
@@ -104,8 +118,8 @@
     <div>Loading score and notes…</div>
   </div>
   <!-- Centered SVG container -->
-  <div class="container-fluid">
-    <div id="svg-container" class="" style="display: grid;"></div>
+  <div class="container" >
+    <div id="svg-container" class="" style="display: grid; scroll-margin-top:120px;"></div>
   </div>
 
   <script>
@@ -115,9 +129,9 @@
     const audio = document.getElementById("audio");
 
     // ADD THESE NEW CONSTANTS FOR BAR CALCULATION
-    const TOTAL_DURATION_SECONDS = 207;
+    const TOTAL_DURATION_SECONDS = 207 - 1;
     const TOTAL_BARS = 138;
-    const SECONDS_PER_BAR = TOTAL_DURATION_SECONDS / TOTAL_BARS; // = 1.5 seconds per bar
+    const SECONDS_PER_BAR = TOTAL_DURATION_SECONDS / TOTAL_BARS;
     const VISUAL_LEAD_TIME = 0.2; // Adjust this value (in seconds)
 
     let notes = [], remainingNotes = [], offCandidateNotes = [];
@@ -232,7 +246,32 @@
       note.elements.forEach(el => el.classList.remove("active"));
     }
 
-    // MODIFY THIS FUNCTION: Add bar highlighting to syncLoop
+    // Position the button relative to the SVG
+    function positionButton() {
+      const buttons = document.querySelectorAll('#button_wikipedia, #button_scroll_to_top')
+      const svgRect = svgGlobal.getBoundingClientRect();
+      buttons.forEach(button => {
+        button.style.right = `${svgRect.left}px`;
+        button.style.zIndex = '1000';
+      })
+    }
+
+    // Debounce function to avoid excessive repositioning
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Create debounced version of positionButton
+    const debouncedPositionButton = debounce(positionButton, 50);
+
     function syncLoop() {
       if (!isPlaying) return; // Don't proceed if audio is paused or ended
 
@@ -284,8 +323,12 @@
       audio.addEventListener("loadedmetadata", setup);
     }
 
-    // MODIFY THIS FUNCTION: Add bar highlighting to seeked event
     function initEventHandlers() {
+
+      positionButton();
+      document.querySelectorAll('#button_wikipedia, #button_scroll_to_top').forEach(button => {button.style.visibility = 'visible'});
+
+      window.addEventListener('resize', debouncedPositionButton);
 
       audio.addEventListener("play", () => {
         isPlaying = true;
@@ -323,7 +366,6 @@
         resetAnimationState();
         console.log("Playback ended.");
       });
-
     }
   </script>
 </body>
