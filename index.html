@@ -60,8 +60,8 @@
     }
 
     /* Hide scroll-to-top button when playing or already at optimal position */
-    #header.playing #button_scroll_to_top,
-    #header.at-top #button_scroll_to_top {
+    .playing #button_scroll_to_top,
+    .svg-at-top #button_scroll_to_top {
       visibility: hidden !important;
     }
   </style>
@@ -70,7 +70,7 @@
 <body>
   <!-- Sticky header with audio controls and navigation buttons -->
   <div class="sticky-top bg-light py-2 shadow-sm border-bottom">
-    <div id="header" class="at-top container-fluid text-center">
+    <div id="header" class="svg-at-top container-fluid text-center">
       <h2 class="d-flex align-items-center justify-content-center position-relative">
         <span>Preludio BWV 1006</span>
         <!-- Wikipedia link button - positioned dynamically by JavaScript -->
@@ -84,13 +84,6 @@
       <div class="d-flex align-items-center justify-content-center position-relative">
         <!-- Main audio player -->
         <audio id="audio" class="flex-shrink-1" controls src="audio/bwv1006202505211530.wav"></audio>
-        <!-- Scroll-to-top button - auto-hides when not needed -->
-        <a id="button_scroll_to_top" type="button" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center justify-content-center position-absolute"
-          style="visibility: hidden; width: 28px; height: 28px; border: 1px solid gray; right: 0;" title="scroll_to_top"
-          onclick="document.getElementById('svg-container').scrollIntoView({ behavior: 'smooth', block: 'start'}); return false;">
-          <img src="media/up-arrow-svgrepo-com.svg" width="16" height="16" alt="scroll_up"
-            style="filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(388%) hue-rotate(314deg) brightness(89%) contrast(87%);">
-        </a>
       </div>
     </div>
   </div>
@@ -107,6 +100,20 @@
   <div class="container">
     <div id="svg-container"></div>
   </div>
+
+  <footer id="footer" style="z-index: 10; display: flex;"
+    class="bg-light footer fixed-bottom mt-auto py-1 d-flex flex-wrap justify-content-evenly shadow-sm border-top">
+    <div class="ms-2" style="margin: auto 0;"><!--  background: #57728b40; -->
+      <span class="text-muted" style="margin-top: auto; font-size: small;"><span>© 2025 Christophe Thiebaud</span></span>
+    </div>
+        <!-- Scroll-to-top button - auto-hides when not needed -->
+        <a id="button_scroll_to_top" type="button" class="btn btn-outline-secondary mx-2 btn-sm d-inline-flex align-items-center justify-content-center position-absolute"
+          style="visibility: hidden; width: 24px; height: 24px; border: 1px solid gray; right: 0;" title="scroll_to_top"
+          onclick="document.getElementById('svg-container').scrollIntoView({ behavior: 'smooth', block: 'start'}); return false;">
+          <img src="media/up-arrow-svgrepo-com.svg" width="16" height="16" alt="scroll_up"
+            style="filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(388%) hue-rotate(314deg) brightness(89%) contrast(87%);">
+        </a>
+  </footer>
 
   <script>
     // =============================================================================
@@ -130,7 +137,7 @@
 
     // Note data and playback state
     let notes = [], remainingNotes = [], offCandidateNotes = [];
-    let svgGlobal, noteDataGlobal, headerElementGlobal;
+    let svgGlobal, noteDataGlobal, headerElementGlobal, footerElementGlobal;
     let isPlaying = false;
     let currentVisibleBar = -1;
 
@@ -147,9 +154,11 @@
       if (isPlayingState) {
         svgGlobal.classList.add('playing');
         headerElementGlobal.classList.add('playing');
+        footerElementGlobal.classList.add('playing');
       } else {
         svgGlobal.classList.remove('playing');
         headerElementGlobal.classList.remove('playing');
+        footerElementGlobal.classList.remove('playing');
         // Clean up visual states when stopping
         svgGlobal.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
         hideAllBars();
@@ -190,7 +199,7 @@
     // =============================================================================
 
     function checkScrollButtonVisibility() {
-      if (!headerElementGlobal || !svgGlobal || isPlaying) return;
+      if (!footerElementGlobal || !svgGlobal || isPlaying) return;
 
       const svgRect = svgGlobal.getBoundingClientRect();
       const tolerance = 50;
@@ -203,9 +212,9 @@
       );
 
       if (isAtOptimalPosition) {
-        headerElementGlobal.classList.add('at-top');  // Hide button
+        footerElementGlobal.classList.add('svg-at-top');  
       } else {
-        headerElementGlobal.classList.remove('at-top');  // Show button
+        footerElementGlobal.classList.remove('svg-at-top'); 
       }
     }
 
@@ -263,7 +272,7 @@
         behavior: 'smooth'
       });
 
-      console.log(`Scrolling to bar ${barNumber}, positioning below header with padding`);
+      // console.log(`Scrolling to bar ${barNumber}, positioning below header with padding`);
     }
 
     // =============================================================================
@@ -345,6 +354,7 @@
         svgContainer.innerHTML = svgText;
         svgGlobal = svgContainer.querySelector("svg");
         headerElementGlobal = document.getElementById('header');
+        footerElementGlobal = document.getElementById('footer');
         HEADER_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
 
         if (!svgGlobal) {
@@ -385,7 +395,7 @@
     // =============================================================================
 
     function positionButton() {
-      // Position header buttons relative to SVG content for better visual alignment
+      // Position header and footer buttons relative to SVG content for better visual alignment
       const buttons = document.querySelectorAll('#button_wikipedia, #button_scroll_to_top')
       const svgRect = svgGlobal.getBoundingClientRect();
       buttons.forEach(button => {
