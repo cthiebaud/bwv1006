@@ -72,7 +72,9 @@ def smart_task(c, *, sources, targets, commands, force=False):
         else:
             print(f"✅ Up to date: {task_name}")
 
-# 🧱 Tasks
+# =============================================================================
+# LILYPOND BUILD TASKS
+# =============================================================================
 
 @task
 def build_pdf(c, force=False):
@@ -134,24 +136,79 @@ def build_svg_one_line(c, force=False):
         force=force,
     )
 
+# =============================================================================
+# PARALLEL DATA EXTRACTION TASKS
+# =============================================================================
+
 @task(pre=[build_svg_one_line])
-def json_notes(c, force=False):
-    """Run MIDI to JSON alignment steps."""
+def extract_midi_timing(c, force=False):
+    """Extract MIDI note timing data from generated MIDI file."""
     smart_task(
         c,
-        sources=[Path("bwv1006_ly_one_line.svg"), Path("bwv1006_ly_one_line.midi")],
-        targets=[
-            "bwv1006_csv_midi_note_events.csv",
-            "bwv1006_csv_svg_note_heads.csv",
-            "bwv1006_json_notes.json",
-        ],
+        sources=[Path("bwv1006_ly_one_line.midi")],
+        targets=["bwv1006_csv_midi_note_events.csv"],
         commands=[
-            "python3 scripts/midi_map.py",
-            "python3 scripts/svg_extract_note_heads.py",
-            "python3 scripts/align_pitch_by_geometry_simplified.py",
+            "python3 scripts/midi_map.py"
         ],
         force=force,
     )
+
+@task(pre=[build_svg_one_line])
+def extract_svg_noteheads(c, force=False):
+    """Extract notehead positions and pitch data from generated SVG file."""
+    smart_task(
+        c,
+        sources=[Path("bwv1006_ly_one_line.svg")],
+        targets=["bwv1006_csv_svg_note_heads.csv"],
+        commands=[
+            "python3 scripts/svg_extract_note_heads.py"
+        ],
+        force=force,
+    )
+
+@task(pre=[extract_midi_timing, extract_svg_noteheads])
+def align_data(c, force=False):
+    """Align MIDI timing data with SVG notehead positions."""
+    # Check that prerequisite files exist before proceeding
+    midi_csv = Path("bwv1006_csv_midi_note_events.csv")
+    svg_csv = Path("bwv1006_csv_svg_note_heads.csv")
+    
+    if not midi_csv.exists():
+        print(f"❌ Missing required file: {midi_csv}")
+        print("   Try running: invoke extract_midi_timing")
+        return
+    
+    if not svg_csv.exists():
+        print(f"❌ Missing required file: {svg_csv}")
+        print("   Try running: invoke extract_svg_noteheads")
+        return
+    
+    smart_task(
+        c,
+        sources=[midi_csv, svg_csv],
+        targets=["bwv1006_json_notes.json"],
+        commands=[
+            "python3 scripts/align_pitch_by_geometry_simplified.py"
+        ],
+        force=force,
+    )
+
+# =============================================================================
+# AGGREGATE TASKS
+# =============================================================================
+
+@task
+def json_notes(c, force=False):
+    """
+    Complete MIDI-to-JSON alignment pipeline (parallel extraction + alignment).
+    
+    This task runs the full data extraction and alignment workflow:
+    1. extract_midi_timing & extract_svg_noteheads (can run in parallel)
+    2. align_data (requires both CSV files)
+    """
+    extract_midi_timing(c, force=force)
+    extract_svg_noteheads(c, force=force) 
+    align_data(c, force=force)
 
 @task
 def all(c, force=False):
@@ -160,10 +217,107 @@ def all(c, force=False):
     build_svg(c, force=force)
     postprocess_svg(c, force=force)
     build_svg_one_line(c, force=force)
-    json_notes(c, force=force)
+    json_notes(c, force=force)  # This now runs the optimized parallel workflow
     print(f"\n✅✅✅ All steps completed successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ✅✅✅")
+
+# =============================================================================
+# DEVELOPMENT AND DEBUGGING TASKS
+# =============================================================================
 
 @task
 def debug_origin(c):
-    """Confirm that tasks_on_steroids.py is loaded."""
-    print("✅ This is tasks_on_steroids.py in action.")
+    """Confirm that tasks.py is loaded."""
+    print("✅ This is the optimized tasks.py with parallel processing!")
+
+@task
+def debug_csv_files(c):
+    """Debug helper to check CSV file status."""
+    csv_files = [
+        "bwv1006_csv_midi_note_events.csv",
+        "bwv1006_csv_svg_note_heads.csv"
+    ]
+    
+    print("🔍 CSV File Status:")
+    for filename in csv_files:
+        path = Path(filename)
+        if path.exists():
+            size = path.stat().st_size
+            mtime = datetime.fromtimestamp(path.stat().st_mtime)
+            print(f"   ✅ {filename}: {size:,} bytes, modified {mtime.strftime('%Y-%m-%d %H:%M:%S')}")
+            
+            # Show first few lines
+            try:
+                with open(path, 'r') as f:
+                    lines = f.readlines()[:3]
+                print(f"      Preview: {len(lines)} lines shown")
+                for i, line in enumerate(lines):
+                    print(f"      {i+1}: {line.strip()}")
+            except Exception as e:
+                print(f"      ⚠️ Could not read file: {e}")
+        else:
+            print(f"   ❌ {filename}: Missing")
+    
+    # Check if scripts exist
+    print(f"\n🔍 Script Status:")
+    scripts = [
+        "scripts/midi_map.py",
+        "scripts/svg_extract_note_heads.py", 
+        "scripts/align_pitch_by_geometry_simplified.py"
+    ]
+    
+    for script in scripts:
+        path = Path(script)
+        if path.exists():
+            print(f"   ✅ {script}")
+        else:
+            print(f"   ❌ {script}: Missing")
+
+@task
+def clean(c):
+    """Clean all generated files and build cache."""
+    files_to_clean = [
+        # LilyPond outputs
+        "bwv1006.pdf", "bwv1006.svg",
+        "bwv1006_ly_one_line.svg", "bwv1006_ly_one_line.midi",
+        
+        # SVG processing chain
+        "bwv1006_svg_no_hrefs_in_tabs.svg",
+        "bwv1006_svg_no_hrefs_in_tabs_bounded.svg", 
+        "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg",
+        "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg",
+        
+        # Data extraction outputs
+        "bwv1006_csv_midi_note_events.csv",
+        "bwv1006_csv_svg_note_heads.csv",
+        "bwv1006_json_notes.json",
+        
+        # Build cache
+        ".build_cache.json"
+    ]
+    
+    remove_outputs(*files_to_clean)
+    print("🧹 Cleaned all generated files and build cache")
+
+@task
+def status(c):
+    """Show status of all build targets."""
+    targets = {
+        "PDF": "bwv1006.pdf",
+        "Main SVG": "bwv1006.svg", 
+        "Animated SVG": "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg",
+        "One-line SVG": "bwv1006_ly_one_line.svg",
+        "MIDI Data": "bwv1006_ly_one_line.midi",
+        "MIDI Events CSV": "bwv1006_csv_midi_note_events.csv",
+        "SVG Noteheads CSV": "bwv1006_csv_svg_note_heads.csv", 
+        "Synchronized JSON": "bwv1006_json_notes.json"
+    }
+    
+    print("📊 Build Status:")
+    for name, filename in targets.items():
+        path = Path(filename)
+        if path.exists():
+            size = path.stat().st_size
+            mtime = datetime.fromtimestamp(path.stat().st_mtime)
+            print(f"   ✅ {name}: {filename} ({size:,} bytes, {mtime.strftime('%Y-%m-%d %H:%M:%S')})")
+        else:
+            print(f"   ❌ {name}: {filename} (missing)")
