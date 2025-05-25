@@ -137,7 +137,8 @@ def build_svg_one_line(c, force=False):
     )
 
 # =============================================================================
-# PARALLEL DATA EXTRACTION TASKS
+# INDEPENDENT DATA EXTRACTION TASKS
+# (These tasks have no interdependencies and could be parallelized in the future)
 # =============================================================================
 
 @task(pre=[build_svg_one_line])
@@ -200,11 +201,13 @@ def align_data(c, force=False):
 @task
 def json_notes(c, force=False):
     """
-    Complete MIDI-to-JSON alignment pipeline (parallel extraction + alignment).
+    Complete MIDI-to-JSON alignment pipeline (independent extraction + alignment).
     
     This task runs the full data extraction and alignment workflow:
-    1. extract_midi_timing & extract_svg_noteheads (can run in parallel)
-    2. align_data (requires both CSV files)
+    1. extract_midi_timing & extract_svg_noteheads (independent tasks, run sequentially)
+    2. align_data (requires both CSV files from step 1)
+    
+    Note: Steps 1a and 1b are independent and could be parallelized in future versions.
     """
     extract_midi_timing(c, force=force)
     extract_svg_noteheads(c, force=force) 

@@ -16,7 +16,7 @@ The build process follows a sophisticated pipeline that transforms LilyPond sour
 
 1. **Source Processing** - LilyPond compilation to PDF, SVG, and MIDI
 2. **SVG Optimization** - Multi-stage post-processing for web display  
-3. **Data Extraction** - Parallel extraction of timing and position data
+3. **Data Extraction** - Independent extraction of timing and position data
 4. **Synchronization** - Alignment of MIDI events with SVG noteheads
 5. **Web Integration** - Final output ready for interactive website
 
@@ -95,7 +95,7 @@ invoke <task> --force      # Force rebuild regardless of file changes
 ### 🚀 Smart Build Features
 
 - **Intelligent Caching** - Only rebuilds changed files using SHA256 hashing
-- **Parallel Processing** - MIDI and SVG extraction run independently  
+- **Independent Processing** - MIDI and SVG extraction have no interdependencies  
 - **Granular Rebuilds** - Change one script without rebuilding everything
 - **Comprehensive Logging** - Detailed progress reporting with emojis
 - **Error Isolation** - Easy debugging with individual task execution
@@ -146,7 +146,7 @@ Then open your browser at: http://localhost:8000
 
 - **File Dependencies** - The build system automatically tracks shared LilyPond includes
 - **Docker Integration** - LilyPond runs in Docker for consistent cross-platform builds  
-- **Performance** - Parallel data extraction reduces build time by ~50%
+- **Performance** - Intelligent caching and optimized task ordering reduce build time
 - **Debugging** - Use individual tasks to isolate issues in the pipeline
 
 For detailed technical documentation, see the comprehensive comments in each script under `scripts/`.
