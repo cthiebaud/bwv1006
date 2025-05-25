@@ -244,22 +244,6 @@ def debug_csv_files(c):
             print(f"   ❌ {filename}: Missing")
 
 @task
-def debug_dependencies(c):
-    """Check if all required scripts and dependencies exist."""
-    scripts = [
-        "scripts/svg_remove_hrefs_in_tabs.py",
-        "scripts/svg_prepare_for_swell.py",
-        "scripts/midi_map.py",
-        "scripts/svg_extract_note_heads.py", 
-        "scripts/align_pitch_by_geometry_simplified.py"
-    ]
-    
-    if check_script_dependencies(scripts):
-        print("\n✅ All script dependencies satisfied!")
-    else:
-        print("\n❌ Some script dependencies are missing!")
-
-@task
 def clean(c):
     """Clean all generated files and build cache."""
     remove_outputs(*ALL_GENERATED_FILES)

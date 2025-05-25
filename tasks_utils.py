@@ -235,31 +235,6 @@ def print_build_status(files):
         else:
             print(f"   ❌ {name:<18}: {filename:<75} (missing)")
 
-def check_script_dependencies(scripts):
-    """
-    Check if required scripts exist.
-    
-    Args:
-        scripts: List of script paths to check
-        
-    Returns:
-        bool: True if all scripts exist
-    """
-    print("🔍 Script Dependencies:")
-    missing = []
-    for script in scripts:
-        path = Path(script)
-        if path.exists():
-            print(f"   ✅ {script}")
-        else:
-            print(f"   ❌ {script}: Missing")
-            missing.append(script)
-    
-    if missing:
-        print(f"\n⚠️  Missing {len(missing)} required scripts!")
-        return False
-    return True
-
 def find_glob_sources(*patterns):
     """
     Find source files matching glob patterns.

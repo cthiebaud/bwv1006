@@ -88,7 +88,6 @@ invoke status              # Show build status and file sizes
 **Development & Debugging:**
 ```bash
 invoke debug-csv-files     # Check CSV file status and contents
-invoke debug-dependencies  # Check script dependencies
 invoke --list              # Show all available tasks
 invoke <task> --force      # Force rebuild regardless of file changes
 ```
