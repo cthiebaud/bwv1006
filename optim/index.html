@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Optimization Compatibility Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+
+        .test-container {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .test-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .status-pass {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-warn {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .svg-preview {
+            display: grid;
+            place-items: start center;
+            max-width: 100%;
+            height: 300px;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            overflow: auto;
+        }
+
+        svg {
+            /* width: 100%; */
+            height: auto; /* maintains aspect ratio */
+            max-width: 100%;
+        }
+
+        .test-results {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .file-input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .controls {
+            margin: 10px 0;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 2px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .highlight-test {
+            fill: red !important;
+            /* transition: background 0.3s ease; */
+        }
+
+        .swell-test {
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧪 SVG Optimization Compatibility Test</h1>
+    <p>This tool tests whether optimized SVGs maintain compatibility with musical score JavaScript interactions.</p>
+
+    <div class="file-input">
+        <input type="file" id="svgFileInput" accept=".svg" multiple>
+        <p>Drop SVG files here or click to select (supports multiple files for comparison)</p>
+    </div>
+
+    <div class="controls">
+        <button onclick="runAllTests()">🚀 Run All Tests</button>
+        <button onclick="clearResults()">🗑️ Clear Results</button>
+        <button onclick="downloadReport()">📄 Download Report</button>
+    </div>
+
+    <div id="testResults"></div>
+
+    <script>
+        let loadedSVGs = new Map();
+        let testResults = [];
+
+        // File input handling
+        document.getElementById('svgFileInput').addEventListener('change', handleFileSelect);
+
+        function handleFileSelect(event) {
+            const files = Array.from(event.target.files);
+            files.forEach(file => {
+                if (file.type === 'image/svg+xml' || file.name.endsWith('.svg')) {
+                    loadSVGFile(file);
+                }
+            });
+        }
+
+        function loadSVGFile(file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const svgContent = e.target.result;
+                const fileName = file.name;
+
+                loadedSVGs.set(fileName, {
+                    content: svgContent,
+                    size: file.size,
+                    lastModified: new Date(file.lastModified)
+                });
+
+                displaySVGTest(fileName, svgContent, file.size);
+            };
+            reader.readAsText(file);
+        }
+
+        function displaySVGTest(fileName, svgContent, fileSize) {
+            const container = document.createElement('div');
+            container.className = 'test-container';
+            container.id = `test-${fileName}`;
+
+            container.innerHTML = `
+                <div class="test-header">
+                    <h3>${fileName}</h3>
+                    <div>
+                        <span class="test-status status-warn" id="status-${fileName}">Testing...</span>
+                        <small>${(fileSize / 1024).toFixed(1)} KB</small>
+                    </div>
+                </div>
+                
+                <div class="svg-preview" id="preview-${fileName}">
+                    ${svgContent}
+                </div>
+                
+                <div class="controls">
+                    <button onclick="testNoteClicking('${fileName}')">🎵 Test Note Clicking</button>
+                    <button onclick="testBarHighlighting('${fileName}')">📊 Test Bar Highlighting</button>
+                    <button onclick="testSwellAnimation('${fileName}')">💫 Test Swell Animation</button>
+                    <button onclick="testResponsiveScaling('${fileName}')">📐 Test Responsive Scaling</button>
+                </div>
+                
+                <div class="test-results" id="results-${fileName}">
+                    Ready for testing...
+                </div>
+            `;
+
+            document.getElementById('testResults').appendChild(container);
+        }
+
+        function testNoteClicking(fileName) {
+            const results = document.getElementById(`results-${fileName}`);
+            const preview = document.getElementById(`preview-${fileName}`);
+            const svg = preview.querySelector('svg');
+
+            let testLog = [`🎵 Testing note clicking for ${fileName}:`];
+            let issues = [];
+
+            // Find g_with_href elements (note links)
+            const gs_with_href = svg.querySelectorAll('g[href]');
+            testLog.push(`Found ${gs_with_href.length} g_with_href elements`);
+
+            if (gs_with_href.length === 0) {
+                issues.push("No g with href attr elements found - note clicking may not work");
+            }
+
+            // Test g_with_href href attributes
+            let validHrefs = 0;
+            let first = true;
+            gs_with_href.forEach((g_with_href, index) => {
+                if (first) { console.log(g_with_href); first = false; }
+                const href = g_with_href.getAttribute('href');
+                if (href /* && href.startsWith('#') */) {
+                    validHrefs++;
+
+                    // Flash the element for 2 seconds
+                    const paths = g_with_href.querySelectorAll('path');
+                    const originalFills = [];
+
+                    paths.forEach((path, pathIndex) => {
+                        originalFills[pathIndex] = path.style.fill || path.getAttribute('fill');
+                        path.style.fill = 'red';
+                        path.style.strokeWidth = '2px';
+                    });
+
+                    setTimeout(() => {
+                        paths.forEach((path, pathIndex) => {
+                            path.style.fill = originalFills[pathIndex] || '';
+                            path.style.strokeWidth = '';
+                        });
+                    }, 2000);
+                }
+            });
+
+            testLog.push(`Valid g with href attr: ${validHrefs}/${gs_with_href.length}`);
+
+            if (validHrefs < gs_with_href.length * 0.8) {
+                issues.push("Many [g with href attr] missing valid href attributes");
+            }
+
+            // Check for IDs that hrefs reference
+            const hrefs = Array.from(gs_with_href).map(a => a.getAttribute('href')).filter(h => h && h.startsWith('#'));
+            const referencedIds = hrefs.map(h => h.substring(1));
+            const existingIds = Array.from(svg.querySelectorAll('[id]')).map(el => el.id);
+
+            const missingRefs = referencedIds.filter(id => !existingIds.includes(id));
+            if (missingRefs.length > 0) {
+                issues.push(`${missingRefs.length} href references point to missing IDs`);
+                testLog.push(`Missing ID references: ${missingRefs.slice(0, 5).join(', ')}${missingRefs.length > 5 ? '...' : ''}`);
+            }
+
+            updateTestStatus(fileName, issues.length === 0 ? 'pass' : 'fail', testLog, issues);
+        }
+
+        function testBarHighlighting(fileName) {
+            const results = document.getElementById(`results-${fileName}`);
+            const preview = document.getElementById(`preview-${fileName}`);
+            const svg = preview.querySelector('svg');
+
+            let testLog = [`📊 Testing bar highlighting for ${fileName}:`];
+            let issues = [];
+
+            // Find elements with data-bar attributes
+            const barElements = svg.querySelectorAll('[data-bar]');
+            testLog.push(`Found ${barElements.length} elements with data-bar attributes`);
+
+            if (barElements.length === 0) {
+                issues.push("No data-bar attributes found - measure highlighting may not work");
+            }
+
+            // Test data-bar values
+            const barValues = Array.from(barElements).map(el => el.getAttribute('data-bar'));
+            const uniqueBars = [...new Set(barValues)].sort((a, b) => parseInt(a) - parseInt(b));
+            testLog.push(`Found ${uniqueBars.length} unique bar numbers: ${uniqueBars.slice(0, 10).join(', ')}${uniqueBars.length > 10 ? '...' : ''}`);
+
+            // Test highlighting functionality
+            if (barElements.length > 0) {
+                const testBar = barElements[0].getAttribute('data-bar');
+                const elementsInBar = svg.querySelectorAll(`[data-bar="${testBar}"]`);
+
+                elementsInBar.forEach(el => {
+                    el.classList.add('highlight-test');
+                });
+
+                setTimeout(() => {
+                    elementsInBar.forEach(el => {
+                        el.classList.remove('highlight-test');
+                    });
+                }, 5000);
+
+                testLog.push(`Highlighted bar ${testBar} (${elementsInBar.length} elements) for 5 seconds`);
+            }
+
+            updateTestStatus(fileName, issues.length === 0 ? 'pass' : 'warn', testLog, issues);
+        }
+
+        function testSwellAnimation(fileName) {
+            const results = document.getElementById(`results-${fileName}`);
+            const preview = document.getElementById(`preview-${fileName}`);
+            const svg = preview.querySelector('svg');
+
+            let testLog = [`💫 Testing swell animation for ${fileName}:`];
+            let issues = [];
+
+            // Find notehead elements (usually circles, ellipses, or specific paths)
+            const noteheads = svg.querySelectorAll('circle, ellipse, path[d*="c"]');
+            testLog.push(`Found ${noteheads.length} potential notehead elements`);
+
+            if (noteheads.length === 0) {
+                issues.push("No notehead elements found for animation");
+            }
+
+            // Test swell animation on first few noteheads
+            const testNotes = Array.from(noteheads).slice(0, 5);
+            testNotes.forEach((note, index) => {
+                setTimeout(() => {
+                    note.classList.add('swell-test');
+                    setTimeout(() => {
+                        note.classList.remove('swell-test');
+                    }, 500);
+                }, index * 200);
+            });
+
+            testLog.push(`Animated ${testNotes.length} noteheads with swell effect`);
+
+            // Check for transform-origin support
+            const transformableElements = svg.querySelectorAll('[transform], circle, ellipse');
+            testLog.push(`Found ${transformableElements.length} transformable elements`);
+
+            updateTestStatus(fileName, issues.length === 0 ? 'pass' : 'warn', testLog, issues);
+        }
+
+        function testResponsiveScaling(fileName) {
+            const results = document.getElementById(`results-${fileName}`);
+            const preview = document.getElementById(`preview-${fileName}`);
+            const svg = preview.querySelector('svg');
+
+            let testLog = [`📐 Testing responsive scaling for ${fileName}:`];
+            let issues = [];
+
+            // Check viewBox
+            const viewBox = svg.getAttribute('viewBox');
+            testLog.push(`ViewBox: ${viewBox || 'Not found'}`);
+
+            if (!viewBox) {
+                issues.push("No viewBox attribute - responsive scaling may not work");
+            }
+
+            // Check width/height attributes
+            const width = svg.getAttribute('width');
+            const height = svg.getAttribute('height');
+            testLog.push(`Width: ${width || 'Not set'}, Height: ${height || 'Not set'}`);
+
+            // Test scaling by changing container size
+            const originalWidth = preview.style.width;
+            const originalHeight = preview.style.height;
+
+            // Test different sizes
+            const testSizes = ['300px', '600px', '150px'];
+            testSizes.forEach((size, index) => {
+                setTimeout(() => {
+                    preview.style.width = size;
+                    preview.style.height = 'auto';
+                    testLog.push(`Scaled to width: ${size}`);
+
+                    if (index === testSizes.length - 1) {
+                        // Restore original size
+                        setTimeout(() => {
+                            preview.style.width = originalWidth;
+                            preview.style.height = originalHeight;
+                        }, 1000);
+                    }
+                }, index * 1000);
+            });
+
+            // Check for preserveAspectRatio
+            const preserveAspectRatio = svg.getAttribute('preserveAspectRatio');
+            testLog.push(`PreserveAspectRatio: ${preserveAspectRatio || 'Default (xMidYMid meet)'}`);
+
+            updateTestStatus(fileName, issues.length === 0 ? 'pass' : 'warn', testLog, issues);
+        }
+
+        function updateTestStatus(fileName, status, testLog, issues) {
+            const statusElement = document.getElementById(`status-${fileName}`);
+            const resultsElement = document.getElementById(`results-${fileName}`);
+
+            // Update status indicator
+            statusElement.className = `test-status status-${status}`;
+            statusElement.textContent = status === 'pass' ? 'PASS' : status === 'warn' ? 'WARN' : 'FAIL';
+
+            // Update results log
+            let resultsHTML = testLog.map(line => `<div>${line}</div>`).join('');
+
+            if (issues.length > 0) {
+                resultsHTML += '<div style="color: #721c24; margin-top: 10px;"><strong>Issues:</strong></div>';
+                resultsHTML += issues.map(issue => `<div style="color: #721c24;">⚠️ ${issue}</div>`).join('');
+            }
+
+            resultsElement.innerHTML = resultsHTML;
+
+            // Store results
+            const existingIndex = testResults.findIndex(r => r.fileName === fileName);
+            const result = {
+                fileName,
+                status,
+                testLog,
+                issues,
+                timestamp: new Date().toISOString()
+            };
+
+            if (existingIndex >= 0) {
+                testResults[existingIndex] = result;
+            } else {
+                testResults.push(result);
+            }
+        }
+
+        function runAllTests() {
+            for (const fileName of loadedSVGs.keys()) {
+                setTimeout(() => testNoteClicking(fileName), 100);
+                setTimeout(() => testBarHighlighting(fileName), 300);
+                setTimeout(() => testSwellAnimation(fileName), 500);
+                setTimeout(() => testResponsiveScaling(fileName), 700);
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('testResults').innerHTML = '';
+            loadedSVGs.clear();
+            testResults = [];
+        }
+
+        function downloadReport() {
+            if (testResults.length === 0) {
+                alert('No test results to download. Run some tests first!');
+                return;
+            }
+
+            const report = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                testResults: testResults.map(result => ({
+                    ...result,
+                    svgInfo: loadedSVGs.get(result.fileName)
+                }))
+            };
+
+            const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `svg-compatibility-report-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Drag and drop functionality
+        document.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+        });
+
+        document.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const files = Array.from(e.dataTransfer.files);
+            files.forEach(file => {
+                if (file.type === 'image/svg+xml' || file.name.endsWith('.svg')) {
+                    loadSVGFile(file);
+                }
+            });
+        });
+
+        // Add some helper functions for analyzing musical SVG patterns
+        function analyzeSVGPatterns(svg) {
+            const patterns = {
+                noteheads: svg.querySelectorAll('circle, ellipse').length,
+                stems: svg.querySelectorAll('path[d*="L"], line').length,
+                beams: svg.querySelectorAll('path[d*="Q"], path[d*="C"]').length,
+                staffLines: svg.querySelectorAll('path[d*="M"][d*="L"]:not([transform])').length,
+                clefs: svg.querySelectorAll('g[id*="clef"], use[href*="clef"]').length,
+                timeSignatures: svg.querySelectorAll('[id*="time"], [id*="meter"]').length,
+                keySignatures: svg.querySelectorAll('[id*="sharp"], [id*="flat"], [id*="natural"]').length
+            };
+
+            return patterns;
+        }
+
+        // Enhanced visual feedback
+        function showTestProgress(fileName, testName) {
+            const container = document.getElementById(`test-${fileName}`);
+            if (container) {
+                container.style.borderLeft = '4px solid #007bff';
+                setTimeout(() => {
+                    container.style.borderLeft = '';
+                }, 2000);
+            }
+        }
+
+        // Auto-test when SVGs are loaded
+        let autoTestTimeout;
+        function scheduleAutoTest() {
+            clearTimeout(autoTestTimeout);
+            autoTestTimeout = setTimeout(() => {
+                if (loadedSVGs.size > 0) {
+                    console.log('Auto-running tests on loaded SVGs...');
+                    runAllTests();
+                }
+            }, 2000);
+        }
+
+        // Override the loadSVGFile function to include auto-testing
+        const originalLoadSVGFile = loadSVGFile;
+        loadSVGFile = function (file) {
+            originalLoadSVGFile(file);
+            scheduleAutoTest();
+        };
+    </script>
+</body>
+
+</html>
