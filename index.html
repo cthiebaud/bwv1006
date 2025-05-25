@@ -19,19 +19,19 @@
       max-width: 100%;
     }
 
-    svg g[href].active path {
+    svg a[href].active {
       transform-box: fill-box;
       transform-origin: center;
       transform: scale(1.2);
     }
 
     /* slow transition out */
-    svg g[href] path {
+    svg a[href] path {
       transition: fill 0.8s ease, filter 0.5s ease, transform .8s ease;
     }
 
     /* fast transition in */
-    svg g[href].active path {
+    svg a[href].active path {
       transition: fill 0.1s ease, filter 1s ease, transform 0.1s ease;
     }
 
@@ -40,42 +40,42 @@
       visibility: hidden !important;
     }
 
-    svg.playing g[href].active.channel-0 path {
+    svg.playing a[href].active.channel-0 path {
       fill: coral !important;
       filter: drop-shadow(0 0 5px coral) drop-shadow(0 0 10px coral);
     }
 
-    svg.playing g[href].active.channel-1 path {
+    svg.playing a[href].active.channel-1 path {
       fill: lightgreen !important;
       filter: drop-shadow(0 0 5px lightgreen) drop-shadow(0 0 10px lightgreen);
     }
 
-    svg.playing g[href].active.channel-2 path {
+    svg.playing a[href].active.channel-2 path {
       fill: #d73027 !important;
       filter: drop-shadow(0 0 5px #d73027) drop-shadow(0 0 10px #d73027);
     }
 
-    svg.playing g[href].active.channel-3 path {
+    svg.playing a[href].active.channel-3 path {
       fill: #fee08b !important;
       filter: drop-shadow(0 0 5px #fee08b) drop-shadow(0 0 10px #fee08b);
     }
 
-    svg.playing g[href].active.channel-4 path {
+    svg.playing a[href].active.channel-4 path {
       fill: #d9ef8b !important;
       filter: drop-shadow(0 0 5px #d9ef8b) drop-shadow(0 0 10px #d9ef8b);
     }
 
-    svg.playing g[href].active.channel-5 path {
+    svg.playing a[href].active.channel-5 path {
       fill: #1a9850 !important;
       filter: drop-shadow(0 0 5px #1a9850) drop-shadow(0 0 10px #1a9850);
     }
 
-    svg.playing g[href].active.channel-6 path {
+    svg.playing a[href].active.channel-6 path {
       fill: #4575b4 !important;
       filter: drop-shadow(0 0 5px #4575b4) drop-shadow(0 0 10px #4575b4);
     }
 
-    svg.playing g[href].active.channel-7 path {
+    svg.playing a[href].active.channel-7 path {
       fill: #74add1 !important;
       filter: drop-shadow(0 0 5px #74add1) drop-shadow(0 0 10px #74add1);
     }
@@ -110,7 +110,7 @@
 
   <script>
     // Updated to use the optimized SVG file
-    const svgPath = "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg";
+    const svgPath = "bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg";
     const notesPath = "bwv1006_json_notes.json";
     const audio = document.getElementById("audio");
 
@@ -118,7 +118,7 @@
     const TOTAL_DURATION_SECONDS = 207;
     const TOTAL_BARS = 138;
     const SECONDS_PER_BAR = TOTAL_DURATION_SECONDS / TOTAL_BARS; // = 1.5 seconds per bar
-    const VISUAL_LEAD_TIME = 0.3; // Adjust this value (in seconds)
+    const VISUAL_LEAD_TIME = 0.2; // Adjust this value (in seconds)
 
     let notes = [], remainingNotes = [], offCandidateNotes = [];
     let svgGlobal, noteDataGlobal;
@@ -132,7 +132,7 @@
         } else {
           svgGlobal.classList.remove('playing');
           // Also clean up any active states
-          svgGlobal.querySelectorAll('g[href^=""].active').forEach(el => el.classList.remove("active"));
+          svgGlobal.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
           hideAllBars();
           currentVisibleBar = -1;
         }
@@ -164,7 +164,7 @@
     function initializeNotes() {
       notes = noteDataGlobal.map(n => {
         const elements = n.hrefs.map(href => {
-          const selector = `g[href$="${href}"]`;
+          const selector = `a[href$="${href}"]`;
           return svgGlobal.querySelector(selector);
         }).filter(Boolean);
 
@@ -273,7 +273,7 @@
       setPlayingState(false);
       audio.currentTime = 0;
       initializeNotes();
-      svgGlobal?.querySelectorAll('g[href^=""].active').forEach(el => el.classList.remove("active"));
+      svgGlobal?.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
       hideAllBars(); // ADD THIS LINE
       currentVisibleBar = -1; // ADD THIS LINE
     }
@@ -301,7 +301,7 @@
         remainingNotes = notes.filter(note => note.on > now);
         offCandidateNotes = notes.filter(note => note.on <= now && note.off > now);
 
-        svgGlobal?.querySelectorAll('g[href^=""].active').forEach(el => el.classList.remove("active"));
+        svgGlobal?.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
         offCandidateNotes.forEach(note => highlightNote(note));
 
         // ADD BAR HIGHLIGHTING ON SEEK
