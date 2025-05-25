@@ -16,7 +16,6 @@
     #svg-container {
       display: grid;
       place-items: start center;
-      display: grid;
       scroll-margin-top: var(--header-height);
     }
 
@@ -55,12 +54,17 @@
       fill: lightgreen !important;
       filter: drop-shadow(0 0 5px lightgreen) drop-shadow(0 0 10px lightgreen);
     }
+
+    #header.playing #button_scroll_to_top,
+    #header.at-top #button_scroll_to_top {
+      visibility: hidden !important;
+    }
   </style>
 </head>
 
 <body>
   <div class="sticky-top bg-light py-2 shadow-sm border-bottom">
-    <div class="container-fluid text-center">
+    <div id="header" class="at-top container-fluid text-center">
       <h2 class="d-flex align-items-center justify-content-center position-relative">
         <span>Preludio BWV 1006</span>
         <a id="button_wikipedia" type="button" href="https://en.wikipedia.org/wiki/Partita_for_Violin_No._3_(Bach)" target="_blank" rel="noopener noreferrer"
@@ -77,9 +81,6 @@
           onclick="document.getElementById('svg-container').scrollIntoView({ behavior: 'smooth', block: 'start'}); return false;">
           <img src="media/up-arrow-svgrepo-com.svg" width="16" height="16" alt="scroll_up"
             style="filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(388%) hue-rotate(314deg) brightness(89%) contrast(87%);">
-
-
-
         </a>
       </div>
     </div>
@@ -108,17 +109,21 @@
     const VISUAL_LEAD_TIME = 0.2; // Adjust this value (in seconds)
 
     let notes = [], remainingNotes = [], offCandidateNotes = [];
-    let svgContainer, svgGlobal, noteDataGlobal;
+    let svgGlobal, noteDataGlobal, headerElementGlobal;
     let isPlaying = false;
     let currentVisibleBar = -1; // ADD THIS NEW VARIABLE
+
+    let HEADER_HEIGHT = 120; // fallback value
 
     function setPlayingState(isPlayingState) {
       if (!svgGlobal) return;
 
       if (isPlayingState) {
         svgGlobal.classList.add('playing');
+        headerElementGlobal.classList.add('playing');
       } else {
         svgGlobal.classList.remove('playing');
+        headerElementGlobal.classList.remove('playing');
         // Also clean up any active states
         svgGlobal.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
         hideAllBars();
@@ -150,6 +155,27 @@
       });
     }
 
+
+    function checkScrollButtonVisibility() {
+      if (!headerElementGlobal || !svgGlobal || isPlaying) return;
+
+      const svgRect = svgGlobal.getBoundingClientRect();
+      const tolerance = 50;
+
+      // Button should HIDE when SVG is positioned just below header (optimal reading position)
+      const optimalPosition = HEADER_HEIGHT + 20; // Where we want SVG top to be
+      const isAtOptimalPosition = (
+        svgRect.top >= (optimalPosition - tolerance) &&
+        svgRect.top <= (optimalPosition + tolerance)
+      );
+
+      if (isAtOptimalPosition) {
+        headerElementGlobal.classList.add('at-top');  // Hide button
+      } else {
+        headerElementGlobal.classList.remove('at-top');  // Show button
+      }
+    }
+
     function scrollToBar(barNumber) {
       const rects = document.querySelectorAll(`rect[data-bar="${barNumber}"]`);
       if (rects.length === 0) return;
@@ -177,9 +203,8 @@
       };
 
       // Check if target area is fully visible
-      const headerHeight = 120;
       const padding = 32; // Add some breathing room
-      const viewportTop = headerHeight + padding;
+      const viewportTop = HEADER_HEIGHT + padding;
       const viewportBottom = window.innerHeight;
 
       const isFullyVisible = (
@@ -195,7 +220,7 @@
       // Position target area just below header with padding
       const currentScrollY = window.scrollY;
       const targetPageY = targetArea.top + currentScrollY;
-      const desiredScrollY = targetPageY - headerHeight - padding; // Add padding here too
+      const desiredScrollY = targetPageY - HEADER_HEIGHT - padding; // Add padding here too
 
       window.scrollTo({
         top: desiredScrollY,
@@ -266,9 +291,11 @@
 
         noteDataGlobal = noteData;
 
-        svgContainer = document.getElementById("svg-container");
+        const svgContainer = document.getElementById("svg-container");
         svgContainer.innerHTML = svgText;
         svgGlobal = svgContainer.querySelector("svg");
+        headerElementGlobal = document.getElementById('header');
+        HEADER_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
 
         if (!svgGlobal) {
           console.error("SVG element not found in loaded content");
@@ -278,7 +305,7 @@
         initializeNotes();
         initEventHandlers();
 
-        // ADD THIS LINE: Hide all bars initially
+        // Hide all bars initially
         hideAllBars();
 
         console.log(`Loaded ${notes.length} notes`);
@@ -287,6 +314,8 @@
         console.error("Setup error:", err);
       }
       document.getElementById("loading")?.classList.add("d-none");
+
+      checkScrollButtonVisibility()
     }
 
     function highlightNote(note) {
@@ -322,6 +351,7 @@
 
     // Create debounced version of positionButton
     const debouncedPositionButton = debounce(positionButton, 50);
+    const debouncedCheckScroll = debounce(checkScrollButtonVisibility, 50);
 
     function syncLoop() {
       if (!isPlaying) return; // Don't proceed if audio is paused or ended
@@ -378,8 +408,8 @@
 
       positionButton();
       document.querySelectorAll('#button_wikipedia, #button_scroll_to_top').forEach(button => { button.style.visibility = 'visible' });
-
       window.addEventListener('resize', debouncedPositionButton);
+      window.addEventListener('scroll', debouncedCheckScroll);
 
       audio.addEventListener("play", () => {
         isPlaying = true;
