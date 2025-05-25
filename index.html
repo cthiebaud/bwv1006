@@ -10,13 +10,15 @@
   <style>
     :root {
       --header-height: 120px;
-      /* Set this to your actual header height */
+      /* Centralized header height - used by scroll positioning and CSS scroll-margin */
     }
 
+    /* SVG container positioning and scroll behavior */
     #svg-container {
       display: grid;
       place-items: start center;
       scroll-margin-top: var(--header-height);
+      /* Accounts for sticky header when scrolling */
     }
 
     #svg-container svg {
@@ -24,27 +26,29 @@
       max-width: 100%;
     }
 
-    /* slow transition out */
+    /* Note highlighting transitions - slow fade out for smooth visual */
     #svg-container svg a[href] path {
       transition: fill 1.25s ease, filter 1.25s ease, transform 1.25s ease;
     }
 
-    /* fast transition in */
+    /* Fast fade in for immediate visual feedback */
     #svg-container svg a[href].active path {
       transition: fill 0.15s linear, filter 0.15s linear, transform 0.15s linear;
     }
 
+    /* Scale effect for active notes */
     #svg-container svg a[href].active {
       transform-box: fill-box;
       transform-origin: center;
       transform: scale(1.25);
     }
 
-    /* Only show bar highlights when playing - updated selector for rect elements */
+    /* Bar highlights only visible during playback */
     #svg-container svg:not(.playing) rect[data-bar] {
       visibility: hidden !important;
     }
 
+    /* Channel-specific colors for different instrument parts */
     #svg-container svg.playing a[href].active.channel-0 path {
       fill: coral !important;
       filter: drop-shadow(0 0 5px coral) drop-shadow(0 0 10px coral);
@@ -55,6 +59,7 @@
       filter: drop-shadow(0 0 5px lightgreen) drop-shadow(0 0 10px lightgreen);
     }
 
+    /* Hide scroll-to-top button when playing or already at optimal position */
     #header.playing #button_scroll_to_top,
     #header.at-top #button_scroll_to_top {
       visibility: hidden !important;
@@ -63,10 +68,12 @@
 </head>
 
 <body>
+  <!-- Sticky header with audio controls and navigation buttons -->
   <div class="sticky-top bg-light py-2 shadow-sm border-bottom">
     <div id="header" class="at-top container-fluid text-center">
       <h2 class="d-flex align-items-center justify-content-center position-relative">
         <span>Preludio BWV 1006</span>
+        <!-- Wikipedia link button - positioned dynamically by JavaScript -->
         <a id="button_wikipedia" type="button" href="https://en.wikipedia.org/wiki/Partita_for_Violin_No._3_(Bach)" target="_blank" rel="noopener noreferrer"
           class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center justify-content-center position-absolute rounded-circle"
           title="Wikipedia: Partita for Violin No. 3 (Bach)" style="visibility: hidden; width: 28px; height: 28px; border: 1px solid gray; right: 0;">
@@ -75,7 +82,9 @@
         </a>
       </h2>
       <div class="d-flex align-items-center justify-content-center position-relative">
+        <!-- Main audio player -->
         <audio id="audio" class="flex-shrink-1" controls src="audio/bwv1006202505211530.wav"></audio>
+        <!-- Scroll-to-top button - auto-hides when not needed -->
         <a id="button_scroll_to_top" type="button" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center justify-content-center position-absolute"
           style="visibility: hidden; width: 28px; height: 28px; border: 1px solid gray; right: 0;" title="scroll_to_top"
           onclick="document.getElementById('svg-container').scrollIntoView({ behavior: 'smooth', block: 'start'}); return false;">
@@ -85,35 +94,52 @@
       </div>
     </div>
   </div>
+
+  <!-- Loading spinner - hidden after content loads -->
   <div id="loading" class="text-center my-5">
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
     <div>Loading score and notes…</div>
   </div>
-  <!-- Centered SVG container -->
+
+  <!-- Main content area for musical notation -->
   <div class="container">
     <div id="svg-container"></div>
   </div>
 
   <script>
-    // Updated to use the optimized SVG file
+    // =============================================================================
+    // CONFIGURATION AND CONSTANTS
+    // =============================================================================
+
+    // File paths for SVG notation and note timing data
     const svgPath = "bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg";
     const notesPath = "bwv1006_json_notes.json";
     const audio = document.getElementById("audio");
 
-    // ADD THESE NEW CONSTANTS FOR BAR CALCULATION
+    // Musical timing constants for bar calculation
     const TOTAL_DURATION_SECONDS = 207 - 1;
     const TOTAL_BARS = 138;
     const SECONDS_PER_BAR = TOTAL_DURATION_SECONDS / TOTAL_BARS;
-    const VISUAL_LEAD_TIME = 0.2; // Adjust this value (in seconds)
+    const VISUAL_LEAD_TIME = 0.2; // Visual highlighting lead time in seconds
 
+    // =============================================================================
+    // GLOBAL STATE VARIABLES
+    // =============================================================================
+
+    // Note data and playback state
     let notes = [], remainingNotes = [], offCandidateNotes = [];
     let svgGlobal, noteDataGlobal, headerElementGlobal;
     let isPlaying = false;
-    let currentVisibleBar = -1; // ADD THIS NEW VARIABLE
+    let currentVisibleBar = -1;
 
-    let HEADER_HEIGHT = 120; // fallback value
+    // UI measurements
+    let HEADER_HEIGHT = 120; // fallback value, updated from CSS
+
+    // =============================================================================
+    // PLAYBACK STATE MANAGEMENT
+    // =============================================================================
 
     function setPlayingState(isPlayingState) {
       if (!svgGlobal) return;
@@ -124,12 +150,16 @@
       } else {
         svgGlobal.classList.remove('playing');
         headerElementGlobal.classList.remove('playing');
-        // Also clean up any active states
+        // Clean up visual states when stopping
         svgGlobal.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
         hideAllBars();
         currentVisibleBar = -1;
       }
     }
+
+    // =============================================================================
+    // DEBUG UTILITIES
+    // =============================================================================
 
     function debugBar(barNumber) {
       const rect = document.querySelector(`rect[data-bar="${barNumber}"]`);
@@ -155,6 +185,9 @@
       });
     }
 
+    // =============================================================================
+    // UI VISIBILITY MANAGEMENT
+    // =============================================================================
 
     function checkScrollButtonVisibility() {
       if (!headerElementGlobal || !svgGlobal || isPlaying) return;
@@ -162,8 +195,8 @@
       const svgRect = svgGlobal.getBoundingClientRect();
       const tolerance = 50;
 
-      // Button should HIDE when SVG is positioned just below header (optimal reading position)
-      const optimalPosition = HEADER_HEIGHT + 20; // Where we want SVG top to be
+      // Hide button when SVG is at optimal reading position (just below header)
+      const optimalPosition = HEADER_HEIGHT + 20;
       const isAtOptimalPosition = (
         svgRect.top >= (optimalPosition - tolerance) &&
         svgRect.top <= (optimalPosition + tolerance)
@@ -176,11 +209,15 @@
       }
     }
 
+    // =============================================================================
+    // SMART SCROLLING SYSTEM
+    // =============================================================================
+
     function scrollToBar(barNumber) {
       const rects = document.querySelectorAll(`rect[data-bar="${barNumber}"]`);
       if (rects.length === 0) return;
 
-      // Calculate bounding rectangle that contains all rects for this bar
+      // Calculate combined bounding box for all bar highlight rectangles
       let minTop = Infinity, maxBottom = -Infinity;
       let minLeft = Infinity, maxRight = -Infinity;
 
@@ -192,7 +229,6 @@
         maxRight = Math.max(maxRight, boundingRect.right);
       });
 
-      // Our target area
       const targetArea = {
         top: minTop,
         bottom: maxBottom,
@@ -202,8 +238,8 @@
         width: maxRight - minLeft
       };
 
-      // Check if target area is fully visible
-      const padding = 32; // Add some breathing room
+      // Only scroll if target area isn't fully visible
+      const padding = 32;
       const viewportTop = HEADER_HEIGHT + padding;
       const viewportBottom = window.innerHeight;
 
@@ -217,10 +253,10 @@
         return;
       }
 
-      // Position target area just below header with padding
+      // Position target area at top of viewport for forward reading
       const currentScrollY = window.scrollY;
       const targetPageY = targetArea.top + currentScrollY;
-      const desiredScrollY = targetPageY - HEADER_HEIGHT - padding; // Add padding here too
+      const desiredScrollY = targetPageY - HEADER_HEIGHT - padding;
 
       window.scrollTo({
         top: desiredScrollY,
@@ -229,36 +265,44 @@
 
       console.log(`Scrolling to bar ${barNumber}, positioning below header with padding`);
     }
+
+    // =============================================================================
+    // MUSICAL TIME AND BAR MANAGEMENT
+    // =============================================================================
+
     function getCurrentBar(currentTime) {
-      // Calculate which bar we're in (1-indexed)
-      // Clamp to valid range: bars 1-138
+      // Calculate current bar number (1-indexed) from playback time
       const barNumber = Math.floor(currentTime / SECONDS_PER_BAR) + 1;
       return Math.max(1, Math.min(TOTAL_BARS, barNumber));
     }
 
     function hideAllBars() {
-      // Updated selector: data-bar is now on rect elements, not g elements
       document.querySelectorAll('rect[data-bar]').forEach(rect => {
         rect.style.visibility = 'hidden';
       });
     }
 
     function showBar(barNumber) {
-      // Updated selector: data-bar is now on rect elements, not g elements
+      // Show bar highlights and auto-scroll to keep them visible
       scrollToBar(barNumber);
       document.querySelectorAll(`rect[data-bar="${barNumber}"]`).forEach(rect => {
         rect.style.visibility = 'visible';
       });
     }
 
+    // =============================================================================
+    // NOTE DATA INITIALIZATION
+    // =============================================================================
+
     function initializeNotes() {
+      // Map JSON note data to DOM elements with timing information
       notes = noteDataGlobal.map(n => {
         const elements = n.hrefs.map(href => {
           const selector = `a[href$="${href}"]`;
           return svgGlobal.querySelector(selector);
         }).filter(Boolean);
 
-        // Add CSS class based on MIDI channel
+        // Add channel-specific CSS classes for colored highlighting
         elements.forEach(el => {
           el.classList.add(`channel-${n.channel}`);
         });
@@ -276,8 +320,13 @@
       offCandidateNotes = [];
     }
 
+    // =============================================================================
+    // APPLICATION INITIALIZATION
+    // =============================================================================
+
     async function setup() {
       try {
+        // Load SVG notation and note timing data in parallel
         const [svgText, noteData] = await Promise.all([
           fetch(svgPath).then(r => {
             if (!r.ok) throw new Error("Failed to load SVG");
@@ -291,6 +340,7 @@
 
         noteDataGlobal = noteData;
 
+        // Initialize DOM references and CSS values
         const svgContainer = document.getElementById("svg-container");
         svgContainer.innerHTML = svgText;
         svgGlobal = svgContainer.querySelector("svg");
@@ -302,21 +352,25 @@
           return;
         }
 
+        // Initialize application components
         initializeNotes();
         initEventHandlers();
-
-        // Hide all bars initially
-        hideAllBars();
+        hideAllBars(); // Start with all bar highlights hidden
 
         console.log(`Loaded ${notes.length} notes`);
         console.log(`Calculated: ${SECONDS_PER_BAR.toFixed(2)} seconds per bar (${TOTAL_BARS} bars in ${TOTAL_DURATION_SECONDS}s)`);
       } catch (err) {
         console.error("Setup error:", err);
       }
-      document.getElementById("loading")?.classList.add("d-none");
 
+      // Hide loading spinner and initialize UI state
+      document.getElementById("loading")?.classList.add("d-none");
       checkScrollButtonVisibility()
     }
+
+    // =============================================================================
+    // NOTE HIGHLIGHTING SYSTEM
+    // =============================================================================
 
     function highlightNote(note) {
       note.elements.forEach(el => el.classList.add("active"));
@@ -326,8 +380,12 @@
       note.elements.forEach(el => el.classList.remove("active"));
     }
 
-    // Position the button relative to the SVG
+    // =============================================================================
+    // DYNAMIC BUTTON POSITIONING
+    // =============================================================================
+
     function positionButton() {
+      // Position header buttons relative to SVG content for better visual alignment
       const buttons = document.querySelectorAll('#button_wikipedia, #button_scroll_to_top')
       const svgRect = svgGlobal.getBoundingClientRect();
       buttons.forEach(button => {
@@ -336,7 +394,10 @@
       })
     }
 
-    // Debounce function to avoid excessive repositioning
+    // =============================================================================
+    // PERFORMANCE OPTIMIZATION UTILITIES
+    // =============================================================================
+
     function debounce(func, wait) {
       let timeout;
       return function executedFunction(...args) {
@@ -349,24 +410,29 @@
       };
     }
 
-    // Create debounced version of positionButton
+    // Debounced versions for performance
     const debouncedPositionButton = debounce(positionButton, 50);
     const debouncedCheckScroll = debounce(checkScrollButtonVisibility, 50);
 
+    // =============================================================================
+    // REAL-TIME PLAYBACK SYNCHRONIZATION
+    // =============================================================================
+
     function syncLoop() {
-      if (!isPlaying) return; // Don't proceed if audio is paused or ended
+      if (!isPlaying) return;
 
       const now = audio.currentTime;
-
       const visualTime = now + VISUAL_LEAD_TIME;
       const visualEndTime = visualTime;
 
+      // Activate notes that should be highlighted now
       while (remainingNotes.length && remainingNotes[0].on <= visualTime) {
         const note = remainingNotes.shift();
         highlightNote(note);
         offCandidateNotes.push(note);
       }
 
+      // Deactivate notes that should no longer be highlighted
       offCandidateNotes = offCandidateNotes.filter(note => {
         if (note.off <= visualEndTime) {
           unhighlightNote(note);
@@ -375,7 +441,7 @@
         return true;
       });
 
-      // ADD BAR HIGHLIGHTING
+      // Update bar highlighting and auto-scroll
       const currentBar = getCurrentBar(visualTime);
       if (currentBar !== currentVisibleBar) {
         hideAllBars();
@@ -387,16 +453,23 @@
       requestAnimationFrame(syncLoop);
     }
 
-    // MODIFY THIS FUNCTION: Add bar reset
+    // =============================================================================
+    // PLAYBACK STATE RESET
+    // =============================================================================
+
     function resetAnimationState() {
       isPlaying = false;
       setPlayingState(false);
       audio.currentTime = 0;
       initializeNotes();
       svgGlobal?.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
-      hideAllBars(); // ADD THIS LINE
-      currentVisibleBar = -1; // ADD THIS LINE
+      hideAllBars();
+      currentVisibleBar = -1;
     }
+
+    // =============================================================================
+    // APPLICATION STARTUP
+    // =============================================================================
 
     if (audio.readyState >= 1) {
       setup();
@@ -404,13 +477,22 @@
       audio.addEventListener("loadedmetadata", setup);
     }
 
-    function initEventHandlers() {
+    // =============================================================================
+    // EVENT HANDLER INITIALIZATION
+    // =============================================================================
 
+    function initEventHandlers() {
+      // Initialize UI positioning and visibility
       positionButton();
-      document.querySelectorAll('#button_wikipedia, #button_scroll_to_top').forEach(button => { button.style.visibility = 'visible' });
+      document.querySelectorAll('#button_wikipedia, #button_scroll_to_top').forEach(button => {
+        button.style.visibility = 'visible'
+      });
+
+      // Window event listeners with performance optimization
       window.addEventListener('resize', debouncedPositionButton);
       window.addEventListener('scroll', debouncedCheckScroll);
 
+      // Audio playback event handlers
       audio.addEventListener("play", () => {
         isPlaying = true;
         setPlayingState(true);
@@ -422,13 +504,15 @@
         console.log("seeked");
         const now = audio.currentTime;
 
+        // Recalculate note states based on new playback position
         remainingNotes = notes.filter(note => note.on > now);
         offCandidateNotes = notes.filter(note => note.on <= now && note.off > now);
 
+        // Update visual states
         svgGlobal?.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
         offCandidateNotes.forEach(note => highlightNote(note));
 
-        // ADD BAR HIGHLIGHTING ON SEEK
+        // Update bar highlighting
         const currentBar = getCurrentBar(now);
         hideAllBars();
         showBar(currentBar);
