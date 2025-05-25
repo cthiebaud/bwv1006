@@ -1,9 +1,48 @@
+import builtins
 import hashlib
-import json
 import inspect
+import json
+import os
 from datetime import datetime
-from pathlib import Path
 from invoke import task
+from pathlib import Path
+
+# ==============================================================================
+# ENHANCED PRINT FUNCTION WITH CONDITIONAL TIMESTAMPING
+# ==============================================================================
+# This monkey-patch globally replaces Python's built-in print() function to:
+# 1. Always flush output immediately (fixes log ordering issues)
+# 2. Add timestamps only when output is redirected to files (preserves clean console output)
+
+# Store reference to original print function before we replace it
+_original_print = builtins.print
+
+def smart_print(*args, **kwargs):
+   """
+   Enhanced print function that conditionally adds timestamps and always flushes.
+   
+   Behavior:
+   - Interactive use (invoke all): Clean output without timestamps
+   - Redirected to file (invoke all > log): Timestamped output for debugging
+   - Always flushes immediately to prevent output ordering issues
+   """
+   # Only add timestamps when redirected to a file
+   if not os.isatty(1):  # stdout is not a terminal (redirected to file/pipe)
+       # Generate timestamp in HH:MM:SS.mmm format (millisecond precision)
+       timestamp = datetime.now().strftime('%H:%M:%S.%f')[:-3]  # [:-3] truncates microseconds to milliseconds
+       
+       # Prepend timestamp to all arguments
+       if args:
+           args = (f"[{timestamp}]", *args)  # Add timestamp as first argument
+       else:
+           args = (f"[{timestamp}]",)        # Handle edge case of print() with no args
+   
+   # Call original print with all arguments, forcing flush=True for consistent output ordering
+   return _original_print(*args, **kwargs, flush=True)
+
+# Globally replace the built-in print function
+# This affects ALL Python code in this process, including imported modules and scripts
+builtins.print = smart_print
 
 # File to store hash-based cache of source files
 CACHE_FILE = Path(".build_cache.json")
@@ -16,9 +55,15 @@ def remove_outputs(*filenames, force=True):
         if path.exists():
             path.unlink()
             deleted.append(path.name)
+
+    print("🗑️  Deleted:", end="")
     if deleted:
-        print(f"🗑️  Deleted: {', '.join(deleted)}")
-        
+        print()  # Add newline for multi-line format
+        for d in deleted:
+            print(f"   └── {d}")
+    else:
+        print(" ∅")  # Continue on same line        
+
 # 📁 Get all shared .ly dependencies
 def shared_ly_sources():
     return [Path("bwv1006_ly_main.ly"), Path("highlight-bars.ily"), Path("defs.ily")] + list(Path(".").rglob("_?/*.ly"))
@@ -54,14 +99,17 @@ def sources_changed(task_name, source_paths):
 # ✨ Unified smart task runner
 def smart_task(c, *, sources, targets, commands, force=False):
     task_name = inspect.stack()[1].function
-    print(f"--- {task_name}")
+    print(f"")
+    print(f"[{task_name}]")
     if force or sources_changed(task_name, sources):
         remove_outputs(*targets)
         print(f"🔧 Rebuilding {task_name}...")
         for cmd in commands:
             c.run(cmd)
         if targets:
-            print(f"✅ Generated: {', '.join(str(t) for t in targets)}")
+            print("✅ Generated:")
+            for t in targets:
+                print(f"   └── {t}")
         else:
             print(f"✅ Task {task_name} completed")
     else:
