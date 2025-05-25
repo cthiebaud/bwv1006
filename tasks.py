@@ -15,7 +15,6 @@ from tasks_utils import (
     smart_task, 
     remove_outputs,
     print_build_status,
-    check_script_dependencies,
     find_glob_sources,
     init_build_system
 )
