@@ -1,124 +1,61 @@
-import builtins
-import hashlib
-import inspect
-import json
-import os
+#!/usr/bin/env python3
+"""
+BWV 1006 Build System Tasks
+
+Clean task definitions that import utilities from tasks_utils.py
+This separation prevents accidental loss of utility functions during workflow changes.
+"""
+
 from datetime import datetime
 from invoke import task
 from pathlib import Path
 
-# ==============================================================================
-# ENHANCED PRINT FUNCTION WITH CONDITIONAL TIMESTAMPING
-# ==============================================================================
-# This monkey-patch globally replaces Python's built-in print() function to:
-# 1. Always flush output immediately (fixes log ordering issues)
-# 2. Add timestamps only when output is redirected to files (preserves clean console output)
+# Import all utilities from separate module
+from tasks_utils import (
+    smart_task, 
+    remove_outputs,
+    print_build_status,
+    check_script_dependencies,
+    find_glob_sources,
+    init_build_system
+)
 
-# Store reference to original print function before we replace it
-_original_print = builtins.print
+# =============================================================================
+# PROJECT-SPECIFIC CONFIGURATION
+# =============================================================================
 
-def smart_print(*args, **kwargs):
-   """
-   Enhanced print function that conditionally adds timestamps and always flushes.
-   
-   Behavior:
-   - Interactive use (invoke all): Clean output without timestamps
-   - Redirected to file (invoke all > log): Timestamped output for debugging
-   - Always flushes immediately to prevent output ordering issues
-   """
-   # Only add timestamps when redirected to a file
-   if not os.isatty(1):  # stdout is not a terminal (redirected to file/pipe)
-       # Generate timestamp in HH:MM:SS.mmm format (millisecond precision)
-       timestamp = datetime.now().strftime('%H:%M:%S.%f')[:-3]  # [:-3] truncates microseconds to milliseconds
-       
-       # Prepend timestamp to all arguments
-       if args:
-           args = (f"[{timestamp}]", *args)  # Add timestamp as first argument
-       else:
-           args = (f"[{timestamp}]",)        # Handle edge case of print() with no args
-   
-   # Call original print with all arguments, forcing flush=True for consistent output ordering
-   return _original_print(*args, **kwargs, flush=True)
-
-# Globally replace the built-in print function
-# This affects ALL Python code in this process, including imported modules and scripts
-builtins.print = smart_print
-
-# File to store hash-based cache of source files
-CACHE_FILE = Path(".build_cache.json")
-
-# 🔧 Utility to delete files
-def remove_outputs(*filenames, force=True):
-    deleted = []
-    for name in filenames:
-        path = Path(name)
-        if path.exists():
-            path.unlink()
-            deleted.append(path.name)
-
-    print("🗑️  Deleted:", end="")
-    if deleted:
-        print()  # Add newline for multi-line format
-        for d in deleted:
-            print(f"   └── {d}")
-    else:
-        print(" ∅")  # Continue on same line        
-
-# 📁 Get all shared .ly dependencies
 def shared_ly_sources():
-    return [Path("bwv1006_ly_main.ly"), Path("highlight-bars.ily"), Path("defs.ily")] + list(Path(".").rglob("_?/*.ly"))
+    """Get all shared LilyPond dependencies for BWV 1006."""
+    return [
+        Path("bwv1006_ly_main.ly"), 
+        Path("highlight-bars.ily"), 
+        Path("defs.ily")
+    ] + list(Path(".").rglob("_?/*.ly"))
 
-# 🔐 Compute SHA256 hash of a file
-def hash_file(path):
-    hasher = hashlib.sha256()
-    with open(path, "rb") as f:
-        while chunk := f.read(8192):
-            hasher.update(chunk)
-    return hasher.hexdigest()
+# Standard file lists for this project
+LILYPOND_OUTPUTS = [
+    "bwv1006.pdf", 
+    "bwv1006.svg",
+    "bwv1006_ly_one_line.svg", 
+    "bwv1006_ly_one_line.midi"
+]
 
-# 📦 Load and save build cache
-def load_cache():
-    if CACHE_FILE.exists():
-        return json.loads(CACHE_FILE.read_text())
-    return {}
+SVG_PROCESSING_CHAIN = [
+    "bwv1006_svg_no_hrefs_in_tabs.svg",
+    "bwv1006_svg_no_hrefs_in_tabs_swellable.svg",
+    "bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
+]
 
-def save_cache(cache):
-    CACHE_FILE.write_text(json.dumps(cache, indent=2))
+DATA_EXTRACTION_OUTPUTS = [
+    "bwv1006_csv_midi_note_events.csv",
+    "bwv1006_csv_svg_note_heads.csv",
+    "bwv1006_json_notes.json"
+]
 
-# 🔁 Check if any input file changed
-def sources_changed(task_name, source_paths):
-    cache = load_cache()
-    current_hashes = {str(p): hash_file(p) for p in source_paths if p.exists()}
-    cached_hashes = cache.get(task_name, {})
-    changed = current_hashes != cached_hashes
-    if changed:
-        cache[task_name] = current_hashes
-        save_cache(cache)
-    return changed
+ALL_GENERATED_FILES = LILYPOND_OUTPUTS + SVG_PROCESSING_CHAIN + DATA_EXTRACTION_OUTPUTS + [".build_cache.json"]
 
-# ✨ Unified smart task runner
-def smart_task(c, *, sources, targets, commands, force=False):
-    task_name = inspect.stack()[1].function
-    print(f"")
-    print(f"[{task_name}]")
-    if force or sources_changed(task_name, sources):
-        remove_outputs(*targets)
-        print(f"🔧 Rebuilding {task_name}...")
-        for cmd in commands:
-            c.run(cmd)
-        if targets:
-            print("✅ Generated:")
-            for t in targets:
-                print(f"   └── {t}")
-        else:
-            print(f"✅ Task {task_name} completed")
-    else:
-        if targets:
-            print("✅ Up to date:")
-            for t in targets:
-                print(f"   └── {t}")
-        else:
-            print(f"✅ Up to date: {task_name}")
+# Initialize the build system
+init_build_system("BWV 1006 Build System")
 
 # =============================================================================
 # LILYPOND BUILD TASKS
@@ -152,21 +89,19 @@ def build_svg(c, force=False):
 
 @task(pre=[build_svg])
 def postprocess_svg(c, force=False):
-    """Post-process and optimize the SVG files."""
+    """Prepare final SVG - ready for JavaScript interaction."""
     smart_task(
         c,
-        sources=[Path("bwv1006.svg")],
+        sources=[Path("bwv1006.svg"), Path("svgo.config.js")],
         targets=[
             "bwv1006_svg_no_hrefs_in_tabs.svg", 
-            "bwv1006_svg_no_hrefs_in_tabs_bounded.svg",
-            "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg",
-            "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg"
+            "bwv1006_svg_no_hrefs_in_tabs_swellable.svg",
+            "bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
         ],
         commands=[
             "python3 scripts/svg_remove_hrefs_in_tabs.py",
-            "python3 scripts/svg_tighten_viewbox.py",
-            "python3 scripts/svg_optimize.py",
-            "python3 scripts/svg_prepare_for_swell.py bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg"
+            "python3 scripts/svg_prepare_for_swell.py bwv1006_svg_no_hrefs_in_tabs.svg",
+            "python3 scripts/svg_optimize.py bwv1006_svg_no_hrefs_in_tabs_swellable.svg bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
         ],
         force=force,
     )
@@ -268,7 +203,7 @@ def all(c, force=False):
     build_svg(c, force=force)
     postprocess_svg(c, force=force)
     build_svg_one_line(c, force=force)
-    json_notes(c, force=force)  # This now runs the optimized parallel workflow
+    json_notes(c, force=force)
     print(f"\n✅✅✅ All steps completed successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ✅✅✅")
 
 # =============================================================================
@@ -278,7 +213,7 @@ def all(c, force=False):
 @task
 def debug_origin(c):
     """Confirm that tasks.py is loaded."""
-    print("✅ This is the optimized tasks.py with parallel processing!")
+    print("✅ This is the clean, modular tasks.py with utilities imported from tasks_utils.py!")
 
 @task
 def debug_csv_files(c):
@@ -307,46 +242,27 @@ def debug_csv_files(c):
                 print(f"      ⚠️ Could not read file: {e}")
         else:
             print(f"   ❌ {filename}: Missing")
-    
-    # Check if scripts exist
-    print(f"\n🔍 Script Status:")
+
+@task
+def debug_dependencies(c):
+    """Check if all required scripts and dependencies exist."""
     scripts = [
+        "scripts/svg_remove_hrefs_in_tabs.py",
+        "scripts/svg_prepare_for_swell.py",
         "scripts/midi_map.py",
         "scripts/svg_extract_note_heads.py", 
         "scripts/align_pitch_by_geometry_simplified.py"
     ]
     
-    for script in scripts:
-        path = Path(script)
-        if path.exists():
-            print(f"   ✅ {script}")
-        else:
-            print(f"   ❌ {script}: Missing")
+    if check_script_dependencies(scripts):
+        print("\n✅ All script dependencies satisfied!")
+    else:
+        print("\n❌ Some script dependencies are missing!")
 
 @task
 def clean(c):
     """Clean all generated files and build cache."""
-    files_to_clean = [
-        # LilyPond outputs
-        "bwv1006.pdf", "bwv1006.svg",
-        "bwv1006_ly_one_line.svg", "bwv1006_ly_one_line.midi",
-        
-        # SVG processing chain
-        "bwv1006_svg_no_hrefs_in_tabs.svg",
-        "bwv1006_svg_no_hrefs_in_tabs_bounded.svg", 
-        "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg",
-        "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg",
-        
-        # Data extraction outputs
-        "bwv1006_csv_midi_note_events.csv",
-        "bwv1006_csv_svg_note_heads.csv",
-        "bwv1006_json_notes.json",
-        
-        # Build cache
-        ".build_cache.json"
-    ]
-    
-    remove_outputs(*files_to_clean)
+    remove_outputs(*ALL_GENERATED_FILES)
     print("🧹 Cleaned all generated files and build cache")
 
 @task
@@ -355,7 +271,9 @@ def status(c):
     files = [
         ("bwv1006.pdf", "PDF"),
         ("bwv1006.svg", "Main SVG"),
-        ("bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg", "Animated SVG"),
+        ("bwv1006_svg_no_hrefs_in_tabs.svg", "Cleaned SVG"),
+        ("bwv1006_svg_no_hrefs_in_tabs_swellable.svg", "Swellable SVG"),
+        ("bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg", "Optimized SVG"),
         ("bwv1006_ly_one_line.svg", "One-line SVG"),
         ("bwv1006_ly_one_line.midi", "MIDI Data"),
         ("bwv1006_csv_midi_note_events.csv", "MIDI Events CSV"),
@@ -363,23 +281,4 @@ def status(c):
         ("bwv1006_json_notes.json", "Synchronized JSON")
     ]
     
-    def get_file_info(filename, name):
-        path = Path(filename)
-        if path.exists():
-            mtime = path.stat().st_mtime
-            size = path.stat().st_size
-            return (mtime, name, filename, size, True)
-        else:
-            return (0, name, filename, 0, False)  # Missing files sort first
-    
-    # Get file info and sort by timestamp
-    file_infos = [get_file_info(filename, name) for filename, name in files]
-    file_infos.sort(key=lambda x: x[0])  # Sort by mtime
-    
-    print("📊 Build Status:")
-    for mtime, name, filename, size, exists in file_infos:
-        if exists:
-            mtime_str = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M:%S')
-            print(f"   ✅ {name:<18}: {filename:<70} {size:>10,} bytes    {mtime_str}")
-        else:
-            print(f"   ❌ {name:<18}: {filename:<70} (missing)")
+    print_build_status(files)

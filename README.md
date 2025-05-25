@@ -1,6 +1,6 @@
 # BWV 1006
 
-![bwv1006](bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg)
+![bwv1006](bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg)
 
 ## 🎼 Project Overview
 
@@ -72,9 +72,9 @@ invoke build-svg           # Generate main SVG score
 invoke build-svg-one-line  # Generate analysis SVG + MIDI
 
 # SVG post-processing pipeline
-invoke postprocess-svg     # 4-step SVG optimization
+invoke postprocess-svg     # 3-step SVG optimization
 
-# Data extraction and alignment (runs in parallel)
+# Data extraction and alignment (runs independently)
 invoke extract-midi-timing     # Extract MIDI note events
 invoke extract-svg-noteheads   # Extract SVG notehead positions  
 invoke align-data              # Synchronize MIDI with SVG data
@@ -88,6 +88,7 @@ invoke status              # Show build status and file sizes
 **Development & Debugging:**
 ```bash
 invoke debug-csv-files     # Check CSV file status and contents
+invoke debug-dependencies  # Check script dependencies
 invoke --list              # Show all available tasks
 invoke <task> --force      # Force rebuild regardless of file changes
 ```
@@ -102,12 +103,13 @@ invoke <task> --force      # Force rebuild regardless of file changes
 
 ### 🎨 SVG Post-Processing Pipeline
 
-The `postprocess-svg` task performs a 4-stage optimization:
+The `postprocess-svg` task performs a 3-stage optimization:
 
 1. **Link Cleanup** (`svg_remove_hrefs_in_tabs.py`) - Remove non-musical hyperlinks
-2. **ViewBox Optimization** (`svg_tighten_viewbox.py`) - Minimize whitespace  
+2. **Animation Preparation** (`svg_prepare_for_swell.py`) - DOM restructuring for CSS animations
 3. **File Optimization** (`svg_optimize.py`) - SVGO compression (10-30% size reduction)
-4. **Animation Preparation** (`svg_prepare_for_swell.py`) - DOM restructuring for CSS animations
+
+**Final Output:** `bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg`
 
 **Preserved Elements:**
 - Musical notation positioning and structure
@@ -125,9 +127,9 @@ invoke status
 Example output:
 ```
 📊 Build Status:
-   ✅ PDF: bwv1006.pdf (1,338,131 bytes, 2025-05-25 02:11:51)
-   ✅ Animated SVG: bwv1006_svg_...swellable.svg (2,768,193 bytes, 2025-05-25 02:12:43)
-   ✅ Synchronized JSON: bwv1006_json_notes.json (326,642 bytes, 2025-05-25 02:13:28)
+   ✅ PDF                : bwv1006.pdf                                          (1,338,131 bytes, 2025-05-25 02:11:51)
+   ✅ Optimized SVG      : bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg (2,768,193 bytes, 2025-05-25 02:12:43)
+   ✅ Synchronized JSON  : bwv1006_json_notes.json                              (  326,642 bytes, 2025-05-25 02:13:28)
 ```
 
 ---
