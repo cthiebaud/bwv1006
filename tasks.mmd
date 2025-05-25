@@ -6,9 +6,8 @@ graph TD
     
     A1[bwv1006_ly_one_line.ly<br/>📄 One-line Score] --> D[build_svg_one_line]
     
-    A2[🔧 Shared Dependencies<br/>• bwv1006_ly_main.ly<br/>• highlight-bars.ily<br/>• defs.ily<br/>• _?/*.ly files] --> B
-    A2 --> C
-    A2 --> D
+    A2[bwv1006_ly_main.ly<br/>highlight-bars.ily<br/>defs.ily<br/>_?/*.ly files<br/>📄 Shared Dependencies] --> A
+    A2 --> A1
     
     %% PDF Generation
     B --> B1[bwv1006.pdf<br/>📑 PDF Output]
@@ -28,32 +27,31 @@ graph TD
     E5 --> E6[bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg]
     
     E6 --> E7[svg_prepare_for_swell.py<br/>🎯 Animation prep]
-    E7 --> E8[bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg<br/>🎨 Final animated SVG]
+    E7 --> E8[bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg<br/>🎨 Final Animated SVG]
     
     %% One-line SVG and MIDI Generation
     D --> D1[bwv1006_ly_one_line.svg<br/>🎼 One-line SVG]
     D --> D2[bwv1006_ly_one_line.midi<br/>🎵 MIDI Data]
     
-    %% JSON Notes Pipeline
-    D1 --> F[json_notes]
-    D2 --> F
+    %% Parallel Data Extraction
+    D1 --> F[extract_svg_noteheads]    
+    F --> F1[svg_extract_note_heads.py<br/>📍 Extract notehead positions]
+    F1 --> F2[bwv1006_csv_svg_note_heads.csv<br/>📊 SVG Noteheads Data]
     
-    F --> F1[midi_map.py<br/>⏱️ Extract MIDI timing]
-    F1 --> F2[bwv1006_csv_midi_note_events.csv<br/>📊 MIDI Events]
+    D2 --> G[extract_midi_timing]
+    G --> G1[midi_map.py<br/>⏱️ Extract MIDI timing]
+    G1 --> G2[bwv1006_csv_midi_note_events.csv<br/>📊 MIDI Events Data]
     
-    F --> F3[svg_extract_note_heads.py<br/>📍 Extract notehead positions]
-    F3 --> F4[bwv1006_csv_svg_note_heads.csv<br/>📊 SVG Noteheads]
+    %% Data Alignment (requires both CSV files)
+    F2 --> H[align_data]
+    G2 --> H
+    H --> H1[align_pitch_by_geometry_simplified.py<br/>🎯 Align MIDI↔SVG]
+    H1 --> H2[bwv1006_json_notes.json<br/>🎵 Synchronized Animation Data]
     
-    F2 --> F5[align_pitch_by_geometry_simplified.py<br/>🎯 Align MIDI↔SVG]
-    F4 --> F5
-    F5 --> F6[bwv1006_json_notes.json<br/>🎵 Synchronized Data]
-    
-    %% Master Task
-    G[all] --> B
-    G --> C
-    G --> E
-    G --> D
-    G --> F
+    %% Web Deployment
+    E8 --> I[index.html<br/>🌐 Interactive Music Website]
+    H2 --> I
+    I --> I1[GitHub Pages<br/>🚀 Live Website Deployment]
     
     %% Styling
     classDef inputFile fill:#e1f5fe,stroke:#01579b,stroke-width:2px
@@ -61,11 +59,11 @@ graph TD
     classDef outputFile fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
     classDef script fill:#fff3e0,stroke:#e65100,stroke-width:2px
     classDef finalOutput fill:#ffebee,stroke:#b71c1c,stroke-width:3px
+    classDef webDeployment fill:#e8eaf6,stroke:#3f51b5,stroke-width:3px
     
     class A,A1,A2 inputFile
-    class B,C,D,E,F,G task
-    class B1,C1,D1,D2,E2,E4,E6,F2,F4 outputFile
-    class E1,E3,E5,E7,F1,F3,F5 script
-    class E8,F6 finalOutput
-    
-    
+    class B,C,D,E,F,G,H task
+    class B1,C1,D1,D2,E2,E4,E6,F2,G2 outputFile
+    class E1,E3,E5,E7,F1,G1,H1 script
+    class E8,H2 finalOutput
+    class I,I1 webDeployment
