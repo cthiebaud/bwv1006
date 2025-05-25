@@ -20,14 +20,11 @@ graph TD
     E --> E1[svg_remove_hrefs_in_tabs.py<br/>🔗 Remove tab links]
     E1 --> E2[bwv1006_svg_no_hrefs_in_tabs.svg]
     
-    E2 --> E3[svg_tighten_viewbox.py<br/>📐 Optimize viewBox]
-    E3 --> E4[bwv1006_svg_no_hrefs_in_tabs_bounded.svg]
+    E2 --> E3[svg_prepare_for_swell.py<br/>🎯 Animation prep]
+    E3 --> E4[bwv1006_svg_no_hrefs_in_tabs_swellable.svg]
     
     E4 --> E5[svg_optimize.py<br/>⚡ SVGO optimization]
-    E5 --> E6[bwv1006_svg_no_hrefs_in_tabs_bounded_optimized.svg]
-    
-    E6 --> E7[svg_prepare_for_swell.py<br/>🎯 Animation prep]
-    E7 --> E8[bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg<br/>🎨 Final Animated SVG]
+    E5 --> E6[bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg<br/>🎨 Final Animated SVG]
     
     %% One-line SVG and MIDI Generation
     D --> D1[bwv1006_ly_one_line.svg<br/>🎼 One-line SVG]
@@ -49,7 +46,7 @@ graph TD
     H1 --> H2[bwv1006_json_notes.json<br/>🎵 Synchronized Animation Data]
     
     %% Web Deployment
-    E8 --> I[index.html<br/>🌐 Interactive Music Website]
+    E6 --> I[index.html<br/>🌐 Interactive Music Website]
     H2 --> I
     I --> I1[GitHub Pages<br/>🚀 Live Website Deployment]
     
@@ -63,7 +60,7 @@ graph TD
     
     class A,A1,A2 inputFile
     class B,C,D,E,F,G,H task
-    class B1,C1,D1,D2,E2,E4,E6,F2,G2 outputFile
-    class E1,E3,E5,E7,F1,G1,H1 script
-    class E8,H2 finalOutput
+    class B1,C1,D1,D2,E2,E4,F2,G2 outputFile
+    class E1,E3,E5,F1,G1,H1 script
+    class E6,H2 finalOutput
     class I,I1 webDeployment
