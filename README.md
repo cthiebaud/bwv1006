@@ -10,8 +10,6 @@ This project creates an interactive animated musical score from Bach's BWV 1006,
 
 The build process follows a sophisticated pipeline that transforms LilyPond source files into interactive web content:
 
-![Build Workflow](tasks.mmd)
-
 *View the [complete workflow diagram](tasks.mmd) for a detailed visualization of the build process.*
 
 ### 📊 Pipeline Stages
