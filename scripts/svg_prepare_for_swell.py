@@ -142,7 +142,7 @@ def modify_svg_paths(svg_content):
             transform_value = path_element.get('transform')
             
             if transform_value:
-                print(f"      🎯 Transforming path with: {transform_value}")
+                ### print(f"      🎯 Transforming path with: {transform_value}")
                 
                 # Create new group element with proper namespace
                 if '{http://www.w3.org/2000/svg}' in path_element.tag:
