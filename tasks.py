@@ -352,23 +352,34 @@ def clean(c):
 @task
 def status(c):
     """Show status of all build targets."""
-    targets = {
-        "PDF": "bwv1006.pdf",
-        "Main SVG": "bwv1006.svg", 
-        "Animated SVG": "bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg",
-        "One-line SVG": "bwv1006_ly_one_line.svg",
-        "MIDI Data": "bwv1006_ly_one_line.midi",
-        "MIDI Events CSV": "bwv1006_csv_midi_note_events.csv",
-        "SVG Noteheads CSV": "bwv1006_csv_svg_note_heads.csv", 
-        "Synchronized JSON": "bwv1006_json_notes.json"
-    }
+    files = [
+        ("bwv1006.pdf", "PDF"),
+        ("bwv1006.svg", "Main SVG"),
+        ("bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg", "Animated SVG"),
+        ("bwv1006_ly_one_line.svg", "One-line SVG"),
+        ("bwv1006_ly_one_line.midi", "MIDI Data"),
+        ("bwv1006_csv_midi_note_events.csv", "MIDI Events CSV"),
+        ("bwv1006_csv_svg_note_heads.csv", "SVG Noteheads CSV"),
+        ("bwv1006_json_notes.json", "Synchronized JSON")
+    ]
     
-    print("📊 Build Status:")
-    for name, filename in targets.items():
+    def get_file_info(filename, name):
         path = Path(filename)
         if path.exists():
+            mtime = path.stat().st_mtime
             size = path.stat().st_size
-            mtime = datetime.fromtimestamp(path.stat().st_mtime)
-            print(f"   ✅ {name}: {filename} ({size:,} bytes, {mtime.strftime('%Y-%m-%d %H:%M:%S')})")
+            return (mtime, name, filename, size, True)
         else:
-            print(f"   ❌ {name}: {filename} (missing)")
+            return (0, name, filename, 0, False)  # Missing files sort first
+    
+    # Get file info and sort by timestamp
+    file_infos = [get_file_info(filename, name) for filename, name in files]
+    file_infos.sort(key=lambda x: x[0])  # Sort by mtime
+    
+    print("📊 Build Status:")
+    for mtime, name, filename, size, exists in file_infos:
+        if exists:
+            mtime_str = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M:%S')
+            print(f"   ✅ {name:<18}: {filename:<70} {size:>10,} bytes    {mtime_str}")
+        else:
+            print(f"   ❌ {name:<18}: {filename:<70} (missing)")
