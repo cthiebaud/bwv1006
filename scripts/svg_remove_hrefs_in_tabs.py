@@ -129,3 +129,207 @@ def remove_href_from_tab_links(input_path: Path, output_path: Path):
             
             # Try namespaced href first (most common in LilyPond output)
             namespaced_href = f"{{{XLINK_NAMESPACE}}}href"
+            if namespaced_href in anchor_element.attrib:
+                del anchor_element.attrib[namespaced_href]
+                href_removed = True
+            
+            # Try simple href attribute (alternative format)
+            elif "href" in anchor_element.attrib:
+                del anchor_element.attrib["href"]
+                href_removed = True
+            
+            if href_removed:
+                removed_link_count += 1
+                
+    print(f"   📊 Link removal analysis:")
+    print(f"      Total anchors found: {total_anchor_count}")
+    print(f"      Anchors with text elements: {text_anchor_count}")
+    print(f"      Anchors with rect elements: {rect_anchor_count}")
+    print(f"      Links removed: {removed_link_count}")
+    
+    # =================================================================
+    # CLEANED SVG OUTPUT
+    # =================================================================
+    
+    print(f"   💾 Writing cleaned SVG to: {output_path.name}")
+    
+    try:
+        # Write cleaned SVG with proper XML declaration and encoding
+        svg_tree.write(
+            output_path, 
+            encoding="utf-8", 
+            xml_declaration=True
+        )
+        
+        # Calculate file size change for reporting
+        original_size = input_path.stat().st_size
+        cleaned_size = output_path.stat().st_size
+        size_change = cleaned_size - original_size
+        
+        print(f"✅ Cleanup complete: {output_path}")
+        print(f"   🔗 Removed {removed_link_count} non-musical links")
+        print(f"   📏 File size change: {original_size:,} → {cleaned_size:,} bytes ({size_change:+,})")
+        
+        # Provide guidance on what was preserved
+        preserved_links = total_anchor_count - removed_link_count
+        if preserved_links > 0:
+            print(f"   🎵 Preserved {preserved_links} musical notehead links")
+        
+    except Exception as write_error:
+        print(f"   ❌ Failed to write output file: {write_error}")
+        return
+
+# =============================================================================
+# FILE SIZE AND COMPLEXITY ANALYSIS
+# =============================================================================
+
+def analyze_svg_structure(file_path: Path):
+    """
+    Provide detailed analysis of SVG structure for debugging and optimization.
+    
+    Args:
+        file_path (Path): SVG file to analyze
+        
+    Returns:
+        dict: Analysis results including element counts and structure info
+    """
+    
+    try:
+        tree = ET.parse(file_path)
+        root = tree.getroot()
+        
+        # Count different element types
+        element_counts = {}
+        total_elements = 0
+        
+        for element in root.iter():
+            tag_name = element.tag.split('}')[-1] if '}' in element.tag else element.tag
+            element_counts[tag_name] = element_counts.get(tag_name, 0) + 1
+            total_elements += 1
+        
+        # Count links specifically
+        anchor_count = len(root.findall(".//svg:a", NAMESPACE_MAP))
+        href_count = 0
+        
+        for anchor in root.findall(".//svg:a", NAMESPACE_MAP):
+            if any(attr.endswith('href') for attr in anchor.attrib):
+                href_count += 1
+        
+        return {
+            'total_elements': total_elements,
+            'element_counts': element_counts,
+            'anchor_count': anchor_count,
+            'href_count': href_count,
+            'file_size': file_path.stat().st_size
+        }
+        
+    except Exception as analysis_error:
+        print(f"   ⚠️  Analysis failed: {analysis_error}")
+        return None
+
+# =============================================================================
+# BATCH PROCESSING SUPPORT
+# =============================================================================
+
+def process_svg_files(file_patterns):
+    """
+    Process multiple SVG files with pattern matching support.
+    
+    Args:
+        file_patterns (list): List of file paths or glob patterns
+        
+    Returns:
+        dict: Processing statistics
+    """
+    
+    processed_files = []
+    failed_files = []
+    
+    for pattern in file_patterns:
+        pattern_path = Path(pattern)
+        
+        if pattern_path.is_file():
+            # Direct file path
+            files_to_process = [pattern_path]
+        else:
+            # Glob pattern
+            files_to_process = list(pattern_path.parent.glob(pattern_path.name))
+        
+        for input_file in files_to_process:
+            if input_file.suffix.lower() == '.svg':
+                output_file = input_file.parent / f"{input_file.stem}_no_hrefs_in_tabs.svg"
+                
+                try:
+                    remove_href_from_tab_links(input_file, output_file)
+                    processed_files.append((input_file, output_file))
+                except Exception as process_error:
+                    print(f"❌ Failed to process {input_file}: {process_error}")
+                    failed_files.append(input_file)
+    
+    return {
+        'processed': processed_files,
+        'failed': failed_files,
+        'success_count': len(processed_files),
+        'failure_count': len(failed_files)
+    }
+
+# =============================================================================
+# COMMAND LINE INTERFACE
+# =============================================================================
+
+def main():
+    """Main function for command line usage and batch processing."""
+    
+    import sys
+    
+    print("🚀 Musical Score Link Cleanup Utility")
+    print("=" * 50)
+    
+    # Handle command line arguments
+    if len(sys.argv) > 1:
+        # Process files specified on command line
+        file_patterns = sys.argv[1:]
+        print(f"📋 Processing {len(file_patterns)} file pattern(s):")
+        
+        for pattern in file_patterns:
+            print(f"   • {pattern}")
+        print()
+        
+        results = process_svg_files(file_patterns)
+        
+        # Report batch results
+        print("=" * 50)
+        print(f"🎯 Batch Processing Complete")
+        print(f"   ✅ Successfully processed: {results['success_count']} files")
+        print(f"   ❌ Failed: {results['failure_count']} files")
+        
+        if results['processed']:
+            print(f"\n📁 Output files created:")
+            for input_file, output_file in results['processed']:
+                print(f"   {input_file.name} → {output_file.name}")
+    
+    else:
+        # Default single file processing example
+        input_svg = Path("bwv1006.svg")
+        output_svg = Path("bwv1006_svg_no_hrefs_in_tabs.svg")
+        
+        print("📄 Processing default file:")
+        print(f"   Input: {input_svg}")
+        print(f"   Output: {output_svg}")
+        print()
+        
+        if input_svg.exists():
+            remove_href_from_tab_links(input_svg, output_svg)
+        else:
+            print(f"❌ Default input file not found: {input_svg}")
+            print("💡 Usage: python svg_remove_hrefs_in_tabs.py <svg_files...>")
+            return 1
+    
+    return 0
+
+# =============================================================================
+# SCRIPT ENTRY POINT
+# =============================================================================
+
+if __name__ == "__main__":
+    exit_code = main()
