@@ -3,6 +3,7 @@
 *.mid
 *.midi
 *.ps
+*.zip
 *~
 bwv1006_csv_midi_note_events.csv
 bwv1006_csv_svg_note_heads.csv
