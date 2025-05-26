@@ -471,12 +471,12 @@ def main():
         print("  python3 svgo_test_framework.py input.svg 'npm test'")
         print("  python3 svgo_test_framework.py input.svg 'make test' 1.5")
         print("  python3 svgo_test_framework.py input.svg  # Manual testing, 1% threshold")
-        print("  python3 svgo_test_framework.py input.svg '' 0.5  # Manual testing, 0.5% threshold")
+        print("  python3 svgo_test_framework.py input.svg '' 0.15  # Manual testing, 0.15% threshold")
         sys.exit(1)
     
     input_file = sys.argv[1]
     test_command = sys.argv[2] if len(sys.argv) > 2 and sys.argv[2] else None
-    size_threshold = float(sys.argv[3]) if len(sys.argv) > 3 else 0.5
+    size_threshold = float(sys.argv[3]) if len(sys.argv) > 3 else 0.15
     
     if not Path(input_file).exists():
         print(f"❌ Input file not found: {input_file}")
