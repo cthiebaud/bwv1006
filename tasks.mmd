@@ -24,7 +24,7 @@ graph TD
     E3 --> E4[bwv1006_svg_no_hrefs_in_tabs_swellable.svg]
     
     E4 --> E5[svg_optimize.py<br/>⚡ SVGO optimization]
-    E5 --> E6[bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg<br/>🎨 Final Animated SVG]
+    E5 --> E6[exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg<br/>🎨 Final Animated SVG]
     
     %% One-line SVG and MIDI Generation
     D --> D1[bwv1006_ly_one_line.svg<br/>🎼 One-line SVG]
@@ -43,7 +43,7 @@ graph TD
     F2 --> H[align_data]
     G2 --> H
     H --> H1[align_pitch_by_geometry_simplified.py<br/>🎯 Align MIDI↔SVG]
-    H1 --> H2[bwv1006_json_notes.json<br/>🎵 Synchronized Animation Data]
+    H1 --> H2[exports/bwv1006_json_notes.json<br/>🎵 Synchronized Animation Data]
     
     %% Web Deployment
     E6 --> I[index.html<br/>🌐 Interactive Music Website]

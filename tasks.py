@@ -42,13 +42,13 @@ LILYPOND_OUTPUTS = [
 SVG_PROCESSING_CHAIN = [
     "bwv1006_svg_no_hrefs_in_tabs.svg",
     "bwv1006_svg_no_hrefs_in_tabs_swellable.svg",
-    "bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
+    "exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
 ]
 
 DATA_EXTRACTION_OUTPUTS = [
     "bwv1006_csv_midi_note_events.csv",
     "bwv1006_csv_svg_note_heads.csv",
-    "bwv1006_json_notes.json"
+    "exports/bwv1006_json_notes.json"
 ]
 
 ALL_GENERATED_FILES = LILYPOND_OUTPUTS + SVG_PROCESSING_CHAIN + DATA_EXTRACTION_OUTPUTS + [".build_cache.json"]
@@ -95,12 +95,12 @@ def postprocess_svg(c, force=False):
         targets=[
             "bwv1006_svg_no_hrefs_in_tabs.svg", 
             "bwv1006_svg_no_hrefs_in_tabs_swellable.svg",
-            "bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
+            "exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
         ],
         commands=[
             "python3 scripts/svg_remove_hrefs_in_tabs.py",
             "python3 scripts/svg_prepare_for_swell.py bwv1006_svg_no_hrefs_in_tabs.svg",
-            "python3 scripts/svg_optimize.py bwv1006_svg_no_hrefs_in_tabs_swellable.svg bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
+            "python3 scripts/svg_optimize.py bwv1006_svg_no_hrefs_in_tabs_swellable.svg exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
         ],
         force=force,
     )
@@ -169,7 +169,7 @@ def align_data(c, force=False):
     smart_task(
         c,
         sources=[midi_csv, svg_csv],
-        targets=["bwv1006_json_notes.json"],
+        targets=["exports/bwv1006_json_notes.json"],
         commands=[
             "python3 scripts/align_pitch_by_geometry_simplified.py"
         ],
@@ -256,12 +256,12 @@ def status(c):
         ("bwv1006.svg", "Main SVG"),
         ("bwv1006_svg_no_hrefs_in_tabs.svg", "Cleaned SVG"),
         ("bwv1006_svg_no_hrefs_in_tabs_swellable.svg", "Swellable SVG"),
-        ("bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg", "Optimized SVG"),
+        ("exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg", "Optimized SVG"),
         ("bwv1006_ly_one_line.svg", "One-line SVG"),
         ("bwv1006_ly_one_line.midi", "MIDI Data"),
         ("bwv1006_csv_midi_note_events.csv", "MIDI Events CSV"),
         ("bwv1006_csv_svg_note_heads.csv", "SVG Noteheads CSV"),
-        ("bwv1006_json_notes.json", "Synchronized JSON")
+        ("exports/bwv1006_json_notes.json", "Synchronized JSON")
     ]
     
     print_build_status(files)

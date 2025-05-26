@@ -15,7 +15,7 @@ Input Files Required:
 - bwv1006_csv_ties.csv (tie relationships between notes)
 
 Output:
-- bwv1006_json_notes.json (aligned notes with timing, pitch, and SVG references)
+- exports/bwv1006_json_notes.json (aligned notes with timing, pitch, and SVG references)
 
 The alignment process ensures that visual noteheads in the SVG match their
 corresponding MIDI events for precise animated score following.
@@ -253,7 +253,7 @@ for index, (midi_row, svg_row) in enumerate(zip(midi_df.itertuples(), svg_df.ite
 # OUTPUT GENERATION
 # =============================================================================
 
-output_filename = "bwv1006_json_notes.json"
+output_filename = "exports/bwv1006_json_notes.json"
 print(f"💾 Writing aligned data to {output_filename}...")
 
 with open(output_filename, "w") as output_file:

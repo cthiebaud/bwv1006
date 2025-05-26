@@ -5,7 +5,7 @@ Based on references found in a JSON notes file.
 
 Usage: python3 svg_href_cleaner.py <svg_file> [json_file] [output_file]
 
-e.g. python3 scripts/svg_href_cleaner.py bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg bwv1006_json_notes.json -o bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable_cleaned_file.svg
+e.g. python3 scripts/svg_href_cleaner.py bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable.svg exports/bwv1006_json_notes.json -o bwv1006_svg_no_hrefs_in_tabs_bounded_optimized_swellable_cleaned_file.svg
 """
 
 import argparse
@@ -125,8 +125,8 @@ def main():
     )
     parser.add_argument('svg_file', help='Input SVG file path')
     parser.add_argument('json_file', nargs='?', 
-                       default='bwv1006_json_notes.json',
-                       help='JSON notes file (default: bwv1006_json_notes.json)')
+                       default='exports/bwv1006_json_notes.json',
+                       help='JSON notes file (default: exports/bwv1006_json_notes.json)')
     parser.add_argument('-o', '--output', 
                        help='Output SVG file (default: overwrite input file)')
     parser.add_argument('--dry-run', action='store_true',

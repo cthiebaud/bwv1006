@@ -1,6 +1,6 @@
 # BWV 1006
 
-![bwv1006](bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg)
+![bwv1006](exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg)
 
 ## 🎼 Project Overview
 
@@ -108,7 +108,7 @@ The `postprocess-svg` task performs a 3-stage optimization:
 2. **Animation Preparation** (`svg_prepare_for_swell.py`) - DOM restructuring for CSS animations
 3. **File Optimization** (`svg_optimize.py`) - SVGO compression (10-30% size reduction)
 
-**Final Output:** `bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg`
+**Final Output:** `exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg`
 
 **Preserved Elements:**
 - Musical notation positioning and structure
@@ -127,8 +127,8 @@ Example output:
 ```
 📊 Build Status:
    ✅ PDF                : bwv1006.pdf                                          (1,338,131 bytes, 2025-05-25 02:11:51)
-   ✅ Optimized SVG      : bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg (2,768,193 bytes, 2025-05-25 02:12:43)
-   ✅ Synchronized JSON  : bwv1006_json_notes.json                              (  326,642 bytes, 2025-05-25 02:13:28)
+   ✅ Optimized SVG      : exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg (2,768,193 bytes, 2025-05-25 02:12:43)
+   ✅ Synchronized JSON  : exports/bwv1006_json_notes.json                              (  326,642 bytes, 2025-05-25 02:13:28)
 ```
 
 ---
