@@ -258,7 +258,7 @@
       );
 
       if (isFullyVisible) {
-        console.log(`Bar ${barNumber} already fully visible, no scroll needed`);
+        // console.log(`Bar ${barNumber} already fully visible, no scroll needed`);
         return;
       }
 
@@ -323,7 +323,7 @@
         };
       });
 
-      console.log(notes)
+      // console.log(notes)
 
       remainingNotes = [...notes];
       offCandidateNotes = [];
@@ -339,8 +339,8 @@
         const [svgText, noteData] = await Promise.all([
           fetch(svgPath).then(r => {
             if (!r.ok) throw new Error("Failed to load SVG");
-                console.log('Content-Encoding:', r.headers.get('content-encoding'));
-                console.log('Content-Length:', r.headers.get('content-length'));
+                // console.log('Content-Encoding:', r.headers.get('content-encoding'));
+                // console.log('Content-Length:', r.headers.get('content-length'));
                 return r.text();
           }),
           fetch(notesPath).then(r => {
@@ -369,8 +369,8 @@
         initEventHandlers();
         hideAllBars(); // Start with all bar highlights hidden
 
-        console.log(`Loaded ${notes.length} notes`);
-        console.log(`Calculated: ${SECONDS_PER_BAR.toFixed(2)} seconds per bar (${TOTAL_BARS} bars in ${TOTAL_DURATION_SECONDS}s)`);
+        // console.log(`Loaded ${notes.length} notes`);
+        // console.log(`Calculated: ${SECONDS_PER_BAR.toFixed(2)} seconds per bar (${TOTAL_BARS} bars in ${TOTAL_DURATION_SECONDS}s)`);
       } catch (err) {
         console.error("Setup error:", err);
       }
@@ -459,7 +459,7 @@
         hideAllBars();
         showBar(currentBar);
         currentVisibleBar = currentBar;
-        console.log(`Showing bar ${currentBar} at time ${now.toFixed(2)}s`);
+        // console.log(`Showing bar ${currentBar} at time ${now.toFixed(2)}s`);
       }
 
       requestAnimationFrame(syncLoop);
@@ -509,11 +509,11 @@
         isPlaying = true;
         setPlayingState(true);
         requestAnimationFrame(syncLoop);
-        console.log("Playback started.");
+        // console.log("Playback started.");
       });
 
       audio.addEventListener("seeked", () => {
-        console.log("seeked");
+        // console.log("seeked");
         const now = audio.currentTime;
 
         // Recalculate note states based on new playback position
@@ -530,18 +530,18 @@
         showBar(currentBar);
         currentVisibleBar = currentBar;
 
-        console.log("seeked to", now.toFixed(3), "→ notes updated, showing bar", currentBar);
+        // console.log("seeked to", now.toFixed(3), "→ notes updated, showing bar", currentBar);
       });
 
       audio.addEventListener("pause", () => {
         isPlaying = false;
         setPlayingState(false);
-        console.log("Playback paused.");
+        // console.log("Playback paused.");
       });
 
       audio.addEventListener("ended", () => {
         resetAnimationState();
-        console.log("Playback ended.");
+        // console.log("Playback ended.");
       });
     }
   </script>
