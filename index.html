@@ -41,15 +41,23 @@
     }
 
     /* Scale effect for active notes */
-    #svg-container svg a[href].active {
+    #svg-container svg.playing a[href].active {
       transform-box: fill-box;
       transform-origin: center;
       transform: scale(1.25);
     }
 
-    /* Bar highlights only visible during playback */
+    /* Bar highlights */
+    #svg-container svg.playing:not(.seeking) rect[data-bar] {
+      filter: none;
+    }
+
     #svg-container svg:not(.playing) rect[data-bar] {
-      visibility: hidden !important;
+      visibility: hidden;
+    }
+
+    #svg-container svg.seeking rect[data-bar] {
+      filter: blur(1rem) drop-shadow(0 0 0.2rem black);
     }
 
     /* Channel-specific colors for different instrument parts */
@@ -87,7 +95,7 @@
       </h2>
       <div class="d-flex align-items-center justify-content-center position-relative">
         <!-- Main audio player -->
-        <audio id="audio" class="flex-shrink-1" controls src="audio/bwv1006202505211530.wav"></audio>
+        <audio id="audio" class="" style="flex-basis: 50%; max-width: 640px;" controls src="audio/bwv1006202505211530.wav"></audio>
       </div>
     </div>
   </div>
@@ -105,18 +113,17 @@
     <div id="svg-container"></div>
   </div>
 
-  <footer id="footer" style="z-index: 10; display: flex;"
-    class="bg-light footer fixed-bottom mt-auto py-1 d-flex flex-wrap justify-content-evenly shadow-sm border-top">
+  <footer id="footer" style="z-index: 10; display: flex;" class="bg-light footer fixed-bottom mt-auto py-1 d-flex flex-wrap justify-content-evenly shadow-sm border-top">
     <div class="ms-2" style="margin: auto 0;"><!--  background: #57728b40; -->
       <span class="text-muted" style="margin-top: auto; font-size: small;"><span>© 2025 Christophe Thiebaud</span></span>
     </div>
-        <!-- Scroll-to-top button - auto-hides when not needed -->
-        <a id="button_scroll_to_top" type="button" class="btn btn-outline-secondary mx-2 btn-sm d-inline-flex align-items-center justify-content-center position-absolute"
-          style="visibility: hidden; width: 24px; height: 24px; border: 1px solid gray; right: 0;" title="scroll_to_top"
-          onclick="document.getElementById('svg-container').scrollIntoView({ behavior: 'smooth', block: 'start'}); return false;">
-          <img src="media/up-arrow-svgrepo-com.svg" width="16" height="16" alt="scroll_up"
-            style="filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(388%) hue-rotate(314deg) brightness(89%) contrast(87%);">
-        </a>
+    <!-- Scroll-to-top button - auto-hides when not needed -->
+    <a id="button_scroll_to_top" type="button" class="btn btn-outline-secondary mx-2 btn-sm d-inline-flex align-items-center justify-content-center position-absolute"
+      style="visibility: hidden; width: 24px; height: 24px; border: 1px solid gray; right: 0;" title="scroll_to_top"
+      onclick="document.getElementById('svg-container').scrollIntoView({ behavior: 'smooth', block: 'start'}); return false;">
+      <img src="media/up-arrow-svgrepo-com.svg" width="16" height="16" alt="scroll_up"
+        style="filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(388%) hue-rotate(314deg) brightness(89%) contrast(87%);">
+    </a>
   </footer>
 
   <script>
@@ -216,9 +223,9 @@
       );
 
       if (isAtOptimalPosition) {
-        footerElementGlobal.classList.add('svg-at-top');  
+        footerElementGlobal.classList.add('svg-at-top');
       } else {
-        footerElementGlobal.classList.remove('svg-at-top'); 
+        footerElementGlobal.classList.remove('svg-at-top');
       }
     }
 
@@ -333,7 +340,7 @@
       offCandidateNotes = [];
 
       unhighlightAllNotes()
-      hideAllBars(); 
+      hideAllBars();
 
     }
 
@@ -347,9 +354,9 @@
         const [svgText, noteData] = await Promise.all([
           fetch(svgPath).then(r => {
             if (!r.ok) throw new Error("Failed to load SVG");
-                // console.log('Content-Encoding:', r.headers.get('content-encoding'));
-                // console.log('Content-Length:', r.headers.get('content-length'));
-                return r.text();
+            // console.log('Content-Encoding:', r.headers.get('content-encoding'));
+            // console.log('Content-Length:', r.headers.get('content-length'));
+            return r.text();
           }),
           fetch(notesPath).then(r => {
             if (!r.ok) throw new Error("Failed to load bwv1006_json_notes.json");
@@ -374,7 +381,7 @@
 
         // Initialize application components
         initializeNotes();
-        
+
         initEventHandlers();
 
         // console.log(`Loaded ${notes.length} notes`);
@@ -522,8 +529,21 @@
         // console.log("Playback started.");
       });
 
+      let seekingTimeout;
+
+      audio.addEventListener('seeking', () => {
+        svgGlobal.classList.add('seeking');
+        // Clear any existing timeout
+        clearTimeout(seekingTimeout);
+      });
+
       audio.addEventListener("seeked", () => {
-        // console.log("seeked");
+        // Don't remove class immediately, wait a bit
+        clearTimeout(seekingTimeout);
+        seekingTimeout = setTimeout(() => {
+          svgGlobal.classList.remove('seeking');
+        }, 1000); // Adjust delay as needed        
+
         const now = audio.currentTime;
 
         // Recalculate note states based on new playback position
@@ -553,6 +573,30 @@
         resetAnimationState();
         // console.log("Playback ended.");
       });
+
+      document.addEventListener('mousedown', e => {
+        if (e.button === 0) {
+          console.log("mouse down")
+        };
+      });
+
+      document.addEventListener('mouseup', e => {
+        if (e.button === 0) {
+          console.log("mouse up")
+        };
+      });
+
+      // Handle cases where mouse is released outside the window
+      document.addEventListener('mouseleave', e => {
+        if (e.button === 0) {
+          console.log("mouse out")
+        };
+      });
+
+      audio.addEventListener('mousedown', () => {
+        console.log("audio mouse down!")
+      });
+
     }
   </script>
 </body>
