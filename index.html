@@ -339,7 +339,9 @@
         const [svgText, noteData] = await Promise.all([
           fetch(svgPath).then(r => {
             if (!r.ok) throw new Error("Failed to load SVG");
-            return r.text();
+                console.log('Content-Encoding:', r.headers.get('content-encoding'));
+                console.log('Content-Length:', r.headers.get('content-length'));
+                return r.text();
           }),
           fetch(notesPath).then(r => {
             if (!r.ok) throw new Error("Failed to load bwv1006_json_notes.json");
