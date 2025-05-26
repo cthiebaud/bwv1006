@@ -76,6 +76,25 @@
     .svg-at-top #button_scroll_to_top {
       visibility: hidden !important;
     }
+
+    #bar_spy {
+      background-color: lightgray !important;
+      color: black !important;
+      font-weight: normal;
+      font-size: .8rem;
+      transition: filter 1s ease, width 1s ease;
+    }
+
+    #bar_spy.seeking {
+      filter: drop-shadow(0 0 0.2rem black);
+      transition: filter .1s ease, width .1s ease;
+    }
+
+    #bar_spy.seeking :first-child {
+      display: inline-block;
+      width: 24px;
+      text-align: right;
+    }
   </style>
 </head>
 
@@ -96,6 +115,12 @@
       <div class="d-flex align-items-center justify-content-center position-relative">
         <!-- Main audio player -->
         <audio id="audio" class="" style="flex-basis: 50%; max-width: 640px;" controls src="audio/bwv1006202505211530.wav"></audio>
+        <!-- Bar spy - positioned dynamically by JavaScript -->
+        <div id="bar_spy" class="badge rounded-pill text-bg-secondary position-absolute" style="visibility: hidden;">
+          <span id="current_bar">1</span>
+          <span>of</span>
+          <span>138</span>
+        </div>
       </div>
     </div>
   </div>
@@ -148,7 +173,7 @@
 
     // Note data and playback state
     let notes = [], remainingNotes = [], offCandidateNotes = [];
-    let svgGlobal, noteDataGlobal, headerElementGlobal, footerElementGlobal;
+    let svgGlobal, noteDataGlobal, headerElementGlobal, footerElementGlobal, currentBarGlobal;
     let isPlaying = false;
     let currentVisibleBar = -1;
 
@@ -300,11 +325,13 @@
       document.querySelectorAll('rect[data-bar]').forEach(rect => {
         rect.style.visibility = 'hidden';
       });
+      currentVisibleBar = -1;
     }
 
     function showBar(barNumber) {
       // Show bar highlights and auto-scroll to keep them visible
       scrollToBar(barNumber);
+      currentBarGlobal.innerText = barNumber;
       document.querySelectorAll(`rect[data-bar="${barNumber}"]`).forEach(rect => {
         rect.style.visibility = 'visible';
       });
@@ -372,6 +399,8 @@
         svgGlobal = svgContainer.querySelector("svg");
         headerElementGlobal = document.getElementById('header');
         footerElementGlobal = document.getElementById('footer');
+        barSpyGlobal = document.getElementById('bar_spy');
+        currentBarGlobal = document.getElementById('current_bar');
         HEADER_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
 
         if (!svgGlobal) {
@@ -417,7 +446,7 @@
 
     function positionButton() {
       // Position header and footer buttons relative to SVG content for better visual alignment
-      const buttons = document.querySelectorAll('#button_wikipedia, #button_scroll_to_top')
+      const buttons = document.querySelectorAll('#button_wikipedia, #button_scroll_to_top, #bar_spy')
       const svgRect = svgGlobal.getBoundingClientRect();
       buttons.forEach(button => {
         button.style.right = `${svgRect.left}px`;
@@ -513,7 +542,7 @@
     function initEventHandlers() {
       // Initialize UI positioning and visibility
       positionButton();
-      document.querySelectorAll('#button_wikipedia, #button_scroll_to_top').forEach(button => {
+      document.querySelectorAll('#button_wikipedia, #button_scroll_to_top, #bar_spy').forEach(button => {
         button.style.visibility = 'visible'
       });
 
@@ -531,19 +560,7 @@
 
       let seekingTimeout;
 
-      audio.addEventListener('seeking', () => {
-        svgGlobal.classList.add('seeking');
-        // Clear any existing timeout
-        clearTimeout(seekingTimeout);
-      });
-
-      audio.addEventListener("seeked", () => {
-        // Don't remove class immediately, wait a bit
-        clearTimeout(seekingTimeout);
-        seekingTimeout = setTimeout(() => {
-          svgGlobal.classList.remove('seeking');
-        }, 1000); // Adjust delay as needed        
-
+      function visualCueOnSeek() {
         const now = audio.currentTime;
 
         // Recalculate note states based on new playback position
@@ -561,6 +578,27 @@
         currentVisibleBar = currentBar;
 
         // console.log("seeked to", now.toFixed(3), "→ notes updated, showing bar", currentBar);
+      }
+
+      audio.addEventListener('seeking', () => {
+        svgGlobal.classList.add('seeking');
+        barSpyGlobal.classList.add('seeking');
+        // Clear any existing timeout
+        clearTimeout(seekingTimeout);
+
+        visualCueOnSeek();
+      });
+
+      audio.addEventListener("seeked", () => {
+        // Don't remove class immediately, wait a bit
+        clearTimeout(seekingTimeout);
+        seekingTimeout = setTimeout(() => { // CSS transition looks ugly, better time out
+          barSpyGlobal.classList.remove('seeking'); 
+          svgGlobal.classList.remove('seeking');
+          hideAllBars();
+        }, 1000); // Adjust delay as needed
+
+        visualCueOnSeek();
       });
 
       audio.addEventListener("pause", () => {
