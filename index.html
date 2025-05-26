@@ -26,6 +26,10 @@
       max-width: 100%;
     }
 
+    #svg-container svg a[href] {
+      color: black;
+    }
+
     /* Note highlighting transitions - slow fade out for smooth visual */
     #svg-container svg a[href] path {
       transition: fill 1.25s ease, filter 1.25s ease, transform 1.25s ease;
@@ -160,7 +164,7 @@
         headerElementGlobal.classList.remove('playing');
         footerElementGlobal.classList.remove('playing');
         // Clean up visual states when stopping
-        svgGlobal.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
+        unhighlightAllNotes();
         hideAllBars();
         currentVisibleBar = -1;
       }
@@ -327,6 +331,10 @@
 
       remainingNotes = [...notes];
       offCandidateNotes = [];
+
+      unhighlightAllNotes()
+      hideAllBars(); 
+
     }
 
     // =============================================================================
@@ -366,8 +374,8 @@
 
         // Initialize application components
         initializeNotes();
+        
         initEventHandlers();
-        hideAllBars(); // Start with all bar highlights hidden
 
         // console.log(`Loaded ${notes.length} notes`);
         // console.log(`Calculated: ${SECONDS_PER_BAR.toFixed(2)} seconds per bar (${TOTAL_BARS} bars in ${TOTAL_DURATION_SECONDS}s)`);
@@ -390,6 +398,10 @@
 
     function unhighlightNote(note) {
       note.elements.forEach(el => el.classList.remove("active"));
+    }
+
+    function unhighlightAllNotes() {
+      svgGlobal.querySelectorAll('a[href]:not([href=""]).active').forEach(el => el.classList.remove("active"));
     }
 
     // =============================================================================
@@ -474,8 +486,6 @@
       setPlayingState(false);
       audio.currentTime = 0;
       initializeNotes();
-      svgGlobal?.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
-      hideAllBars();
       currentVisibleBar = -1;
     }
 
@@ -521,7 +531,7 @@
         offCandidateNotes = notes.filter(note => note.on <= now && note.off > now);
 
         // Update visual states
-        svgGlobal?.querySelectorAll('a[href^=""].active').forEach(el => el.classList.remove("active"));
+        unhighlightAllNotes();
         offCandidateNotes.forEach(note => highlightNote(note));
 
         // Update bar highlighting
