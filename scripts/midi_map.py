@@ -114,7 +114,7 @@ def extract_note_intervals(midi_path):
     # *** CRITICAL SYNCHRONIZATION PARAMETER ***
     # This is the actual duration of the audio recording in seconds.
     # Adjust this value to match your specific audio file.
-    audio_duration_seconds = 207
+    audio_duration_seconds = 207.10
     
     print(f"🎧 Target audio duration: {audio_duration_seconds} seconds")
     

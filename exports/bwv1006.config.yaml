@@ -12,6 +12,6 @@ files:
   audioPath: "bwv1006202505211530.wav"
   
 musicalStructure:
-  totalDurationSeconds: 207.15
+  totalDurationSeconds: 207.10
   totalBars: 138
   visualLeadTimeSeconds: 0.2
