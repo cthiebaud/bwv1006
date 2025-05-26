@@ -1,0 +1,17 @@
+workInfo:
+  title: "Preludio BWV 1006"
+  fullTitle: "Partita for Violin No. 3 (Bach)"
+  composer: "J.S. Bach"
+  workId: "bwv1006"
+  movementName: "Preludio"
+  externalURL: "https://en.wikipedia.org/wiki/Partita_for_Violin_No._3_(Bach)"
+
+files:
+  svgPath: "bwv1006/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
+  notesPath: "bwv1006/bwv1006_json_notes.json"
+  audioPath: "audio/bwv1006202505211530.wav"
+
+musicalStructure:
+  totalDurationSeconds: 206
+  totalBars: 138
+  visualLeadTimeSeconds: 0.2
