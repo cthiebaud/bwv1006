@@ -1,5 +1,6 @@
 \version "2.25.26"
 
+\include "defs.ily"
 \include "highlight-bars.ily"
 \include "bwv1006_ly_main.ly"
 
