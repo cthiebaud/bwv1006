@@ -173,7 +173,8 @@ def extract_note_intervals(midi_path):
 # MAIN EXECUTION
 # =============================================================================
 
-if __name__ == "__main__":
+def main():
+    """Main function with project context support."""
     print("🚀 Starting MIDI-to-Audio synchronization pipeline")
     print("=" * 60)
     
@@ -205,3 +206,6 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"❌ Error processing MIDI file: {e}")
         raise
+    
+if __name__ == "__main__":
+    main()
