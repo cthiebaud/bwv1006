@@ -7,7 +7,7 @@ workInfo:
   externalURL: "https://en.wikipedia.org/wiki/Partita_for_Violin_No._3_(Bach)"
 
 files:
-  svgPath: "bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg"
+  svgPath: "bwv1006_optimized.svg"
   notesPath: "bwv1006_json_notes.json"
   audioPath: "bwv1006202505211530.wav"
   
