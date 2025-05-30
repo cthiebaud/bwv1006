@@ -1,6 +1,7 @@
 \version "2.25.26"
 
 \include "bwv1006_ly_main.ly"
+\include "tie-attributes.ily"
 
 % One-line score for notehead extraction
 \book {
@@ -18,6 +19,10 @@
       \context {
         \Voice
         \override StringNumber.stencil = ##f
+      }
+      \context {
+        \Voice
+        \consists \Tie_grob_engraver
       }
     }
     \midi {}

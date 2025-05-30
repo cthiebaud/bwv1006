@@ -34,7 +34,7 @@ def main():
     print("📁 Loading input data files...")
     midi_df = pd.read_csv("bwv1006_csv_midi_note_events.csv")
     svg_df = pd.read_csv("bwv1006_csv_svg_note_heads.csv") 
-    ties_df = pd.read_csv("bwv1006_csv_ties.csv")
+    ties_df = pd.read_csv("bwv1006_ties.csv")
 
     # =============================================================================
     # STEP 1: CLEAN SVG HREF PATHS
