@@ -13,101 +13,16 @@
 #(if (not is-svg?)
      (set-global-staff-size 16))   
 
-% Common break structure - list of (count bars-per-line) pairs
-#(define break-structure
-   (list (list 1  2 )  ;  1   
-         (list 1  4 )  ;  3  
-         (list 1  2 )  ;  7  
-         (list 2  4 )  ;  9
-         (list 1  12)  ;  17   
-         (list 1  4 )  ;  29  
-         (list 1  6 )  ;  33  
-         (list 1  4 )  ;  39  
-         (list 6  4 )  ;  43  
-         (list 1  12)  ;  67  
-         (list 1  4 )  ;  79  
-         (list 1  7 )  ;  83  
-         (list 1  3 )  ;  90  
-         (list 1  6 )  ;  93  
-         (list 1  3 )  ;  99  
-         (list 1  7 )  ; 102  
-         (list 1  4 )  ; 109   
-         (list 3  2 )  ; 113   
-         (list 1  4 )  ; 119   
-         (list 1  7 )  ; 123   
-         (list 2  4 )  ; 130    
-         (list 1  1 )  ; 138
-  )               
-)
-
-
-% % % % % % % % % % % % % % % % % % % 
-% not used anynore, left to ensure it still compiles
-
-breakEvery = #(define-music-function (count bars-per-line whole-bar-silence) (integer? integer? ly:music?)
-  #{
-    \repeat unfold #count {
-      \repeat unfold #bars-per-line { #whole-bar-silence | }
-      \break
-    }
-  #})    
-
-% Generate layoutBreaks from the structure
-#(define (generate-layout-breaks structure)
-   (let ((music-list (list))
-         (bar-rest (make-music 'SkipEvent 'duration (ly:make-duration 1 1))))
-     (for-each
-      (lambda (break-item)
-        (let ((count (car break-item))
-              (bars-per-line (cadr break-item)))
-          (set! music-list 
-                (append music-list 
-                        (list (breakEvery count bars-per-line bar-rest))))))
-      structure)
-     (make-sequential-music music-list)))
-
-% Generate the layoutBreaks using our structure
-layoutBreaks = #(generate-layout-breaks break-structure)
-
-% end of not used anynore
-% % % % % % % % % % % % % % % % % % % 
-
-% Generate line-starting bars from the structure  
-#(define (calculate-line-starts structure)
-   (let ((line-starts (list 1))  ; Start with bar 1
-         (current-bar 1))
-     
-     ;; Process each break item
-     (for-each
-      (lambda (break-item)
-        (let ((count (car break-item))
-              (bars-per-line (cadr break-item)))
-          ;; For each line in this break-item
-          (do ((line-num 0 (+ line-num 1)))
-              ((>= line-num count))
-            ;; Move to the start of the next line
-            (set! current-bar (+ current-bar bars-per-line))
-            ;; Add this as a line start
-            (set! line-starts (cons current-bar line-starts)))))
-      structure)
-     
-     ;; Sort and return (keep all but the very last calculated bar)
-     (let ((sorted-list (sort line-starts <)))
-       (reverse (cdr (reverse sorted-list))))))
-
-% Generate the line-starting bars list
-#(define line-starting-bars (calculate-line-starts break-structure))
-
-% Debug: Print the calculated line starts (uncomment to see)
-#(display (format #f "Line starting bars: ~a~%" line-starting-bars))
-
-% Define the condition function using the calculated line starts
-#(define (highlight-line-breaks bar-num colors-list)
-   (if (member bar-num line-starting-bars) 
-       0
-       1))
-
-% The highlighting will be applied in the \layout block of the score
+% ================================================================
+% REMOVE ALL OF THIS COMPLEX STRUCTURE LOGIC:
+% - break-structure definition
+% - breakEvery function  
+% - generate-layout-breaks function
+% - layoutBreaks variable
+% - calculate-line-starts function
+% - line-starting-bars variable
+% - highlight-line-breaks function
+% ================================================================
 
 % Formatted one-pager for display
 \book {
@@ -139,15 +54,14 @@ layoutBreaks = #(generate-layout-breaks break-structure)
         \Voice
         \override StringNumber.stencil = ##f
       }
-      % Apply highlighting only for SVG output
+      % Apply simple highlighting only for SVG output
       #(if is-svg?
            (ly:parser-include-string 
              "\\context {
                \\Staff
-               \\consists #(make-conditional-highlight-engraver 
-                            '(\"gainsboro\" \"whitesmoke\") 
-                            highlight-line-breaks)
+               \\consists #Simple_highlight_engraver
                \\consists Staff_highlight_engraver
+               \\consists #Bar_timing_collector
              }
              \\context {
                \\Score
