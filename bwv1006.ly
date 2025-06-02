@@ -128,30 +128,6 @@ layoutBreaks = #(generate-layout-breaks break-structure)
   }
 
   \score {
-    % % % % % % % % % % % % % % % % % % % 
-    % not used anynore
-    %
-    % <<
-    %   \bwvOneThousandSixScore
-    %   % Include break logic
-    %   \new Staff \with {
-    %     \remove "Staff_symbol_engraver"
-    %     \remove "Clef_engraver"
-    %     \remove "Time_signature_engraver"
-    %     \remove "Bar_engraver"
-    %     \override VerticalAxisGroup.staff-staff-spacing = #'((basic-distance . 0))
-    %     \override StaffSymbol.line-count = #0
-    %   } 
-    %   <<
-    %     \new Voice \with {
-    %       \remove "Note_heads_engraver"
-    %       \remove "Rest_engraver"
-    %       \remove "Stem_engraver"
-    %       \remove "Beam_engraver"
-    %       \remove "Tuplet_engraver"
-    %     } \layoutBreaks
-    %   >>
-    % >>
     \bwvOneThousandSixScore
     \layout {
       % Apply larger note heads only for SVG output
