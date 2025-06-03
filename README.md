@@ -1,3 +1,11 @@
+# ⚠️ REPOSITORY DEPRECATED
+
+**This repository is no longer actively maintained.**
+
+Please migrate to the new repository: **[musicollator/bwv1006](https://github.com/musicollator/bwv1006)**
+
+---
+
 # BWV 1006
 
 ![bwv1006](exports/bwv1006_svg_no_hrefs_in_tabs_swellable_optimized.svg)
